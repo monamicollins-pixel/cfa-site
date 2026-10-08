@@ -5,7 +5,7 @@
 
   function fileOf(u) { return u.pathname.split('/').pop() || 'index.html'; }
   function links() {
-    return Array.prototype.slice.call(document.querySelectorAll('header .nav-right > nav a'))
+    return Array.prototype.slice.call(document.querySelectorAll('header .nav-right > nav a, header .account-links a[href$="connexion.html"]'))
       .filter(function (a) { return a.getAttribute('href'); });
   }
   function drawerOpen() {
