@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Espace Apprenant | Collins French Academy</title>
+
+<style>
+:root{
+    --blue:var(--cfa-blue);
+    --ink:var(--cfa-ink);
+    --muted:var(--cfa-muted);
+    --white:var(--cfa-white);
+    --line:var(--cfa-line);
+    --bg:var(--cfa-paper);
+    --orange:var(--cfa-orange);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+}
+
+header{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.nav{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:800;
+}
+
+.logo{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logout{
+    border:0;
+    border-radius:10px;
+    padding:11px 16px;
+    background:var(--cfa-line);
+    color:var(--ink);
+    font-weight:700;
+    cursor:pointer;
+}
+
+.hero{
+    padding:55px 0 35px;
+}
+
+.eyebrow{
+    color:var(--blue);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+}
+
+h1{
+    margin:10px 0;
+    font-size:clamp(34px,6vw,54px);
+    letter-spacing:-1.5px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:18px;
+    max-width:650px;
+    line-height:1.6;
+}
+
+.dashboard{
+    padding-bottom:70px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+    min-height:180px;
+    text-decoration:none;
+    color:inherit;
+    transition:.2s ease;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.icon{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.card h2{
+    margin:0 0 8px;
+    font-size:20px;
+}
+
+.card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.5;
+}
+
+.progress-box{
+    margin-top:22px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+}
+
+.progress{
+    height:10px;
+    background:var(--cfa-line);
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:14px;
+}
+
+.progress span{
+    display:block;
+    width:0%;
+    height:100%;
+    background:var(--orange);
+}
+
+footer{
+  padding:42px 0 36px;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+.footer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.footer-tagline{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.15px;
+  color:var(--ink);
+  line-height:1.5;
+}
+
+.footer-copyright{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  min-width:260px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:40px;
+    }
+
+    .brand span{
+        font-size:14px;
+    }
+}
+</style>
+    <link rel="stylesheet" href="css/cfa-shared-theme.css">
+    <script src="js/cfa-shared-theme.js"></script>
+  <link rel="stylesheet" href="css/cfa-loader.css" data-cfa-loader="css">
+  <script src="js/cfa-loader.js" defer data-cfa-loader="js"></script>
+
+<style id="cfa-standard-header">
+/* =========================================
+   CFA STANDARD HEADER
+   Matches homepage header appearance
+   ========================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--white);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
+    transition:background .3s ease, border-color .3s ease;
+}
+
+header .nav{
+    width:min(1160px,92%);
+    height:80px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+header .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-weight:850;
+    letter-spacing:.2px;
+    text-decoration:none;
+    color:var(--ink);
+}
+
+header .logo-container{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid var(--blue);
+    box-shadow:0 4px 12px rgba(23,78,166,.15);
+    flex-shrink:0;
+}
+
+header .logo-container img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+header .brand > span,
+header .brand-name{
+    color:var(--ink);
+    font-size:21px;
+    font-weight:850;
+    letter-spacing:.2px;
+    white-space:nowrap;
+}
+
+header .nav-right{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+header .nav-right > a:not(.logout):not(.back),
+header .logout,
+header .back,
+header .nav-button{
+    position:relative;
+    text-decoration:none !important;
+}
+
+header .nav-right > a:not(.logout):not(.back){
+    color:var(--muted);
+    font-size:14px;
+    font-weight:650;
+    transition:color .2s ease;
+}
+
+header .nav-right > a:not(.logout):not(.back):hover{
+    color:var(--blue);
+}
+
+/* Page action buttons */
+
+header .logout,
+header .back,
+header .nav-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    padding:9px 13px;
+    border:0;
+    border-radius:10px;
+    background:var(--line);
+    color:var(--ink) !important;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none !important;
+    transition:all .2s ease;
+}
+
+header .logout:hover,
+header .back:hover,
+header .nav-button:hover{
+    color:var(--blue) !important;
+    transform:translateY(-1px);
+}
+
+/* COMPAS */
+
+header .nav-actions{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    header .nav{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        height:70px;
+        padding:0 16px;
+        gap:8px;
+    }
+
+    header .brand{
+        min-width:0;
+        max-width:calc(100% - 120px);
+        gap:9px;
+    }
+
+    header .logo-container{
+        width:42px;
+        height:42px;
+    }
+
+    header .brand > span,
+    header .brand-name{
+        min-width:0;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        font-size:16px;
+    }
+
+    header .nav-right{
+        margin-left:auto;
+        flex-shrink:0;
+        gap:8px;
+    }
+
+    header .logout,
+    header .back,
+    header .nav-button{
+        min-height:36px;
+        padding:8px 11px;
+        font-size:13px;
+    }
+
+    header .nav-actions{
+        gap:8px;
+        flex-shrink:0;
+    }
+}
+
+@media(max-width:520px){
+
+    header .brand{
+        max-width:calc(100% - 105px);
+    }
+
+    header .brand > span,
+    header .brand-name{
+        font-size:14px;
+    }
+
+    header .logout,
+    header .back,
+    header .nav-button{
+        padding:7px 9px;
+        font-size:12px;
+    }
+}
+</style>
+<link rel="stylesheet" href="css/cfa-header-base.css">
+<link rel="stylesheet" href="css/cfa-buttons.css">
+
+<script src="js/cfa-current-page.js" defer></script>
+</head>
+
+<body>
+<div id="cfa-page-loader" aria-label="Chargement de Collins French Academy">
+  <div class="cfa-loader-wrap">
+    <div class="cfa-loader-core">
+      <div class="cfa-loader-orbit" aria-hidden="true">
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+      </div>
+      <div class="cfa-loader-needle" aria-hidden="true"></div>
+      <div class="cfa-loader-center" aria-hidden="true">CFA</div>
+    </div>
+
+    <div class="cfa-loader-brand">
+      Collins French Academy
+    </div>
+
+    <div class="cfa-loader-tagline">
+      Apprendre · S’amuser · S’inspirer · Découvrir
+    </div>
+  </div>
+</div>
+
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html#accueil">
+      <div class="logo-container">
+        <img src="cfa.jpeg" alt="CFA Logo">
+      </div>
+      <div><span style="font-size: 1.12em; font-weight: bold; text-transform: none !important;">Collins French Academy</span><small></small></div>
+    </a>
+    <div class="nav-right">
+<button id="hamburger-menu-trigger"
+        class="cfa-mobile-menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+      <nav>
+        <a href="index.html#accueil">Accueil</a>
+        <a href="index.html#cours">Cours</a>
+        <a href="index.html#ressources">Ressources</a>
+        <a href="pages/apropos.html">À propos</a>
+      </nav>
+      <div class="account-links" id="accountArea">
+  <a class="cfa-connexion-link" href="pages/connexion.html">Connexion</a>
+</div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
+
+    </div>
+  </div>
+
+<!-- CFA MOBILE MENU -->
+<div id="site-mobile-drawer" aria-hidden="true">
+
+    <div class="cfa-mobile-header">
+        <strong>CFA</strong>
+
+        <button
+            type="button"
+            id="close-drawer-btn"
+            aria-label="Fermer le menu">
+            ×
+        </button>
+    </div>
+
+    <nav class="cfa-mobile-nav">
+        <a class="cfa-mobile-link" href="index.html#accueil">Accueil</a>
+        <a class="cfa-mobile-link" href="index.html#cours">Cours</a>
+        <a class="cfa-mobile-link" href="index.html#ressources">Ressources</a>
+        <a class="cfa-mobile-link" href="pages/apropos.html">À propos</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="pages/connexion.html">Connexion</a>
+        <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
+    </nav>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const trigger =
+        document.getElementById("hamburger-menu-trigger");
+
+    const drawer =
+        document.getElementById("site-mobile-drawer");
+
+    const closeBtn =
+        document.getElementById("close-drawer-btn");
+
+    const drawerTheme =
+        document.getElementById("drawer-theme-toggle");
+
+    const html =
+        document.documentElement;
+
+    console.log("CFA mobile menu initialized:", {
+        trigger: !!trigger,
+        drawer: !!drawer,
+        closeBtn: !!closeBtn
+    });
+
+    if (!trigger || !drawer) {
+        console.error("CFA mobile menu elements missing.");
+        return;
+    }
+
+    function updateThemeButton() {
+
+        const dark =
+            html.getAttribute("data-theme") === "dark";
+
+        if (drawerTheme) {
+
+            drawerTheme.textContent =
+                dark
+                    ? "️ Mode clair"
+                    : "Mode sombre ";
+        }
+    }
+
+    function openMenu() {
+
+        console.log("CFA: opening mobile menu");
+
+        drawer.classList.add("cfa-open");
+
+        drawer.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        trigger.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        document.body.classList.add(
+            "cfa-drawer-open"
+        );
+
+        document.body.style.overflow = "hidden";
+
+        updateThemeButton();
+    }
+
+    function closeMenu() {
+
+        console.log("CFA: closing mobile menu");
+
+        drawer.classList.remove("cfa-open");
+
+        drawer.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        trigger.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        document.body.classList.remove(
+            "cfa-drawer-open"
+        );
+
+        document.body.style.overflow = "";
+    }
+
+    /* =====================================================
+       HAMBURGER
+       ===================================================== */
+
+    trigger.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (
+                drawer.classList.contains(
+                    "cfa-open"
+                )
+            ) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        },
+        false
+    );
+
+    /* =====================================================
+       CLOSE BUTTON
+       ===================================================== */
+
+    if (closeBtn) {
+
+        closeBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                closeMenu();
+            },
+            false
+        );
+    }
+
+    /* =====================================================
+       THEME
+       ===================================================== */
+
+    if (drawerTheme) {
+
+        drawerTheme.addEventListener(
+            "click",
+            function () {
+
+                const current =
+                    html.getAttribute(
+                        "data-theme"
+                    ) || "light";
+
+                const next =
+                    current === "dark"
+                        ? "light"
+                        : "dark";
+
+                html.setAttribute(
+                    "data-theme",
+                    next
+                );
+
+                localStorage.setItem(
+                    "cfa_theme",
+                    next
+                );
+
+                const desktopTheme =
+                    document.getElementById(
+                        "themeToggle"
+                    );
+
+                if (desktopTheme) {
+
+                    desktopTheme.textContent =
+                        next === "dark"
+                            ? "Mode clair"
+                            : "Mode sombre";
+                }
+
+                updateThemeButton();
+            },
+            false
+        );
+    }
+
+    /* =====================================================
+       CLOSE AFTER NAVIGATION
+       ===================================================== */
+
+    drawer
+        .querySelectorAll(
+            "a.cfa-mobile-link"
+        )
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+                    closeMenu();
+                }
+            );
+        });
+
+});
+</script>
+
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+
+        <div class="eyebrow">
+            Espace Apprenant
+        </div>
+
+        <h1>
+            <span id="timeGreeting">Bonjour</span>
+            <span id="studentName"></span>
+        </h1>
+
+        <p>
+            Bienvenue dans votre espace d'apprentissage.
+            Ici, vous pouvez apprendre, pratiquer, vous amuser
+            et suivre votre progression à votre propre rythme.
+        </p>
+
+    </div>
+</section>
+
+<section class="dashboard">
+    <div class="container">
+
+        <div class="grid">
+
+            <a class="card" href="index.html#cours">
+                <div class="icon"></div>
+                <h2>Mes cours</h2>
+                <p>
+                    Explorez les cours CFA et poursuivez votre parcours
+                    en français.
+                </p>
+            </a>
+
+            <a class="card" href="index.html#ressources">
+                <div class="icon"></div>
+                <h2>Exercices</h2>
+                <p>
+                    Pratiquez vos connaissances avec des activités
+                    et des défis.
+                </p>
+            </a>
+
+            <div class="card">
+                <div class="icon"></div>
+                <h2>Ma progression</h2>
+                <p>
+                    Suivez votre évolution et voyez jusqu'où vous êtes arrivé.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon"></div>
+                <h2>Mes réussites</h2>
+                <p>
+                    Retrouvez vos objectifs, réussites et futures récompenses.
+                </p>
+            </div>
+
+            <a class="card" href="index.html#ressources">
+                <div class="icon"></div>
+                <h2>Ressources</h2>
+                <p>
+                    Audio, vocabulaire, culture et contenus pour apprendre
+                    autrement.
+                </p>
+            </a>
+
+            <a class="card" href="index.html#compas">
+                <div class="icon"></div>
+                <h2>COMPAS du jour</h2>
+                <p>
+                    Une dose de motivation, de sagesse et de français
+                    pour avancer chaque jour.
+                </p>
+            </a>
+
+        </div>
+
+        <div class="progress-box">
+
+            <strong>Votre parcours CFA</strong>
+
+            <div class="progress">
+                <span id="progressBar"></span>
+            </div>
+
+            <p id="progressText"
+               style="color:var(--muted);margin-bottom:0;">
+                Progression : <strong id="progressPercent">0.00%</strong>
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer">
+    <div class="footer-tagline">Apprendre · S’amuser · S’inspirer · Découvrir</div>
+    <div class="footer-copyright">© 2026 Collins French Academy (CFA)</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+
+<script>
+/*
+ * CFA — LOGOUT
+ *
+ * Sign the learner out of Supabase, then return
+ * to the main CFA page.
+ */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const logoutBtn =
+        document.getElementById("logoutBtn");
+
+    if (!logoutBtn) {
+        console.error("CFA logout button not found.");
+        return;
+    }
+
+    logoutBtn.addEventListener("click", async function () {
+
+        logoutBtn.disabled = true;
+        logoutBtn.textContent = "Déconnexion...";
+
+        try {
+
+            const { error } =
+                await cfaSupabase.auth.signOut({
+                    scope: "local"
+                });
+
+            if (error) {
+                throw error;
+            }
+
+            window.location.href =
+                "../index.html";
+
+        } catch (error) {
+
+            console.error(
+                "CFA logout error:",
+                error
+            );
+
+            logoutBtn.disabled = false;
+            logoutBtn.textContent = "Déconnexion";
+
+            alert(
+                "Impossible de vous déconnecter.\\n\\n" +
+                (error?.message || "Erreur inconnue.")
+            );
+        }
+
+    });
+
+});
+</script>
+
+<script src="js/name-validation.js"></script>
+<script src="js/auth.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async function(){
+
+    /*
+     * CFA / Supabase authentication
+     *
+     * The learner area now checks the real
+     * Supabase session instead of localStorage.
+     */
+
+    const {
+        data: { session },
+        error
+    } = await cfaSupabase.auth.getSession();
+
+
+    if (error || !session || !session.user) {
+
+        window.location.href = "pages/connexion.html";
+        return;
+
+    }
+
+
+    /*
+     * Get learner information from Supabase.
+     */
+
+    const user = session.user;
+
+    const storedName =
+        user.user_metadata?.first_name ||
+        "";
+
+    const nameValidation =
+        window.CFANameValidation
+            ? window.CFANameValidation.validateName(storedName)
+            : {
+                valid: false,
+                value: "",
+                message: ""
+            };
+
+    const name =
+        nameValidation.valid
+            ? nameValidation.value
+            : "Apprenant";
+
+
+    /*
+     * Time-based greeting.
+     */
+
+    const hour = new Date().getHours();
+
+    let greeting;
+
+    if (hour >= 5 && hour < 12) {
+
+        greeting = "Bonjour";
+
+    } else if (hour >= 12 && hour < 18) {
+
+        greeting = "Bon après-midi";
+
+    } else {
+
+        greeting = "Bonsoir";
+
+    }
+
+
+    const greetingElement =
+        document.getElementById("timeGreeting");
+
+    const nameElement =
+        document.getElementById("studentName");
+
+
+    if (greetingElement) {
+
+        greetingElement.textContent =
+            greeting + " ";
+
+    }
+
+
+    if (nameElement) {
+
+        nameElement.textContent =
+            name + " ";
+
+    }
+
+
+    /*
+     * CFA — PROGRESSION
+     *
+     * The displayed percentage and progress bar
+     * use exactly the same value.
+     */
+
+    /*
+     * CFA — REAL LEARNER PROGRESS
+     *
+     * Progress is calculated from Supabase.
+     * New learners start at 0.00%.
+     */
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const progressPercent =
+        document.getElementById("progressPercent");
+
+    const progressText =
+        document.getElementById("progressText");
+
+    let progressValue = 0;
+
+    const {
+        data: progressData,
+        error: progressError
+    } = await cfaSupabase
+        .from("learner_progress")
+        .select("progress_percentage")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    if (!progressError && progressData) {
+
+        progressValue =
+            Number(progressData.progress_percentage) || 0;
+
+    } else if (!progressError && !progressData) {
+
+        const {
+            error: createProgressError
+        } = await cfaSupabase
+            .from("learner_progress")
+            .insert({
+                user_id: user.id,
+                progress_percentage: 0
+            });
+
+        if (createProgressError) {
+
+            console.warn(
+                "Unable to initialize learner progress:",
+                createProgressError
+            );
+
+        }
+
+        progressValue = 0;
+    }
+
+    progressValue =
+        Math.max(0, Math.min(100, progressValue));
+
+    if (progressBar) {
+
+        progressBar.style.width =
+            progressValue + "%";
+
+        progressBar.setAttribute(
+            "aria-valuenow",
+            progressValue.toFixed(2)
+        );
+
+    }
+
+    if (progressPercent) {
+
+        progressPercent.textContent =
+            progressValue.toFixed(2) + "%";
+
+    }
+
+    if (progressText) {
+
+        if (progressValue === 0) {
+
+            progressText.innerHTML =
+                '<strong id="progressPercent">' +
+                progressValue.toFixed(2) +
+                '%</strong> — Votre aventure commence maintenant.';
+
+        } else if (progressValue >= 100) {
+
+            progressText.innerHTML =
+                '<strong id="progressPercent">' +
+                progressValue.toFixed(2) +
+                '%</strong> — Félicitations ! Votre parcours CFA est terminé.';
+
+        } else {
+
+            progressText.innerHTML =
+                '<strong id="progressPercent">' +
+                progressValue.toFixed(2) +
+                '%</strong> — Vous avez complété votre parcours CFA.';
+
+        }
+
+    }
+
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cours A1 — Collins French Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+}
+
+.container{
+    width:92%;
+    max-width:1000px;
+    margin:auto;
+}
+
+header{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:800;
+}
+
+.logo{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.back{
+    color:var(--blue);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.hero{
+    padding:45px 0 25px;
+}
+
+.eyebrow{
+    color:var(--blue);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+}
+
+h1{
+    margin:10px 0;
+    font-size:clamp(32px,6vw,50px);
+    letter-spacing:-1.5px;
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:700px;
+    line-height:1.6;
+}
+
+.progress-box{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+    margin:10px 0 28px;
+}
+
+.progress-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.progress-number{
+    color:var(--orange);
+    font-size:24px;
+    font-weight:800;
+}
+
+.progress{
+    height:12px;
+    background:#edf0f5;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:14px;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:var(--orange);
+    transition:width .35s ease;
+}
+
+.progress-message{
+    color:var(--muted);
+    margin:12px 0 0;
+}
+
+.lessons{
+    display:grid;
+    gap:14px;
+    padding-bottom:60px;
+}
+
+.lesson{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.lesson-info{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.lesson-number{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    background:#eef4ff;
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    flex-shrink:0;
+}
+
+.lesson h2{
+    margin:0 0 5px;
+    font-size:18px;
+}
+
+.lesson p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.lesson button{
+    border:0;
+    border-radius:10px;
+    padding:11px 16px;
+    font-weight:700;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.lesson button:hover{
+    opacity:.9;
+}
+
+.lesson button.completed{
+    background:var(--green);
+    cursor:default;
+}
+
+.status{
+    color:var(--green);
+    font-weight:700;
+    font-size:14px;
+}
+
+.loading,
+.error{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:25px;
+    color:var(--muted);
+}
+
+.error{
+    color:#b42318;
+}
+
+footer{
+  padding:42px 0 36px;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+.footer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.footer-tagline{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.15px;
+  color:var(--ink);
+  line-height:1.5;
+}
+
+.footer-copyright{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  min-width:260px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+@media(max-width:650px){
+
+    .nav{
+        padding:14px 0;
+    }
+
+    .brand span{
+        font-size:14px;
+    }
+
+    .lesson{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .lesson button{
+        width:100%;
+    }
+
+    .progress-header{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:6px;
+    }
+}
+</style>
+    <link rel="stylesheet" href="css/cfa-shared-theme.css">
+    <script src="js/cfa-shared-theme.js"></script>
+  <link rel="stylesheet" href="css/cfa-loader.css" data-cfa-loader="css">
+  <script src="js/cfa-loader.js" defer data-cfa-loader="js"></script>
+
+<style id="cfa-standard-header">
+/* =========================================
+   CFA STANDARD HEADER
+   Matches homepage header appearance
+   ========================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--white);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
+    transition:background .3s ease, border-color .3s ease;
+}
+
+header .nav{
+    width:min(1160px,92%);
+    height:80px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+header .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-weight:850;
+    letter-spacing:.2px;
+    text-decoration:none;
+    color:var(--ink);
+}
+
+header .logo-container{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid var(--blue);
+    box-shadow:0 4px 12px rgba(23,78,166,.15);
+    flex-shrink:0;
+}
+
+header .logo-container img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+header .brand > span,
+header .brand-name{
+    color:var(--ink);
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:.1px;
+    white-space:nowrap;
+}
+
+header .nav-right{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+header .nav-right > a:not(.logout):not(.back),
+header .logout,
+header .back,
+header .nav-button{
+    position:relative;
+    text-decoration:none !important;
+}
+
+header .nav-right > a:not(.logout):not(.back){
+    color:var(--muted);
+    font-size:14px;
+    font-weight:650;
+    transition:color .2s ease;
+}
+
+header .nav-right > a:not(.logout):not(.back):hover{
+    color:var(--blue);
+}
+
+/* Page action buttons */
+
+header .logout,
+header .back,
+header .nav-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    padding:9px 13px;
+    border:0;
+    border-radius:10px;
+    background:var(--line);
+    color:var(--ink) !important;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none !important;
+    transition:all .2s ease;
+}
+
+header .logout:hover,
+header .back:hover,
+header .nav-button:hover{
+    color:var(--blue) !important;
+    transform:translateY(-1px);
+}
+
+/* COMPAS */
+
+header .nav-actions{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    header .nav{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        height:70px;
+        padding:0 16px;
+        gap:8px;
+    }
+
+    header .brand{
+        min-width:0;
+        flex:1 1 auto;
+        max-width:none;
+        gap:9px;
+    }
+
+    header .logo-container{
+        width:42px;
+        height:42px;
+    }
+
+    header .brand > span,
+    header .brand-name{
+        min-width:0;
+        overflow:visible;
+        text-overflow:clip;
+        white-space:normal;
+        line-height:1.15;
+    }
+
+    header .nav-right{
+        margin-left:auto;
+        flex-shrink:0;
+        gap:8px;
+    }
+
+    header .logout,
+    header .back,
+    header .nav-button{
+        min-height:36px;
+        padding:8px 11px;
+        font-size:13px;
+    }
+
+    header .nav-actions{
+        gap:8px;
+        flex-shrink:0;
+    }
+}
+
+@media(max-width:520px){
+
+    header .brand{
+        flex:1 1 auto;
+        max-width:none;
+    }
+
+    header .logout,
+    header .back,
+    header .nav-button{
+        padding:7px 9px;
+        font-size:12px;
+    }
+}
+</style>
+<link rel="stylesheet" href="css/cfa-header-base.css">
+<link rel="stylesheet" href="css/cfa-buttons.css">
+
+<script src="js/cfa-current-page.js" defer></script>
+</head>
+
+<body>
+<div id="cfa-page-loader" aria-label="Chargement de Collins French Academy">
+  <div class="cfa-loader-wrap">
+    <div class="cfa-loader-core">
+      <div class="cfa-loader-orbit" aria-hidden="true">
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+      </div>
+      <div class="cfa-loader-needle" aria-hidden="true"></div>
+      <div class="cfa-loader-center" aria-hidden="true">CFA</div>
+    </div>
+
+    <div class="cfa-loader-brand">
+      Collins French Academy
+    </div>
+
+    <div class="cfa-loader-tagline">
+      Apprendre · S’amuser · S’inspirer · Découvrir
+    </div>
+  </div>
+</div>
+
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html#accueil">
+      <div class="logo-container">
+        <img src="cfa.jpeg" alt="CFA Logo">
+      </div>
+      <div><span style="font-size: 1.12em; font-weight: bold; text-transform: none !important;">Collins French Academy</span><small></small></div>
+    </a>
+    <div class="nav-right">
+<button id="hamburger-menu-trigger"
+        class="cfa-mobile-menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+      <nav>
+        <a href="index.html#accueil">Accueil</a>
+        <a href="index.html#cours">Cours</a>
+        <a href="index.html#ressources">Ressources</a>
+        <a href="pages/apropos.html">À propos</a>
+      </nav>
+      <div class="account-links" id="accountArea">
+  <a class="cfa-connexion-link" href="pages/connexion.html">Connexion</a>
+</div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
+
+    </div>
+  </div>
+
+<!-- CFA MOBILE MENU -->
+<div id="site-mobile-drawer" aria-hidden="true">
+
+    <div class="cfa-mobile-header">
+        <strong>CFA</strong>
+
+        <button
+            type="button"
+            id="close-drawer-btn"
+            aria-label="Fermer le menu">
+            ×
+        </button>
+    </div>
+
+    <nav class="cfa-mobile-nav">
+        <a class="cfa-mobile-link" href="index.html#accueil">Accueil</a>
+        <a class="cfa-mobile-link" href="index.html#cours">Cours</a>
+        <a class="cfa-mobile-link" href="index.html#ressources">Ressources</a>
+        <a class="cfa-mobile-link" href="pages/apropos.html">À propos</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="pages/connexion.html">Connexion</a>
+        <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
+    </nav>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const trigger =
+        document.getElementById("hamburger-menu-trigger");
+
+    const drawer =
+        document.getElementById("site-mobile-drawer");
+
+    const closeBtn =
+        document.getElementById("close-drawer-btn");
+
+    const drawerTheme =
+        document.getElementById("drawer-theme-toggle");
+
+    const html =
+        document.documentElement;
+
+    console.log("CFA mobile menu initialized:", {
+        trigger: !!trigger,
+        drawer: !!drawer,
+        closeBtn: !!closeBtn
+    });
+
+    if (!trigger || !drawer) {
+        console.error("CFA mobile menu elements missing.");
+        return;
+    }
+
+    function updateThemeButton() {
+
+        const dark =
+            html.getAttribute("data-theme") === "dark";
+
+        if (drawerTheme) {
+
+            drawerTheme.textContent =
+                dark
+                    ? "️ Mode clair"
+                    : "Mode sombre ";
+        }
+    }
+
+    function openMenu() {
+
+        console.log("CFA: opening mobile menu");
+
+        drawer.classList.add("cfa-open");
+
+        drawer.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        trigger.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        document.body.classList.add(
+            "cfa-drawer-open"
+        );
+
+        document.body.style.overflow = "hidden";
+
+        updateThemeButton();
+    }
+
+    function closeMenu() {
+
+        console.log("CFA: closing mobile menu");
+
+        drawer.classList.remove("cfa-open");
+
+        drawer.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        trigger.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        document.body.classList.remove(
+            "cfa-drawer-open"
+        );
+
+        document.body.style.overflow = "";
+    }
+
+    /* =====================================================
+       HAMBURGER
+       ===================================================== */
+
+    trigger.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (
+                drawer.classList.contains(
+                    "cfa-open"
+                )
+            ) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        },
+        false
+    );
+
+    /* =====================================================
+       CLOSE BUTTON
+       ===================================================== */
+
+    if (closeBtn) {
+
+        closeBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                closeMenu();
+            },
+            false
+        );
+    }
+
+    /* =====================================================
+       THEME
+       ===================================================== */
+
+    if (drawerTheme) {
+
+        drawerTheme.addEventListener(
+            "click",
+            function () {
+
+                const current =
+                    html.getAttribute(
+                        "data-theme"
+                    ) || "light";
+
+                const next =
+                    current === "dark"
+                        ? "light"
+                        : "dark";
+
+                html.setAttribute(
+                    "data-theme",
+                    next
+                );
+
+                localStorage.setItem(
+                    "cfa_theme",
+                    next
+                );
+
+                const desktopTheme =
+                    document.getElementById(
+                        "themeToggle"
+                    );
+
+                if (desktopTheme) {
+
+                    desktopTheme.textContent =
+                        next === "dark"
+                            ? "Mode clair"
+                            : "Mode sombre";
+                }
+
+                updateThemeButton();
+            },
+            false
+        );
+    }
+
+    /* =====================================================
+       CLOSE AFTER NAVIGATION
+       ===================================================== */
+
+    drawer
+        .querySelectorAll(
+            "a.cfa-mobile-link"
+        )
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+                    closeMenu();
+                }
+            );
+        });
+
+});
+</script>
+
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+
+        <div class="eyebrow">
+            Français A1 · Découverte
+        </div>
+
+        <h1>Votre parcours A1</h1>
+
+        <p>
+            Progressez étape par étape à travers les dix unités
+            de votre parcours CFA.
+        </p>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <div class="progress-box">
+
+            <div class="progress-header">
+                <strong>Progression CFA</strong>
+                <span
+                    class="progress-number"
+                    id="progressNumber">
+                    0.00%
+                </span>
+            </div>
+
+            <div class="progress">
+                <span id="progressBar"></span>
+            </div>
+
+            <p
+                class="progress-message"
+                id="progressMessage">
+                Votre aventure commence maintenant.
+            </p>
+
+        </div>
+
+        <div id="lessonsContainer" class="lessons">
+
+            <div class="loading">
+                Chargement de votre parcours...
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer">
+    <div class="footer-tagline">Apprendre · S’amuser · S’inspirer · Découvrir</div>
+    <div class="footer-copyright">© 2026 Collins French Academy (CFA)</div>
+  </div>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async function(){
+
+    const lessonsContainer =
+        document.getElementById("lessonsContainer");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const progressNumber =
+        document.getElementById("progressNumber");
+
+    const progressMessage =
+        document.getElementById("progressMessage");
+
+
+    /*
+     * --------------------------------------------------
+     * 1. CHECK AUTHENTICATION
+     * --------------------------------------------------
+     */
+
+    const {
+        data: { session },
+        error: sessionError
+    } = await cfaSupabase.auth.getSession();
+
+
+    if (
+        sessionError ||
+        !session ||
+        !session.user
+    ){
+
+        window.location.href =
+            "pages/connexion.html";
+
+        return;
+    }
+
+
+    const user =
+        session.user;
+
+    console.log("CFA AUTH USER:", user);
+
+
+
+    /*
+     * --------------------------------------------------
+     * 2. UPDATE PROGRESS DISPLAY
+     * --------------------------------------------------
+     */
+
+    async function updateProgress(){
+
+        const {
+            data,
+            error
+        } = await cfaSupabase
+
+            .from("learner_progress")
+
+            .select(
+                "total_lessons, completed_lessons, progress_percentage"
+            )
+
+            .eq("user_id", user.id)
+
+            .maybeSingle();
+
+
+        if(error){
+
+            console.error(
+                "Progress loading error:",
+                error
+            );
+
+            return;
+        }
+
+
+        /*
+         * Calculate progress directly from completed lessons.
+         *
+         * A1 contains exactly 10 units:
+         *
+         * 0 / 10 = 0.00%
+         * 1 / 10 = 10.00%
+         * 2 / 10 = 20.00%
+         * ...
+         * 10 / 10 = 100.00%
+         *
+         * The database view remains useful as a summary,
+         * but the lesson records are the source of truth.
+         */
+
+        const {
+            data: completedRows,
+            error: completedError
+        } = await cfaSupabase
+
+            .from("lesson_progress")
+
+            .select("lesson_id")
+
+            .eq("user_id", user.id)
+
+            .eq("completed", true);
+
+
+        if(completedError){
+
+            console.error(
+                "Completed lessons loading error:",
+                completedError
+            );
+
+            return;
+        }
+
+
+        const completedIds =
+            new Set(
+                (completedRows || [])
+                    .map(row => Number(row.lesson_id))
+            );
+
+
+        const completed =
+            completedIds.size;
+
+
+        const total = 10;
+
+
+        const percentage =
+            Math.max(
+                0,
+                Math.min(
+                    100,
+                    (completed / total) * 100
+                )
+            );
+
+
+        progressBar.style.width =
+            percentage + "%";
+
+
+        progressNumber.textContent =
+            percentage.toFixed(2) + "%";
+
+
+        if(percentage === 0){
+
+            progressMessage.textContent =
+                "Votre aventure commence maintenant.";
+
+        }
+        else if(completed >= total){
+
+            progressMessage.textContent =
+                "Révision A1 terminée. Passez l'examen final.";
+
+        }
+        else{
+
+            progressMessage.textContent =
+                completed +
+                " unité" +
+                (completed === 1 ? "" : "s") +
+                " sur " +
+                total +
+                " terminée" +
+                (completed === 1 ? "" : "s") +
+                ".";
+
+        }
+
+    }
+
+
+    /*
+     * --------------------------------------------------
+     * 3. LOAD LESSONS
+     * --------------------------------------------------
+     */
+
+    async function loadLessons(){
+
+        const {
+            data: lessons,
+            error
+        } = await cfaSupabase
+
+            .from("lessons")
+
+            .select(
+                "id, course_id, title"
+            )
+
+            .eq("course_id", 1)
+
+            .order("id", {
+                ascending:true
+            });
+
+
+        if(error){
+
+            console.error(
+                "Lessons loading error:",
+                error
+            );
+
+            lessonsContainer.innerHTML =
+                '<div class="error">' +
+                'Impossible de charger les leçons.' +
+                '</div>';
+
+            return;
+        }
+
+
+        if(!lessons || lessons.length === 0){
+
+            lessonsContainer.innerHTML =
+                '<div class="error">' +
+                'Aucune leçon A1 disponible.' +
+                '</div>';
+
+            return;
+        }
+
+
+        /*
+         * --------------------------------------------------
+         * 4. LOAD THIS USER'S COMPLETIONS
+         * --------------------------------------------------
+         */
+
+        const {
+            data: progressRows,
+            error: progressError
+        } = await cfaSupabase
+
+            .from("lesson_progress")
+
+            .select(
+                "lesson_id, completed"
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            );
+
+
+        if(progressError){
+
+            console.error(
+                "Lesson progress loading error:",
+                progressError
+            );
+        }
+
+
+        const completedLessons =
+            new Set(
+                (progressRows || [])
+
+                .filter(
+                    row => row.completed === true
+                )
+
+                .map(
+                    row => Number(row.lesson_id)
+                )
+            );
+
+
+        /*
+         * --------------------------------------------------
+         * 5. RENDER LESSONS
+         * --------------------------------------------------
+         */
+
+        lessonsContainer.innerHTML = "";
+
+
+        lessons.forEach(
+            function(lesson, index){
+
+                const isCompleted =
+                    completedLessons.has(
+                        Number(lesson.id)
+                    );
+
+
+                const article =
+                    document.createElement("article");
+
+                article.className =
+                    "lesson";
+
+
+                const info =
+                    document.createElement("div");
+
+                info.className =
+                    "lesson-info";
+
+
+                const number =
+                    document.createElement("div");
+
+                number.className =
+                    "lesson-number";
+
+                number.textContent =
+                    String(index + 1)
+                    .padStart(2, "0");
+
+
+                const text =
+                    document.createElement("div");
+
+
+                const title =
+                    document.createElement("h2");
+
+                title.textContent =
+                    lesson.title;
+
+
+                const description =
+                    document.createElement("p");
+
+                description.textContent =
+                    isCompleted
+                        ? "Unité terminée."
+                        : "Continuez votre parcours CFA.";
+
+
+                text.appendChild(title);
+
+                text.appendChild(description);
+
+
+                info.appendChild(number);
+
+                info.appendChild(text);
+
+
+                const action =
+                    document.createElement("div");
+
+
+                if(isCompleted){
+
+                    const status =
+                        document.createElement("div");
+
+                    status.className =
+                        "status";
+
+                    status.textContent =
+                        " Terminé";
+
+                    action.appendChild(status);
+
+                }
+                else{
+
+                    const button =
+                        document.createElement("button");
+
+                    button.type =
+                        "button";
+
+                    button.textContent =
+                        "Terminer l'unité";
+
+
+                    button.addEventListener(
+                        "click",
+                        function(){
+
+                            completeLesson(
+                                lesson.id,
+                                button,
+                                description,
+                                action
+                            );
+
+                        }
+                    );
+
+
+                    action.appendChild(button);
+
+                }
+
+
+                article.appendChild(info);
+
+                article.appendChild(action);
+
+                lessonsContainer.appendChild(article);
+
+            }
+        );
+
+    }
+
+
+    /*
+     * --------------------------------------------------
+     * 6. COMPLETE LESSON
+     * --------------------------------------------------
+     */
+
+    async function completeLesson(
+        lessonId,
+        button,
+        description,
+        action
+    ){
+
+        button.disabled =
+            true;
+
+        button.textContent =
+            "Enregistrement...";
+
+
+        const {
+            data: existing,
+            error: existingError
+        } = await cfaSupabase
+
+            .from("lesson_progress")
+
+            .select("id")
+
+            .eq("user_id", user.id)
+
+            .eq("lesson_id", lessonId)
+
+            .maybeSingle();
+
+
+        if(existingError){
+
+            console.error(
+                existingError
+            );
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Terminer l'unité";
+
+            return;
+        }
+
+
+        let saveError = null;
+
+
+        if(existing){
+
+            const result =
+                await cfaSupabase
+
+                .from("lesson_progress")
+
+                .update({
+                    completed:true,
+                    completed_at:
+                        new Date().toISOString(),
+                    updated_at:
+                        new Date().toISOString()
+                })
+
+                .eq(
+                    "id",
+                    existing.id
+                );
+
+
+            saveError =
+                result.error;
+
+        }
+        else{
+
+            const result =
+                await cfaSupabase
+
+                .from("lesson_progress")
+
+                .insert({
+
+                    user_id:
+                        user.id,
+
+                    lesson_id:
+                        lessonId,
+
+                    completed:
+                        true,
+
+                    completed_at:
+                        new Date().toISOString(),
+
+                    created_at:
+                        new Date().toISOString(),
+
+                    updated_at:
+                        new Date().toISOString()
+
+                });
+
+
+            saveError =
+                result.error;
+
+        }
+
+
+        if(saveError){
+
+            console.error(
+                "Lesson completion error:",
+                saveError
+            );
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Terminer l'unité";
+
+            alert(
+                "ERREUR SUPABASE\\n\\n" +
+                "Message : " + (saveError?.message || "inconnu") +
+                "\\nCode : " + (saveError?.code || "inconnu") +
+                "\\nDetails : " + (saveError?.details || "aucun") +
+                "\\nHint : " + (saveError?.hint || "aucun")
+            );
+
+            return;
+        }
+
+
+        /*
+         * Immediately update the interface.
+         */
+
+        description.textContent =
+            "Unité terminée.";
+
+
+        const status =
+            document.createElement("div");
+
+        status.className =
+            "status";
+
+        status.textContent =
+            " Terminé";
+
+
+        action.innerHTML = "";
+
+        action.appendChild(status);
+
+
+        await updateProgress();
+
+    }
+
+
+    /*
+     * --------------------------------------------------
+     * 7. INITIALIZE
+     * --------------------------------------------------
+     */
+
+    await updateProgress();
+
+    await loadLessons();
+
+});
+
+</script>
+
+</body>
+</html>

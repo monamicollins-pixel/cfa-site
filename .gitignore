@@ -1,0 +1,14 @@
+
+# Local development backups
+*.backup
+*.before-*
+backups/
+
+# CFA temporary backup files/folders
+cfa-*-backup-*/
+cfa-*-backup-*
+css/auth.css.backup-*
+
+# CFA temporary fix snapshots
+cfa-*-fix-*/
+cfa-*-fix-*

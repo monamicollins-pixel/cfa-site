@@ -1,0 +1,77 @@
+/* CFA header/menu buttons: ONE shared standard, loaded last on every page.
+   Not included: logo, hamburger, drawer-close (small icon controls). */
+
+html body :is(header .nav a, header .nav button,
+              #site-mobile-drawer .cfa-mobile-link,
+              #site-mobile-drawer .cfa-mobile-login,
+              #site-mobile-drawer .cfa-mobile-theme):not(.brand):not(.logo-container):not(#hamburger-menu-trigger):not(.cfa-mobile-menu-button) {
+  --b: #4f83db; --f: #000;                 /* normal */
+  display: inline-flex !important;
+  align-items: center; justify-content: center;
+  box-sizing: border-box;
+  width: 108px; min-height: 32px; margin: 0; padding: 0 6px;
+  border: 0 !important; border-radius: 10px;
+  font-family: inherit; font-weight: 700; font-size: 12px; line-height: 1.2; text-align: center; text-decoration: none; white-space: nowrap;
+  background: var(--b) !important; color: var(--f) !important;
+  cursor: pointer;
+
+  &:hover  { --b: #FF6600; }               /* hover */
+  &:active { --b: #C8102E; --f: #fff; }    /* pressed */
+  &:focus-visible { outline: 3px solid #FF6600; outline-offset: 2px; }
+
+  /* current page: red in every state */
+  &[aria-current="page"],
+  &[aria-current="page"]:is(:hover, :active, :focus, :focus-visible) { --b: #C8102E; --f: #fff; }
+}
+
+/* Header buttons: equal gaps on PC */
+header .nav-right, header .account-links { display: flex; align-items: center; gap: 10px; }
+
+@media (max-width: 768px) {
+  /* Phone menu: same width, centred */
+  html body #site-mobile-drawer :is(.cfa-mobile-link, .cfa-mobile-theme) {
+    display: flex !important; width: 100% !important; min-height: 44px !important; font-size: 14px !important; margin: 0 0 10px;
+  }
+  /* Phone: no Connexion button inside the menu (the one in the header bar stays) */
+  html body #site-mobile-drawer .cfa-mobile-login { display: none !important; }
+  /* Phone: theme button lives in the menu only, not in the header bar */
+  html:root:root body header .nav-right #themeToggle { display: none !important; }
+}
+
+/* Phone: theme button lives ONLY in the menu, never in the header bar */
+@media (max-width: 900px) {
+  html:root:root:root body header #themeToggle,
+  html:root:root:root body header .nav-right > .theme-toggle,
+  html:root:root:root body header button.theme-toggle[id="themeToggle"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+}
+
+/* Phone and tablet: header stays visible while scrolling */
+@media (max-width: 900px) {
+  html:root:root body header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: #fff !important;            /* solid, so content never shows through */
+  }
+  html:root:root[data-theme="dark"] body header,
+  html:root:root body.dark-mode header {
+    background: #000 !important;
+  }
+
+  /* "overflow-x: hidden" on html/body stops sticky from working; "clip" does the same job without that problem */
+  html:root:root, html:root:root body {
+    overflow-x: clip !important;
+  }
+
+  /* Section links (#cours, #ressources) stop below the header, not under it */
+  html:root:root { scroll-padding-top: 80px; }
+  html:root:root body :is(section, [id])[id] { scroll-margin-top: 80px; }
+}
