@@ -75,3 +75,14 @@ header .nav-right, header .account-links { display: flex; align-items: center; g
   html:root:root { scroll-padding-top: 80px; }
   html:root:root body :is(section, [id])[id] { scroll-margin-top: 80px; }
 }
+
+/* Current page: red background, WHITE text, in every state and theme */
+html:root:root:root body :is(header .nav a, .cfa-mobile-link, .cfa-mobile-login)[aria-current="page"],
+html:root:root:root body :is(header .nav a, .cfa-mobile-link, .cfa-mobile-login)[aria-current="page"] * {
+  background-color: #C8102E !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+html:root:root:root body :is(header .nav a, .cfa-mobile-link, .cfa-mobile-login)[aria-current="page"] * {
+  background: transparent !important;
+}
