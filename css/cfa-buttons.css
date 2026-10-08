@@ -86,3 +86,29 @@ html:root:root:root body :is(header .nav a, .cfa-mobile-link, .cfa-mobile-login)
 html:root:root:root body :is(header .nav a, .cfa-mobile-link, .cfa-mobile-login)[aria-current="page"] * {
   background: transparent !important;
 }
+
+/* Phone menu: identical text on every item (links and the Theme button) */
+@media (max-width: 900px) {
+  html:root:root:root body #site-mobile-drawer :is(.cfa-mobile-link, .cfa-mobile-login, .cfa-mobile-theme) {
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    justify-content: center !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  html:root:root:root body #site-mobile-drawer :is(.cfa-mobile-link, .cfa-mobile-login, .cfa-mobile-theme):not([aria-current="page"]) {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+  html:root:root:root body #site-mobile-drawer :is(.cfa-mobile-link, .cfa-mobile-login, .cfa-mobile-theme):not([aria-current="page"]):active {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+}
