@@ -543,7 +543,7 @@ footer {
 </style>
 
 <!-- CFA UNIVERSAL FUNCTIONAL BUTTON TEXT -->
-<script src="../js/cfa-current-page.js?v=1791454745" defer></script>
+<script src="../js/cfa-current-page.js?v=1791455033" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
 <style id="cfa-apropos-footer">
@@ -574,6 +574,86 @@ html:root:root body .cta a {
 html:root:root body .cta a:hover { background: #FF6600 !important; color: #000 !important; }
 html:root:root body .cta a:active { background: #C8102E !important; color: #fff !important; }
 html:root:root body .cta a:focus-visible { outline: 3px solid #FF6600; outline-offset: 2px; }
+</style>
+<style id="cfa-apropos-new">
+/* A propos: homepage-style presentation */
+.ab-main {
+  --ab-blue:#174ea6; --ab-accent:#174ea6; --ab-eyebrow:#C8102E;
+  --ab-ink:#10203a; --ab-muted:#64748b; --ab-line:#e5eaf2; --ab-card:#fff;
+  --ab-shadow:0 20px 40px -15px rgba(15,35,70,.12);
+  --ab-shadow-hover:0 24px 50px -12px rgba(23,78,166,.18);
+  color:var(--ab-ink);
+}
+html[data-theme="dark"] .ab-main, body.dark-mode .ab-main {
+  --ab-blue:#4f83db; --ab-accent:#FF6600; --ab-eyebrow:#FF6600;
+  --ab-ink:#f1f5f9; --ab-muted:#94a3b8; --ab-line:#1e293b; --ab-card:#131f33;
+  --ab-shadow:0 20px 40px -15px rgba(0,0,0,.4);
+  --ab-shadow-hover:0 24px 50px -12px rgba(79,131,219,.2);
+}
+.ab-main .ab-wrap { width:min(1160px,92%); margin:0 auto; }
+.ab-main .ab-section { padding:64px 0; }
+.ab-main .ab-hero {
+  padding:90px 0 70px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(79,131,219,.08), transparent 36%),
+    radial-gradient(circle at 10% 45%, rgba(200,16,46,.04), transparent 30%);
+}
+.ab-main .ab-hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:65px; align-items:center; }
+.ab-main .ab-eyebrow { color:var(--ab-eyebrow); font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin:0 0 6px; }
+.ab-main h1 { font-size:clamp(40px,6vw,64px); line-height:1.05; letter-spacing:-2px; margin:10px 0 20px; color:var(--ab-ink); }
+.ab-main h1 span { color:var(--ab-blue); }
+.ab-main .ab-lead { font-size:18px; color:var(--ab-muted); max-width:560px; margin:0; }
+.ab-main .ab-herocard { background:var(--ab-card); border:1px solid var(--ab-line); border-radius:32px; padding:32px; box-shadow:var(--ab-shadow); }
+.ab-main .ab-words { list-style:none; margin:0; padding:0; display:grid; gap:18px; }
+.ab-main .ab-words li { font-size:24px; font-weight:800; letter-spacing:-.5px; color:var(--ab-ink); }
+.ab-main .ab-words li::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--ab-accent); margin-right:14px; }
+.ab-main .ab-head { max-width:680px; margin:0 0 40px; }
+.ab-main h2 { font-size:clamp(28px,4vw,40px); line-height:1.1; letter-spacing:-1px; margin:0 0 10px; color:var(--ab-ink); }
+.ab-main .ab-head p { color:var(--ab-muted); font-size:16px; margin:0; }
+.ab-main .ab-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:20px; }
+.ab-main .ab-cards.three { grid-template-columns:repeat(3,1fr); }
+.ab-main .ab-card, .ab-main .ab-panel {
+  background:var(--ab-card); border:1px solid var(--ab-line); border-radius:20px;
+  padding:28px; box-shadow:var(--ab-shadow); transition:all .3s ease;
+}
+.ab-main .ab-card:hover { transform:translateY(-5px); box-shadow:var(--ab-shadow-hover); border-color:var(--ab-blue); }
+.ab-main .ab-num { font-size:14px; font-weight:700; color:var(--ab-accent); margin:0 0 25px; }
+.ab-main .ab-letter { font-size:42px; font-weight:900; line-height:1; color:var(--ab-accent); margin:0 0 14px; }
+.ab-main .ab-card h3 { font-size:18px; letter-spacing:-.3px; margin:0 0 8px; color:var(--ab-ink); }
+.ab-main .ab-card p { font-size:14px; line-height:1.55; color:var(--ab-muted); margin:0; }
+.ab-main .ab-panel { max-width:860px; padding:36px; }
+.ab-main .ab-panel p { font-size:18px; line-height:1.7; color:var(--ab-ink); margin:0 0 14px; }
+.ab-main .ab-panel p:last-child { margin-bottom:0; }
+.ab-main .ab-big { display:block; font-size:44px; font-weight:900; letter-spacing:-1px; color:var(--ab-accent); margin-top:6px; }
+.ab-main .ab-cta { background:#174ea6; color:#fff; border-radius:28px; padding:56px 24px; text-align:center; }
+.ab-main .ab-cta h2 { color:#fff; margin-bottom:10px; }
+.ab-main .ab-cta p { color:#fff; margin:0 0 24px; font-size:16px; }
+.ab-main .ab-btn {
+  display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box;
+  min-height:44px; padding:0 22px; border-radius:10px; border:0;
+  background:#4f83db; color:#000; font-size:14px; font-weight:700; text-decoration:none;
+}
+.ab-main .ab-btn:hover { background:#FF6600; color:#000; }
+.ab-main .ab-btn:active { background:#C8102E; color:#fff; }
+.ab-main .ab-btn:focus-visible { outline:3px solid #FF6600; outline-offset:2px; }
+@media (max-width:900px) {
+  .ab-main .ab-hero { padding:60px 0 50px; }
+  .ab-main .ab-hero-grid { grid-template-columns:1fr; gap:40px; }
+  .ab-main .ab-cards.three { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:600px) {
+  .ab-main .ab-section { padding:44px 0; }
+  .ab-main .ab-cards, .ab-main .ab-cards.three { grid-template-columns:1fr; }
+  .ab-main .ab-panel { padding:26px; }
+  .ab-main h1 { letter-spacing:-1.5px; }
+}
+@media (prefers-reduced-motion:reduce) { .ab-main .ab-card { transition:none; } .ab-main .ab-card:hover { transform:none; } }
+
+/* Footer: follows the page theme, no divider line */
+html:root:root body footer { color:var(--ink) !important; }
+html:root:root body footer .footer-tagline { color:#174ea6 !important; }
+html:root:root[data-theme="dark"] body footer .footer-tagline { color:#4f83db !important; }
+html:root:root body footer .footer-copyright { border-top:0 !important; color:var(--muted) !important; }
 </style>
 </head>
 
@@ -986,7 +1066,7 @@ header .theme-toggle:hover {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791454745">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791455033">
 <body>
 <header>
   <div class="container nav">
@@ -1250,277 +1330,92 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </header>
+<main class="ab-main">
 
-<div id="cfa-page-loader" aria-label="Chargement de Collins French Academy">
-  <div class="cfa-loader-wrap">
-    <div class="cfa-loader-core">
-      <div class="cfa-loader-orbit" aria-hidden="true">
-        <span class="cfa-loader-direction"></span>
-        <span class="cfa-loader-direction"></span>
-        <span class="cfa-loader-direction"></span>
-        <span class="cfa-loader-direction"></span>
-      </div>
-      <div class="cfa-loader-needle" aria-hidden="true"></div>
-      <div class="cfa-loader-center" aria-hidden="true">CFA</div>
+<section class="ab-hero">
+  <div class="ab-wrap ab-hero-grid">
+    <div>
+      <div class="ab-eyebrow">À propos de CFA</div>
+      <h1>Le français,<br><span>une aventure.</span><br>Pas une corvée.</h1>
+      <p class="ab-lead">Rendre le français facile, accessible, aventureux, motivant et amusant — pour donner envie d'apprendre, plutôt que le sentiment d'avoir à apprendre.</p>
     </div>
-
-    <div class="cfa-loader-brand">
-      Collins French Academy
-    </div>
-
-    <div class="cfa-loader-tagline">
-      Apprendre · S’amuser · S’inspirer · Découvrir
+    <div class="ab-herocard">
+      <ul class="ab-words"><li>Apprendre</li><li>S'amuser</li><li>S'inspirer</li><li>Découvrir</li></ul>
     </div>
   </div>
-</div>
-
-<main>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="container">
-
-        <div class="eyebrow">À propos de CFA</div>
-
-        <h1>
-            Le français,<br>
-            <span>une aventure.</span><br>
-            Pas une corvée.
-        </h1>
-
-        <p>
-            Rendre le français facile, accessible, aventureux,
-            motivant et amusant — pour donner envie d'apprendre,
-            plutôt que le sentiment d'avoir à apprendre.
-        </p>
-
-    </div>
 </section>
 
-<!-- MISSION -->
-<section class="mission">
-    <div class="container">
-
-        <div class="section-title">
-            <div class="eyebrow">Notre mission</div>
-            <h2>Apprendre parce qu'on en a envie.</h2>
-        </div>
-
-        <div class="mission-box">
-
-            <div class="big">
-                Nous voulons donner aux apprenants
-                l'envie d'apprendre.
-            </div>
-
-            <p>
-                Pas parce qu'ils y sont obligés.
-                Pas parce que c'est une corvée.
-                Mais parce qu'ils sont curieux, motivés
-                et heureux de découvrir quelque chose de nouveau.
-            </p>
-
-        </div>
-
+<section class="ab-section" id="mission">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre mission</div><h2>Apprendre parce qu'on en a envie.</h2></div>
+    <div class="ab-panel">
+      <p>Nous voulons donner aux apprenants l'envie d'apprendre.</p>
+      <p>Pas parce qu'ils y sont obligés. Pas parce que c'est une corvée.</p>
+      <p>Mais parce qu'ils sont curieux, motivés et heureux de découvrir quelque chose de nouveau.</p>
     </div>
+  </div>
 </section>
 
-<!-- VALUES -->
-<section>
-    <div class="container">
-
-        <div class="section-title">
-            <div class="eyebrow">Notre vision</div>
-            <h2>Rendre le français...</h2>
-        </div>
-
-        <div class="values">
-
-            <div class="value">
-                <div class="value-icon"></div>
-                <h3>Facile</h3>
-                <p>Pour que chacun puisse commencer.</p>
-            </div>
-
-            <div class="value">
-                <div class="value-icon"></div>
-                <h3>Accessible</h3>
-                <p>Pour que chacun puisse apprendre.</p>
-            </div>
-
-            <div class="value">
-                <div class="value-icon"></div>
-                <h3>Aventureux</h3>
-                <p>Pour que chaque leçon devienne une découverte.</p>
-            </div>
-
-            <div class="value">
-                <div class="value-icon"></div>
-                <h3>Motivant</h3>
-                <p>Pour donner envie de continuer.</p>
-            </div>
-
-            <div class="value">
-                <div class="value-icon"></div>
-                <h3>Amusant</h3>
-                <p>Pour apprendre avec plaisir.</p>
-            </div>
-
-        </div>
-
+<section class="ab-section" id="vision">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre vision</div><h2>Rendre le français...</h2></div>
+    <div class="ab-cards">
+      <article class="ab-card"><div class="ab-num">01</div><h3>Facile</h3><p>Pour que chacun puisse commencer.</p></article>
+      <article class="ab-card"><div class="ab-num">02</div><h3>Accessible</h3><p>Pour que chacun puisse apprendre.</p></article>
+      <article class="ab-card"><div class="ab-num">03</div><h3>Aventureux</h3><p>Pour que chaque leçon devienne une découverte.</p></article>
+      <article class="ab-card"><div class="ab-num">04</div><h3>Motivant</h3><p>Pour donner envie de continuer.</p></article>
+      <article class="ab-card"><div class="ab-num">05</div><h3>Amusant</h3><p>Pour apprendre avec plaisir.</p></article>
     </div>
+  </div>
 </section>
 
-<!-- PHILOSOPHY -->
-<section class="philosophy">
-    <div class="container">
-
-        <div class="section-title">
-            <div class="eyebrow">Notre philosophie</div>
-            <h2>Apprendre sans avoir l'impression d'étudier.</h2>
-            <p>
-                Pourquoi choisir entre apprendre et s'amuser ?
-                Chez CFA, nous voulons réunir les deux.
-            </p>
-        </div>
-
-        <div class="philosophy-grid">
-
-            <div class="philosophy-card">
-                <strong> Découvrir</strong>
-                Une nouvelle expression peut ouvrir une conversation.
-                Un mot peut révéler une culture.
-                Une histoire peut donner envie de comprendre davantage.
-            </div>
-
-            <div class="philosophy-card">
-                <strong> S'amuser</strong>
-                Quiz, défis, jeux, histoires, expressions et découvertes :
-                chaque contenu devient une occasion de progresser.
-            </div>
-
-            <div class="philosophy-card">
-                <strong>️ Donner envie</strong>
-                Notre objectif n'est pas seulement de vous faire retenir
-                le français. Nous voulons vous donner envie d'y revenir.
-            </div>
-
-            <div class="philosophy-card">
-                <strong> Avancer</strong>
-                Débutant ou avancé, chacun doit pouvoir progresser
-                à son propre rythme et trouver sa place dans l'aventure CFA.
-            </div>
-
-        </div>
-
+<section class="ab-section" id="philosophie">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre philosophie</div><h2>Apprendre sans avoir l'impression d'étudier.</h2><p>Pourquoi choisir entre apprendre et s'amuser ? Chez CFA, nous voulons réunir les deux.</p></div>
+    <div class="ab-cards">
+      <article class="ab-card"><div class="ab-num">01</div><h3>Découvrir</h3><p>Une nouvelle expression peut ouvrir une conversation. Un mot peut révéler une culture. Une histoire peut donner envie de comprendre davantage.</p></article>
+      <article class="ab-card"><div class="ab-num">02</div><h3>S'amuser</h3><p>Quiz, défis, jeux, histoires, expressions et découvertes : chaque contenu devient une occasion de progresser.</p></article>
+      <article class="ab-card"><div class="ab-num">03</div><h3>Donner envie</h3><p>Notre objectif n'est pas seulement de vous faire retenir le français. Nous voulons vous donner envie d'y revenir.</p></article>
+      <article class="ab-card"><div class="ab-num">04</div><h3>Avancer</h3><p>Débutant ou avancé, chacun doit pouvoir progresser à son propre rythme et trouver sa place dans l'aventure CFA.</p></article>
     </div>
+  </div>
 </section>
 
-<!-- COMPAS -->
-<section class="compas">
-    <div class="container">
-
-        <div class="section-title">
-            <div class="eyebrow">La méthode CFA</div>
-            <h2> LA MÉTHODE COMPAS</h2>
-            <p>
-                CFA accompagne les apprenants comme une boussole
-                accompagne un voyageur.
-            </p>
-        </div>
-
-        <div class="compas-grid">
-
-            <div class="compas-card">
-                <div class="compas-letter">C</div>
-                <h3>Cours structurés</h3>
-                <p>Apprendre avec une progression claire.</p>
-            </div>
-
-            <div class="compas-card">
-                <div class="compas-letter">O</div>
-                <h3>Ouverture francophone</h3>
-                <p>Découvrir la langue à travers sa culture et son monde.</p>
-            </div>
-
-            <div class="compas-card">
-                <div class="compas-letter">M</div>
-                <h3>Motivation</h3>
-                <p>Trouver chaque jour une raison de continuer.</p>
-            </div>
-
-            <div class="compas-card">
-                <div class="compas-letter">P</div>
-                <h3>Pratique</h3>
-                <p>Utiliser le français dans des situations concrètes.</p>
-            </div>
-
-            <div class="compas-card">
-                <div class="compas-letter">A</div>
-                <h3>Apprendre</h3>
-                <p>Explorer, jouer, découvrir et expérimenter.</p>
-            </div>
-
-            <div class="compas-card">
-                <div class="compas-letter">S</div>
-                <h3>Sagesse</h3>
-                <p>Apprendre une langue, mais aussi grandir à travers elle.</p>
-            </div>
-
-        </div>
-
+<section class="ab-section" id="methode">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">La méthode CFA</div><h2>LA MÉTHODE COMPAS</h2><p>CFA accompagne les apprenants comme une boussole accompagne un voyageur.</p></div>
+    <div class="ab-cards three">
+      <article class="ab-card"><div class="ab-letter">C</div><h3>Cours structurés</h3><p>Apprendre avec une progression claire.</p></article>
+      <article class="ab-card"><div class="ab-letter">O</div><h3>Ouverture francophone</h3><p>Découvrir la langue à travers sa culture et son monde.</p></article>
+      <article class="ab-card"><div class="ab-letter">M</div><h3>Motivation</h3><p>Trouver chaque jour une raison de continuer.</p></article>
+      <article class="ab-card"><div class="ab-letter">P</div><h3>Pratique</h3><p>Utiliser le français dans des situations concrètes.</p></article>
+      <article class="ab-card"><div class="ab-letter">A</div><h3>Apprendre</h3><p>Explorer, jouer, découvrir et expérimenter.</p></article>
+      <article class="ab-card"><div class="ab-letter">S</div><h3>Sagesse</h3><p>Apprendre une langue, mais aussi grandir à travers elle.</p></article>
     </div>
+  </div>
 </section>
 
-<!-- AMBITION -->
-<section class="ambition">
-    <div class="container">
-
-        <div class="section-title">
-            <div class="eyebrow">Notre ambition</div>
-            <h2>Créer une expérience d'apprentissage.</h2>
-        </div>
-
-        <div class="ambition-box">
-
-            <p>
-                Nous ne voulons pas simplement créer des cours de français.
-                Nous voulons créer une expérience qui donne envie de découvrir
-                un nouveau mot, d'essayer une nouvelle expression,
-                de parler et de continuer.
-            </p>
-
-            <div class="desire">
-                Parce qu'au fond, apprendre une langue commence
-                souvent par une chose très simple :
-                <br><br>
-                <strong>L'ENVIE.</strong>
-            </div>
-
-        </div>
-
+<section class="ab-section" id="ambition">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre ambition</div><h2>Créer une expérience d'apprentissage.</h2></div>
+    <div class="ab-panel">
+      <p>Nous ne voulons pas simplement créer des cours de français. Nous voulons créer une expérience qui donne envie de découvrir un nouveau mot, d'essayer une nouvelle expression, de parler et de continuer.</p>
+      <p>Parce qu'au fond, apprendre une langue commence souvent par une chose très simple :<span class="ab-big">L'ENVIE.</span></p>
     </div>
+  </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-    <div class="container">
-
-        <h2>Bienvenue dans l'aventure du français.</h2>
-
-        <p>
-            Apprendre · S'amuser · S'inspirer · Découvrir
-        </p>
-
-        <a href="../index.html#cours">
-            Commencer l'aventure →
-        </a>
-
+<section class="ab-section">
+  <div class="ab-wrap">
+    <div class="ab-cta">
+      <h2>Bienvenue dans l'aventure du français.</h2>
+      <p>Apprendre · S'amuser · S'inspirer · Découvrir</p>
+      <a class="ab-btn" href="../index.html#cours">Commencer l'aventure →</a>
     </div>
+  </div>
 </section>
 
 </main>
-
 <footer>
   <div class="container footer">
     <div class="footer-tagline">Apprendre · S’amuser · S’inspirer · Découvrir</div>
