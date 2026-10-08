@@ -543,6 +543,352 @@ footer{
     }
 }
 
+
+
+/* Mobile COMPAS entry stacking fix */
+@media (max-width: 700px) {
+    .compass-entry .entry-header {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .compass-entry .entry-number,
+    .compass-entry .entry-title,
+    .compass-entry .entry-date {
+        position: relative;
+        z-index: 2;
+    }
+
+    .compass-entry .entry-title {
+        display: block;
+        width: 100%;
+        margin: 0;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    .compass-entry .entry-date {
+        display: block;
+    }
+}
+
+/* =========================================================
+   CFA UNIVERSAL VISUAL STANDARD — COMPAS
+   Content and structure intentionally unchanged.
+   ========================================================= */
+
+/* Universal CFA content rhythm */
+.compas-navigation,
+.archive {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.compas-navigation-box,
+.archive-item,
+.compass-entry,
+.brief {
+    border: 1px solid var(--cfa-line);
+    background: var(--cfa-surface);
+    color: var(--cfa-ink);
+    box-shadow: 0 4px 18px rgba(15, 23, 42, .045);
+}
+
+/* Navigation/search */
+.compas-navigation-box {
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.compas-navigation-title {
+    margin-bottom: 12px;
+    color: var(--cfa-ink);
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.compas-search {
+    margin-bottom: 16px;
+}
+
+.compas-search input {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--cfa-line);
+    border-radius: 10px;
+    background: var(--cfa-input);
+    color: var(--cfa-ink);
+    font-size: .92rem;
+}
+
+.compas-search input:focus {
+    border-color: var(--cfa-blue);
+    box-shadow: 0 0 0 3px rgba(23, 78, 166, .10);
+}
+
+.compas-search-results {
+    border-color: var(--cfa-line);
+    border-radius: 10px;
+    background: var(--cfa-surface);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, .10);
+}
+
+.compas-search-result {
+    border-bottom-color: var(--cfa-line);
+}
+
+.compas-search-result:hover {
+    background: var(--cfa-paper);
+}
+
+.compas-search-result strong,
+.compas-nav-number,
+.archive-item .number,
+.archive-item .arrow,
+.entry-number,
+.compass-entry > .compass-heading {
+    color: var(--cfa-blue);
+}
+
+/* COMPAS numbered navigation */
+.compas-nav-number {
+    min-width: 48px;
+    height: 34px;
+    border: 1px solid var(--cfa-line);
+    border-radius: 8px;
+    background: var(--cfa-paper);
+    font-weight: 800;
+}
+
+.compas-nav-number:hover {
+    border-color: var(--cfa-blue);
+    background: var(--cfa-blue);
+    color: #fff;
+}
+
+/* Archive entries */
+.archive {
+    padding-bottom: 32px;
+}
+
+.archive-list {
+    gap: 10px;
+}
+
+.archive-item {
+    padding: 16px 18px;
+    border-radius: 12px;
+    box-shadow: none;
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        background-color .18s ease,
+        box-shadow .18s ease;
+}
+
+.archive-item:hover {
+    transform: translateY(-1px);
+    border-color: var(--cfa-blue);
+    background: var(--cfa-surface);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, .07);
+}
+
+.archive-item .title {
+    color: var(--cfa-ink);
+}
+
+.archive-item .date {
+    color: var(--cfa-muted);
+}
+
+/* Main COMPAS cards */
+.compass-entry {
+    margin-top: 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, .055);
+}
+
+.entry-header {
+    padding: 26px 28px;
+    border-bottom: 1px solid var(--cfa-line);
+    background: var(--cfa-paper);
+}
+
+.entry-number {
+    margin-bottom: 8px;
+    font-size: .74rem;
+    letter-spacing: .10em;
+}
+
+.entry-title {
+    color: var(--cfa-ink);
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    line-height: 1.18;
+}
+
+.entry-date {
+    color: var(--cfa-muted);
+}
+
+/* Section headings */
+.compass-entry > .compass-heading {
+    padding: 24px 28px 8px;
+    font-size: .78rem;
+    letter-spacing: .10em;
+}
+
+/* COMPAS pillars */
+.pillar {
+    margin: 0 28px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cfa-line);
+}
+
+.pillar strong,
+.brief-item h3 {
+    color: var(--cfa-ink);
+}
+
+.pillar p,
+.brief-item p {
+    color: var(--cfa-muted);
+    line-height: 1.72;
+}
+
+/* Quotes */
+.quote {
+    margin-top: 8px;
+    padding: 18px 20px;
+    border-left: 3px solid var(--cfa-blue);
+    border-radius: 0 10px 10px 0;
+    background: var(--cfa-paper);
+    color: var(--cfa-muted);
+}
+
+/* En Bref card */
+.brief {
+    margin: 26px 28px 28px;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--cfa-paper);
+    box-shadow: none;
+}
+
+.brief > .compass-heading {
+    margin-bottom: 14px;
+    padding: 0;
+    color: var(--cfa-blue);
+    font-size: 1.15rem;
+    letter-spacing: -.01em;
+    text-transform: none;
+}
+
+.brief-item {
+    padding: 15px 0;
+    border-top: 1px solid var(--cfa-line);
+}
+
+.brief-item h3 {
+    margin-bottom: 6px;
+    font-size: .98rem;
+}
+
+/* Footer uses the universal CFA variables */
+footer {
+    background: var(--cfa-surface);
+    border-top: 1px solid var(--cfa-line);
+    color: var(--cfa-muted);
+}
+
+.footer-tagline {
+    color: var(--cfa-ink);
+}
+
+.footer-copyright {
+    border-top-color: var(--cfa-line);
+    color: var(--cfa-muted);
+}
+
+/* Dark theme */
+html[data-theme="dark"] .compas-navigation-box,
+html[data-theme="dark"] .archive-item,
+html[data-theme="dark"] .compass-entry,
+html[data-theme="dark"] .brief {
+    background: var(--cfa-surface);
+    border-color: var(--cfa-line);
+    box-shadow: none;
+}
+
+html[data-theme="dark"] .entry-header,
+html[data-theme="dark"] .quote,
+html[data-theme="dark"] .brief,
+html[data-theme="dark"] .compas-nav-number {
+    background: var(--cfa-paper);
+}
+
+html[data-theme="dark"] .archive-item:hover {
+    background: var(--cfa-surface);
+    border-color: var(--cfa-blue);
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: min(100% - 28px, 1160px);
+    }
+
+    .hero {
+        padding: 46px 0 34px;
+    }
+
+    .archive {
+        padding-top: 28px;
+    }
+
+    .archive-item {
+        grid-template-columns: 1fr auto;
+        gap: 6px 12px;
+    }
+
+    .archive-item .date {
+        grid-column: 1;
+    }
+
+    .archive-item .title {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .archive-item .arrow {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .compass-entry {
+        margin-top: 22px;
+        border-radius: 12px;
+    }
+
+    .entry-header {
+        padding: 22px 20px;
+    }
+
+    .compass-entry > .compass-heading {
+        padding: 22px 20px 8px;
+    }
+
+    .pillar {
+        margin: 0 20px;
+    }
+
+    .brief {
+        margin: 22px 20px 20px;
+        padding: 18px;
+    }
+}
+
 </style>
 
 <link rel="stylesheet" href="../css/cfa-shared-theme.css">
@@ -746,7 +1092,7 @@ footer {
 </style>
 
 <!-- CFA UNIVERSAL FUNCTIONAL BUTTON TEXT -->
-<script src="../js/cfa-current-page.js?v=1791457697" defer></script>
+<script src="../js/cfa-current-page.js?v=1791464377" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
 </head>
@@ -1160,7 +1506,7 @@ header .theme-toggle:hover {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791457697">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791464377">
 <body>
 <header>
   <div class="container nav">
@@ -1502,26 +1848,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div class="archive-list">
 
-            <a class="archive-item" href="#compas-001">
-
-                <span class="number">
-                    COMPAS 001
-                </span>
-
-                <span class="date">
-                    Date à définir
-                </span>
-
-                <span class="title">
-                    La Force de l'Impact
-                </span>
-
-                <span class="arrow">
-                    →
-                </span>
-
-            </a>
-
         </div>
 
         <article class="compass-entry" id="compas-001">
@@ -1535,10 +1861,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h2 class="entry-title">
                     La Force de l'Impact
                 </h2>
-
-                <div class="entry-date">
-                    Date à définir
-                </div>
 
             </div>
 
@@ -1651,10 +1973,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     L’Art de Vivre Pleinement
                 </h2>
 
-                <div class="entry-date">
-                    Date à définir
-                </div>
-
             </div>
 
             <h3 class="compass-heading">
@@ -1760,6 +2078,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <article class="compass-entry" id="compas-003">
 
+            <!-- Introduction retirée pour uniformiser les entrées (texte conservé) :
+            Chaque jour est une occasion nouvelle de faire un pas en avant.
+            Nous ne pouvons ni modifier hier ni contrôler pleinement demain,
+            mais nous pouvons choisir ce que nous faisons de l’instant qui
+            nous est donné. Ne permettons donc pas aux incertitudes de demain
+            de nous priver de la force, de la paix et des possibilités d’aujourd’hui.
+            -->
+
             <div class="entry-header">
 
                 <div class="entry-number">
@@ -1767,31 +2093,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <h2 class="entry-title">
-                    VIVRE PLEINEMENT AUJOURD’HUI
+                    Vivre Pleinement Aujourd’hui
                 </h2>
 
-                <div class="entry-date">
-                    Date à définir
-                </div>
-
-            </div>
-
-            <h3 class="compass-heading">
-                INTRODUCTION
-            </h3>
-
-            <div class="pillar">
-                <p>
-                    Chaque jour est une occasion nouvelle de faire un pas en avant.
-                    Nous ne pouvons ni modifier hier ni contrôler pleinement demain,
-                    mais nous pouvons choisir ce que nous faisons de l’instant qui
-                    nous est donné.
-                </p>
-
-                <p>
-                    Ne permettons donc pas aux incertitudes de demain de nous priver
-                    de la force, de la paix et des possibilités d’aujourd’hui.
-                </p>
             </div>
 
             <h3 class="compass-heading">
@@ -1801,7 +2105,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="pillar">
                 <strong>C — Conseil</strong>
                 <p>
-                    Ne laissez pas les inquiétudes de demain troubler
+                    Ne laisse pas les inquiétudes de demain troubler
                     la paix d’aujourd’hui.
                 </p>
             </div>
@@ -1809,15 +2113,15 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="pillar">
                 <strong>O — Orientation</strong>
                 <p>
-                    Préparez l’avenir avec sagesse, mais concentrez-vous
-                    sur ce que vous pouvez accomplir aujourd’hui.
+                    Prépare l’avenir avec sagesse, mais concentre-toi
+                    sur ce que tu peux accomplir aujourd’hui.
                 </p>
             </div>
 
             <div class="pillar">
                 <strong>M — Motivation</strong>
                 <p>
-                    L’inquiétude ne change pas demain ; elle vous prive
+                    L’inquiétude ne change pas demain ; elle te prive
                     seulement de la force d’aujourd’hui.
                 </p>
             </div>
@@ -1836,7 +2140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="pillar">
                 <strong>A — Apprendre</strong>
                 <p>
-                    Apprenez à distinguer ce qui dépend de vous aujourd’hui
+                    Apprends à distinguer ce qui dépend de toi aujourd’hui
                     de ce qui appartient à demain.
                 </p>
             </div>
@@ -1844,38 +2148,52 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="pillar">
                 <strong>S — Sagesse</strong>
                 <p>
-                    Vous ne contrôlez pas demain, mais vous pouvez donner
-                    le meilleur de vous-même aujourd’hui.
+                    Tu ne contrôles pas demain, mais tu peux donner
+                    le meilleur de toi-même aujourd’hui.
                 </p>
             </div>
 
             <div class="brief">
 
                 <h3 class="compass-heading">
-                    À RETENIR
+                    En Bref
                 </h3>
 
                 <div class="brief-item">
+                    <h3>Sagesse</h3>
                     <p>
-                        <strong>Ne portez pas les soucis de demain avec
-                        les forces d’aujourd’hui.</strong>
+                        Ne porte pas les soucis de demain avec
+                        les forces d’aujourd’hui.
+                    </p>
+                </div>
+
+                <div class="brief-item">
+                    <h3>Énigme</h3>
+                    <p>
+                        Tout le monde m’attend, personne ne m’a jamais rencontré :
+                        quand j’arrive, je suis déjà devenu aujourd’hui.
+                        Qui suis-je ?
+                    </p>
+                    <p>
+                        <strong>Réponse :</strong>
+                        Demain.
                     </p>
                 </div>
 
                 <div class="brief-item challenge">
-                    <h3>DÉFI DU JOUR</h3>
+                    <h3>Défi du jour</h3>
                     <p>
-                        Identifiez une inquiétude que vous ne pouvez pas résoudre
-                        aujourd’hui. Mettez-la de côté et consacrez votre énergie
+                        Identifie une inquiétude que tu ne peux pas résoudre
+                        aujourd’hui. Mets-la de côté et consacre ton énergie
                         à une action concrète et importante.
                     </p>
                 </div>
 
                 <div class="brief-item reflection">
-                    <h3>RÉFLEXION DU JOUR</h3>
+                    <h3>Réflexion</h3>
                     <p>
-                        <strong>Quelle préoccupation pouvez-vous laisser à demain
-                        afin de vivre pleinement aujourd’hui ?</strong>
+                        Quelle préoccupation peux-tu laisser à demain
+                        afin de vivre pleinement aujourd’hui ?
                     </p>
                 </div>
 
@@ -1933,7 +2251,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         link.href = "#" + item.id;
         link.className = "compas-nav-number";
-        link.textContent = item.number;
+        link.textContent = "COMPAS " + item.number;
         link.setAttribute(
             "aria-label",
             "COMPAS " + item.number +

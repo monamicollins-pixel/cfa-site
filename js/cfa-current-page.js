@@ -25,8 +25,8 @@
       if (ok && onHome) ok = (u.hash || '#accueil') === '#' + currentId;
       if (ok) {
         a.setAttribute('aria-current', 'page');
-        a.style.setProperty('background', '#C8102E', 'important');
-        a.style.setProperty('color', '#fff', 'important');
+        a.style.setProperty('background', 'transparent', 'important');
+        a.style.setProperty('color', '#C8102E', 'important');
       } else {
         a.removeAttribute('aria-current');
         a.style.removeProperty('background');
