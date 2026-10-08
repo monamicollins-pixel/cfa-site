@@ -1,214 +1,352 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Français Facile | CFA — Communauté</title>
-
-<link rel="stylesheet" href="../css/cfa-shared-theme.css">
-<script src="../js/cfa-shared-theme.js"></script>
-
-<link rel="stylesheet" href="../css/cfa-loader.css" data-cfa-loader="css">
-<script src="../js/cfa-loader.js" defer data-cfa-loader="js"></script>
+<title>À propos — Collins French Academy</title>
 
 <style>
-*{box-sizing:border-box;}
+:root { --blue:#174ea6; --navy:#0f172a; --orange:#ff6600; --white:#fff; --ink:#10203a; --muted:#64748b; --line:#e5eaf2; --bg:#f6f9fc; --card:#fff; }
 
-body{
-    margin:0;
-    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.6;
+[data-theme="dark"] { --blue:#4f83db; --white:#111c2e; --ink:#f1f5f9; --muted:#94a3b8; --line:#1e293b; --bg:#0b1320; --card:#131f33; }
+
+* {
+    box-sizing: border-box;
 }
 
-.container{
-    width:min(1160px,92%);
-    margin:auto;
+html {
+    scroll-behavior: smooth;
 }
 
-header{
-    position:sticky;
-    top:0;
-    z-index:20;
-    background:var(--white);
-    border-bottom:1px solid var(--line);
-    backdrop-filter:blur(16px);
+body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
 }
 
-.nav{
-    min-height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    color:inherit;
-    text-decoration:none;
-    font-weight:700;
+/* HERO */
+.hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    background:
+        radial-gradient(circle at top right, rgba(23,78,166,.12), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(255,102,0,.10), transparent 30%),
+        var(--bg);
 }
 
-.brand img{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    border-radius:50%;
+.eyebrow {
+    color: var(--orange);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
 }
 
-.brand-name{
-    font-size:20px;
+.hero h1 {
+    margin: 15px auto;
+    max-width: 850px;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -3px;
 }
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:22px;
+.hero h1 span {
+    color: var(--blue);
 }
 
-.nav-links a{
-    color:inherit;
-    text-decoration:none;
-    font-weight:600;
-    font-size:14px;
+.hero p {
+    max-width: 700px;
+    margin: 25px auto 0;
+    font-size: 20px;
+    color: var(--muted);
 }
 
-.hero{
-    text-align:center;
-    padding:78px 20px 45px;
+/* CONTENT */
+section {
+    padding: 80px 0;
 }
 
-.eyebrow{
-    color:var(--blue);
-    font-size:13px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.08em;
+.section-title {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
 }
 
-.hero h1{
-    margin:10px 0 10px;
-    font-size:clamp(32px,5vw,52px);
-    line-height:1.1;
+.section-title h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.1;
+    margin: 10px 0;
 }
 
-.hero p{
-    max-width:680px;
-    margin:0 auto;
-    color:var(--muted);
-    font-size:17px;
+.section-title p {
+    color: var(--muted);
 }
 
-.social-grid{
-    max-width:900px;
-    margin:0 auto 80px;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+/* MISSION */
+.mission {
+    background: var(--card);
 }
 
-.social-card{
-    display:block;
-    padding:28px;
-    background:var(--white);
-    color:inherit;
-    text-decoration:none;
-    border:1px solid var(--line);
-    border-radius:18px;
-    transition:.2s ease;
+.mission-box {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
 }
 
-.social-card:hover{
-    transform:translateY(-3px);
-    box-shadow:var(--shadow-hover);
+.mission-box .big {
+    font-size: clamp(25px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--blue);
 }
 
-.social-icon{
-    font-size:30px;
-    margin-bottom:12px;
+.mission-box p {
+    color: var(--muted);
+    font-size: 18px;
 }
 
-.social-card h2{
-    margin:0 0 6px;
-    font-size:21px;
+/* VALUES */
+.values {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
 }
 
-.social-card p{
-    margin:0 0 18px;
-    color:var(--muted);
+.value {
+    padding: 28px 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    text-align: center;
 }
 
-.social-action{
-    color:var(--blue);
-    font-size:13px;
-    font-weight:800;
+.value-icon {
+    font-size: 32px;
 }
 
-.social-card.whatsapp{
-    border-top:4px solid #25D366;
+.value h3 {
+    margin: 10px 0 5px;
 }
 
-.social-card.coming{
-    opacity:.58;
+.value p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
 }
 
-.social-card.coming:hover{
-    transform:none;
-    box-shadow:none;
+/* PHILOSOPHY */
+.philosophy {
+    background: var(--card);
 }
 
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.philosophy-card {
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--bg);
+}
+
+.philosophy-card strong {
+    display: block;
+    color: var(--orange);
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+/* COMPAS */
+.compas {
+    background: var(--navy);
+    color: white;
+}
+
+.compas .section-title p {
+    color: #cbd5e1;
+}
+
+.compas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.compas-card {
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 18px;
+    background: rgba(255,255,255,.06);
+}
+
+.compas-letter {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ff6600;
+}
+
+.compas-card h3 {
+    margin: 5px 0;
+}
+
+.compas-card p {
+    color: #cbd5e1;
+    margin-bottom: 0;
+}
+
+/* AMBITION */
+.ambition {
+    text-align: center;
+}
+
+.ambition-box {
+    max-width: 850px;
+    margin: auto;
+}
+
+.ambition-box h2 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+}
+
+.ambition-box p {
+    font-size: 19px;
+    color: var(--muted);
+}
+
+.desire {
+    margin: 40px auto;
+    padding: 30px;
+    border-left: 5px solid var(--orange);
+    background: var(--card);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+/* CTA */
+.cta {
+    padding: 70px 0;
+    background: var(--blue);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 0 0 12px;
+}
+
+.cta p {
+    color: #dbeafe;
+}
+
+.cta a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 24px;
+    background: white;
+    color: var(--blue);
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+/* FOOTER */
+footer {
+    padding: 30px 0;
+    background: var(--navy);
+    color: #cbd5e1;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* MOBILE */
 footer{
-    padding:42px 0 36px;
-    background:var(--white);
-    border-top:1px solid var(--line);
-    text-align:center;
+  padding:42px 0 36px;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+.footer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
 .footer-tagline{
-    font-size:14px;
-    font-weight:700;
-    color:var(--ink);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.15px;
+  color:var(--ink);
+  line-height:1.5;
 }
 
 .footer-copyright{
-    margin-top:12px;
-    padding-top:12px;
-    border-top:1px solid var(--line);
-    color:var(--muted);
-    font-size:11px;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  min-width:260px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.5;
 }
 
-@media(max-width:700px){
-    .nav{
-        min-height:70px;
+@media (max-width: 800px) {
+    .nav-right a {
+        display: inline-block;
     }
 
-    .brand-name{
-        font-size:15px;
+    .values {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .nav-links{
-        gap:10px;
+    .philosophy-grid,
+    .compas-grid {
+        grid-template-columns: 1fr;
     }
 
-    .nav-links a{
-        font-size:12px;
+    .hero {
+        padding: 70px 0 60px;
     }
 
-    .hero{
-        padding-top:55px;
-    }
-
-    .social-grid{
-        grid-template-columns:1fr;
+    section {
+        padding: 60px 0;
     }
 }
+
+@media (max-width: 480px) {
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+}
+
 </style>
+    <link rel="stylesheet" href="../css/cfa-shared-theme.css">
+    <script src="../js/cfa-shared-theme.js"></script>
+  <link rel="stylesheet" href="../css/cfa-loader.css" data-cfa-loader="css">
+  <script src="../js/cfa-loader.js" defer data-cfa-loader="js"></script>
+
 
 <!-- CFA MOBILE DRAWER VISIBILITY FIX -->
 <style id="cfa-mobile-drawer-visibility-fix">
@@ -408,6 +546,115 @@ footer {
 <script src="../js/cfa-current-page.js?v=1791454745" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
+<style id="cfa-apropos-footer">
+/* Footer follows the page theme; no divider line */
+html:root:root body footer { color: var(--ink) !important; }
+html:root:root body footer .footer-tagline { color: #174ea6 !important; }
+html:root:root[data-theme="dark"] body footer .footer-tagline { color: #4f83db !important; }
+html:root:root body footer .footer-copyright { border-top: 0 !important; color: var(--muted) !important; }
+</style>
+<style id="cfa-apropos-bands">
+/* Compas band follows the page theme (no fixed navy block) */
+html:root:root body .compas { background: transparent !important; color: var(--ink) !important; }
+html:root:root body .compas h2, html:root:root body .compas h3 { color: var(--ink) !important; }
+html:root:root body .compas .section-title p, html:root:root body .compas-card p { color: var(--muted) !important; }
+html:root:root body .compas-card { background: var(--card) !important; border-color: var(--line) !important; }
+html:root:root body .compas-letter { color: #174ea6 !important; }
+html:root:root[data-theme="dark"] body .compas-letter { color: #FF6600 !important; }
+
+/* Call-to-action band: deep blue in both themes, standard button */
+html:root:root body .cta { background: #174ea6 !important; color: #fff !important; }
+html:root:root body .cta h2, html:root:root body .cta p { color: #fff !important; }
+html:root:root body .cta a {
+  display: inline-flex !important; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 20px; border-radius: 10px;
+  background: #4f83db !important; color: #000 !important;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+}
+html:root:root body .cta a:hover { background: #FF6600 !important; color: #000 !important; }
+html:root:root body .cta a:active { background: #C8102E !important; color: #fff !important; }
+html:root:root body .cta a:focus-visible { outline: 3px solid #FF6600; outline-offset: 2px; }
+</style>
+<style id="cfa-apropos-new">
+/* A propos: homepage-style presentation */
+.ab-main {
+  --ab-blue:#174ea6; --ab-accent:#174ea6; --ab-eyebrow:#C8102E;
+  --ab-ink:#10203a; --ab-muted:#64748b; --ab-line:#e5eaf2; --ab-card:#fff;
+  --ab-shadow:0 20px 40px -15px rgba(15,35,70,.12);
+  --ab-shadow-hover:0 24px 50px -12px rgba(23,78,166,.18);
+  color:var(--ab-ink);
+}
+html[data-theme="dark"] .ab-main, body.dark-mode .ab-main {
+  --ab-blue:#4f83db; --ab-accent:#FF6600; --ab-eyebrow:#FF6600;
+  --ab-ink:#f1f5f9; --ab-muted:#94a3b8; --ab-line:#1e293b; --ab-card:#131f33;
+  --ab-shadow:0 20px 40px -15px rgba(0,0,0,.4);
+  --ab-shadow-hover:0 24px 50px -12px rgba(79,131,219,.2);
+}
+.ab-main .ab-wrap { width:min(1160px,92%); margin:0 auto; }
+.ab-main .ab-section { padding:64px 0; }
+.ab-main .ab-hero {
+  padding:90px 0 70px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(79,131,219,.08), transparent 36%),
+    radial-gradient(circle at 10% 45%, rgba(200,16,46,.04), transparent 30%);
+}
+.ab-main .ab-hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:65px; align-items:center; }
+.ab-main .ab-eyebrow { color:var(--ab-eyebrow); font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin:0 0 6px; }
+.ab-main h1 { font-size:clamp(40px,6vw,64px); line-height:1.05; letter-spacing:-2px; margin:10px 0 20px; color:var(--ab-ink); }
+.ab-main h1 span { color:var(--ab-blue); }
+.ab-main .ab-lead { font-size:18px; color:var(--ab-muted); max-width:560px; margin:0; }
+.ab-main .ab-herocard { background:var(--ab-card); border:1px solid var(--ab-line); border-radius:32px; padding:32px; box-shadow:var(--ab-shadow); }
+.ab-main .ab-words { list-style:none; margin:0; padding:0; display:grid; gap:18px; }
+.ab-main .ab-words li { font-size:24px; font-weight:800; letter-spacing:-.5px; color:var(--ab-ink); }
+.ab-main .ab-words li::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--ab-accent); margin-right:14px; }
+.ab-main .ab-head { max-width:680px; margin:0 0 40px; }
+.ab-main h2 { font-size:clamp(28px,4vw,40px); line-height:1.1; letter-spacing:-1px; margin:0 0 10px; color:var(--ab-ink); }
+.ab-main .ab-head p { color:var(--ab-muted); font-size:16px; margin:0; }
+.ab-main .ab-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:20px; }
+.ab-main .ab-cards.three { grid-template-columns:repeat(3,1fr); }
+.ab-main .ab-card, .ab-main .ab-panel {
+  background:var(--ab-card); border:1px solid var(--ab-line); border-radius:20px;
+  padding:28px; box-shadow:var(--ab-shadow); transition:all .3s ease;
+}
+.ab-main .ab-card:hover { transform:translateY(-5px); box-shadow:var(--ab-shadow-hover); border-color:var(--ab-blue); }
+.ab-main .ab-num { font-size:14px; font-weight:700; color:var(--ab-accent); margin:0 0 25px; }
+.ab-main .ab-letter { font-size:42px; font-weight:900; line-height:1; color:var(--ab-accent); margin:0 0 14px; }
+.ab-main .ab-card h3 { font-size:18px; letter-spacing:-.3px; margin:0 0 8px; color:var(--ab-ink); }
+.ab-main .ab-card p { font-size:14px; line-height:1.55; color:var(--ab-muted); margin:0; }
+.ab-main .ab-panel { max-width:860px; padding:36px; }
+.ab-main .ab-panel p { font-size:18px; line-height:1.7; color:var(--ab-ink); margin:0 0 14px; }
+.ab-main .ab-panel p:last-child { margin-bottom:0; }
+.ab-main .ab-big { display:block; font-size:44px; font-weight:900; letter-spacing:-1px; color:var(--ab-accent); margin-top:6px; }
+.ab-main .ab-cta { background:#174ea6; color:#fff; border-radius:28px; padding:56px 24px; text-align:center; }
+.ab-main .ab-cta h2 { color:#fff; margin-bottom:10px; }
+.ab-main .ab-cta p { color:#fff; margin:0 0 24px; font-size:16px; }
+.ab-main .ab-btn {
+  display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box;
+  min-height:44px; padding:0 22px; border-radius:10px; border:0;
+  background:#4f83db; color:#000; font-size:14px; font-weight:700; text-decoration:none;
+}
+.ab-main .ab-btn:hover { background:#FF6600; color:#000; }
+.ab-main .ab-btn:active { background:#C8102E; color:#fff; }
+.ab-main .ab-btn:focus-visible { outline:3px solid #FF6600; outline-offset:2px; }
+@media (max-width:900px) {
+  .ab-main .ab-hero { padding:60px 0 50px; }
+  .ab-main .ab-hero-grid { grid-template-columns:1fr; gap:40px; }
+  .ab-main .ab-cards.three { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:600px) {
+  .ab-main .ab-section { padding:44px 0; }
+  .ab-main .ab-cards, .ab-main .ab-cards.three { grid-template-columns:1fr; }
+  .ab-main .ab-panel { padding:26px; }
+  .ab-main h1 { letter-spacing:-1.5px; }
+}
+@media (prefers-reduced-motion:reduce) { .ab-main .ab-card { transition:none; } .ab-main .ab-card:hover { transform:none; } }
+
+/* Footer: follows the page theme, no divider line */
+html:root:root body footer { color:var(--ink) !important; }
+html:root:root body footer .footer-tagline { color:#174ea6 !important; }
+html:root:root[data-theme="dark"] body footer .footer-tagline { color:#4f83db !important; }
+html:root:root body footer .footer-copyright { border-top:0 !important; color:var(--muted) !important; }
+</style>
 </head>
 
 <style id="cfa-universal-master-header">
@@ -1083,72 +1330,97 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </header>
+<main class="ab-main">
 
-
-<main>
-
-<section class="hero">
-    <div class="eyebrow">Communauté CFA</div>
-
-    <h1>Français Facile | CFA</h1>
-
-    <p>
-        Rejoignez la communauté CFA et retrouvez nos espaces pour apprendre,
-        pratiquer, découvrir et progresser en français.
-    </p>
+<section class="ab-hero">
+  <div class="ab-wrap ab-hero-grid">
+    <div>
+      <div class="ab-eyebrow">À propos de CFA</div>
+      <h1>Le français,<br><span>une aventure.</span><br>Pas une corvée.</h1>
+      <p class="ab-lead">Rendre le français facile, accessible, aventureux, motivant et amusant — pour donner envie d'apprendre, plutôt que le sentiment d'avoir à apprendre.</p>
+    </div>
+    <div class="ab-herocard">
+      <ul class="ab-words"><li>Apprendre</li><li>S'amuser</li><li>S'inspirer</li><li>Découvrir</li></ul>
+    </div>
+  </div>
 </section>
 
-<section class="social-grid">
+<section class="ab-section" id="mission">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre mission</div><h2>Apprendre parce qu'on en a envie.</h2></div>
+    <div class="ab-panel">
+      <p>Nous voulons donner aux apprenants l'envie d'apprendre.</p>
+      <p>Pas parce qu'ils y sont obligés. Pas parce que c'est une corvée.</p>
+      <p>Mais parce qu'ils sont curieux, motivés et heureux de découvrir quelque chose de nouveau.</p>
+    </div>
+  </div>
+</section>
 
-    <a class="social-card whatsapp"
-       href="https://whatsapp.com/channel/0029VbCsnvZEAKWIGVzLE12t"
-       target="_blank"
-       rel="noopener">
+<section class="ab-section" id="vision">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre vision</div><h2>Rendre le français...</h2></div>
+    <div class="ab-cards">
+      <article class="ab-card"><div class="ab-num">01</div><h3>Facile</h3><p>Pour que chacun puisse commencer.</p></article>
+      <article class="ab-card"><div class="ab-num">02</div><h3>Accessible</h3><p>Pour que chacun puisse apprendre.</p></article>
+      <article class="ab-card"><div class="ab-num">03</div><h3>Aventureux</h3><p>Pour que chaque leçon devienne une découverte.</p></article>
+      <article class="ab-card"><div class="ab-num">04</div><h3>Motivant</h3><p>Pour donner envie de continuer.</p></article>
+      <article class="ab-card"><div class="ab-num">05</div><h3>Amusant</h3><p>Pour apprendre avec plaisir.</p></article>
+    </div>
+  </div>
+</section>
 
-        <div class="social-icon"></div>
+<section class="ab-section" id="philosophie">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre philosophie</div><h2>Apprendre sans avoir l'impression d'étudier.</h2><p>Pourquoi choisir entre apprendre et s'amuser ? Chez CFA, nous voulons réunir les deux.</p></div>
+    <div class="ab-cards">
+      <article class="ab-card"><div class="ab-num">01</div><h3>Découvrir</h3><p>Une nouvelle expression peut ouvrir une conversation. Un mot peut révéler une culture. Une histoire peut donner envie de comprendre davantage.</p></article>
+      <article class="ab-card"><div class="ab-num">02</div><h3>S'amuser</h3><p>Quiz, défis, jeux, histoires, expressions et découvertes : chaque contenu devient une occasion de progresser.</p></article>
+      <article class="ab-card"><div class="ab-num">03</div><h3>Donner envie</h3><p>Notre objectif n'est pas seulement de vous faire retenir le français. Nous voulons vous donner envie d'y revenir.</p></article>
+      <article class="ab-card"><div class="ab-num">04</div><h3>Avancer</h3><p>Débutant ou avancé, chacun doit pouvoir progresser à son propre rythme et trouver sa place dans l'aventure CFA.</p></article>
+    </div>
+  </div>
+</section>
 
-        <h2>Chaîne WhatsApp</h2>
+<section class="ab-section" id="methode">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">La méthode CFA</div><h2>LA MÉTHODE COMPAS</h2><p>CFA accompagne les apprenants comme une boussole accompagne un voyageur.</p></div>
+    <div class="ab-cards three">
+      <article class="ab-card"><div class="ab-letter">C</div><h3>Cours structurés</h3><p>Apprendre avec une progression claire.</p></article>
+      <article class="ab-card"><div class="ab-letter">O</div><h3>Ouverture francophone</h3><p>Découvrir la langue à travers sa culture et son monde.</p></article>
+      <article class="ab-card"><div class="ab-letter">M</div><h3>Motivation</h3><p>Trouver chaque jour une raison de continuer.</p></article>
+      <article class="ab-card"><div class="ab-letter">P</div><h3>Pratique</h3><p>Utiliser le français dans des situations concrètes.</p></article>
+      <article class="ab-card"><div class="ab-letter">A</div><h3>Apprendre</h3><p>Explorer, jouer, découvrir et expérimenter.</p></article>
+      <article class="ab-card"><div class="ab-letter">S</div><h3>Sagesse</h3><p>Apprendre une langue, mais aussi grandir à travers elle.</p></article>
+    </div>
+  </div>
+</section>
 
-        <p>
-            Suivez les contenus CFA, les nouveautés, les conseils
-            et les ressources pour apprendre le français.
-        </p>
+<section class="ab-section" id="ambition">
+  <div class="ab-wrap">
+    <div class="ab-head"><div class="ab-eyebrow">Notre ambition</div><h2>Créer une expérience d'apprentissage.</h2></div>
+    <div class="ab-panel">
+      <p>Nous ne voulons pas simplement créer des cours de français. Nous voulons créer une expérience qui donne envie de découvrir un nouveau mot, d'essayer une nouvelle expression, de parler et de continuer.</p>
+      <p>Parce qu'au fond, apprendre une langue commence souvent par une chose très simple :<span class="ab-big">L'ENVIE.</span></p>
+    </div>
+  </div>
+</section>
 
-        <span class="social-action">Rejoindre la chaîne →</span>
-    </a>
-
-    <a class="social-card whatsapp"
-       href="https://chat.whatsapp.com/C5viQ4lgsNiF3tyRRovWMq"
-       target="_blank"
-       rel="noopener">
-
-        <div class="social-icon"></div>
-
-        <h2>Groupe WhatsApp</h2>
-
-        <p>
-            Échangez avec d'autres apprenants et participez
-            à la communauté CFA.
-        </p>
-
-        <span class="social-action">Rejoindre le groupe →</span>
-    </a>
-
-    <div class="social-card coming">
-        <div class="social-icon"></div>
+<section class="ab-section">
+  <div class="ab-wrap">
+    <div class="ab-cta">
+      <h2>Bienvenue dans l'aventure du français.</h2>
+      <p>Apprendre · S'amuser · S'inspirer · Découvrir</p>
+      <a class="ab-btn" href="../index.html#cours">Commencer l'aventure →</a>
+    </div>
+  </div>
+</section>
 
 </main>
-
 <footer>
-    <div class="container footer">
-        <div class="footer-tagline">
-            Apprendre · S’amuser · S’inspirer · Découvrir
-        </div>
-
-        <div class="footer-copyright">
-            © 2026 Collins French Academy (CFA)
-        </div>
-    </div>
+  <div class="container footer">
+    <div class="footer-tagline">Apprendre · S’amuser · S’inspirer · Découvrir</div>
+    <div class="footer-copyright">© 2026 Collins French Academy (CFA)</div>
+  </div>
 </footer>
 
 </body>

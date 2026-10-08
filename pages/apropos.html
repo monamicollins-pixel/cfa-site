@@ -6,26 +6,9 @@
 <title>À propos — Collins French Academy</title>
 
 <style>
-:root {
-    --blue: #174ea6;
-    --navy: #0f172a;
-    --orange: #ff6600;
-    --white: #ffffff;
-    --ink: #0f172a;
-    --muted: #64748b;
-    --line: #e2e8f0;
-    --bg: #f8fafc;
-    --card: #ffffff;
-}
+:root { --blue:#174ea6; --navy:#0f172a; --orange:#ff6600; --white:#fff; --ink:#10203a; --muted:#64748b; --line:#e5eaf2; --bg:#f6f9fc; --card:#fff; }
 
-[data-theme="dark"] {
-    --white: #0f172a;
-    --ink: #f8fafc;
-    --muted: #cbd5e1;
-    --line: #334155;
-    --bg: #020617;
-    --card: #0f172a;
-}
+[data-theme="dark"] { --blue:#4f83db; --white:#111c2e; --ink:#f1f5f9; --muted:#94a3b8; --line:#1e293b; --bg:#0b1320; --card:#131f33; }
 
 * {
     box-sizing: border-box;
@@ -37,7 +20,7 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.7;
@@ -560,9 +543,38 @@ footer {
 </style>
 
 <!-- CFA UNIVERSAL FUNCTIONAL BUTTON TEXT -->
-<script src="../js/cfa-current-page.js?v=1791441848" defer></script>
+<script src="../js/cfa-current-page.js?v=1791454745" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
+<style id="cfa-apropos-footer">
+/* Footer follows the page theme; no divider line */
+html:root:root body footer { color: var(--ink) !important; }
+html:root:root body footer .footer-tagline { color: #174ea6 !important; }
+html:root:root[data-theme="dark"] body footer .footer-tagline { color: #4f83db !important; }
+html:root:root body footer .footer-copyright { border-top: 0 !important; color: var(--muted) !important; }
+</style>
+<style id="cfa-apropos-bands">
+/* Compas band follows the page theme (no fixed navy block) */
+html:root:root body .compas { background: transparent !important; color: var(--ink) !important; }
+html:root:root body .compas h2, html:root:root body .compas h3 { color: var(--ink) !important; }
+html:root:root body .compas .section-title p, html:root:root body .compas-card p { color: var(--muted) !important; }
+html:root:root body .compas-card { background: var(--card) !important; border-color: var(--line) !important; }
+html:root:root body .compas-letter { color: #174ea6 !important; }
+html:root:root[data-theme="dark"] body .compas-letter { color: #FF6600 !important; }
+
+/* Call-to-action band: deep blue in both themes, standard button */
+html:root:root body .cta { background: #174ea6 !important; color: #fff !important; }
+html:root:root body .cta h2, html:root:root body .cta p { color: #fff !important; }
+html:root:root body .cta a {
+  display: inline-flex !important; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 20px; border-radius: 10px;
+  background: #4f83db !important; color: #000 !important;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+}
+html:root:root body .cta a:hover { background: #FF6600 !important; color: #000 !important; }
+html:root:root body .cta a:active { background: #C8102E !important; color: #fff !important; }
+html:root:root body .cta a:focus-visible { outline: 3px solid #FF6600; outline-offset: 2px; }
+</style>
 </head>
 
 <style id="cfa-universal-master-header">
@@ -974,7 +986,7 @@ header .theme-toggle:hover {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791441235">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791454745">
 <body>
 <header>
   <div class="container nav">

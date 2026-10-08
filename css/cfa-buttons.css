@@ -112,3 +112,64 @@ html:root:root:root body :is(header .nav a, .cfa-mobile-link, .cfa-mobile-login)
     -webkit-text-fill-color: #fff !important;
   }
 }
+
+/* Header stays visible while scrolling: PC and phone, every page */
+html:root:root:root body header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: #fff !important;
+}
+html:root:root:root[data-theme="dark"] body header,
+html:root:root:root body.dark-mode header {
+  background: #000 !important;
+}
+/* "overflow-x: hidden" on html/body stops sticky from working; "clip" avoids the sideways scroll without that problem */
+html:root:root:root, html:root:root:root body { overflow-x: clip !important; }
+/* The phone menu opens above the pinned header */
+html:root:root:root body #site-mobile-drawer { z-index: 1200 !important; }
+/* Section links (#cours, #ressources) stop below the header, not under it */
+html:root:root:root { scroll-padding-top: 90px; }
+html:root:root:root body [id] { scroll-margin-top: 90px; }
+
+/* Header stays visible while scrolling: PC and phone, every page */
+html:root:root:root body header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: #fff !important;
+}
+html:root:root:root[data-theme="dark"] body header,
+html:root:root:root body.dark-mode header {
+  background: #000 !important;
+}
+/* "overflow-x: hidden" on html/body stops sticky from working; "clip" avoids the sideways scroll without that problem */
+html:root:root:root, html:root:root:root body { overflow-x: clip !important; }
+/* The phone menu opens above the pinned header */
+html:root:root:root body #site-mobile-drawer { z-index: 1200 !important; }
+/* Section links (#cours, #ressources) stop below the header, not under it */
+html:root:root:root { scroll-padding-top: 90px; }
+html:root:root:root body [id] { scroll-margin-top: 90px; }
+
+/* Header blends into the page: same background as the page, no lines */
+html:root:root:root:root:root:root body header {
+  background: var(--cfa-page-bg, inherit) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html:root:root:root body :is(header .container, header .nav, header .nav-right, header nav, .cfa-mobile-header, .cfa-mobile-nav) {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* No divider lines outside cards */
+html:root:root:root body hr {
+  border: 0 !important; height: 0 !important; background: none !important; box-shadow: none !important;
+}
+html:root:root:root body :is(footer, section, main, aside, [class*="divider" i], [class*="separator" i]):not([class*="card" i]):not([class*="card" i] *) {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
