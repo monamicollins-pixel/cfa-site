@@ -62,3 +62,19 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
+
+/* Phone menu: same font on every item (links and the Theme button) */
+(function () {
+  var SEL = '#site-mobile-drawer .cfa-mobile-link, #site-mobile-drawer .cfa-mobile-login, #site-mobile-drawer .cfa-mobile-theme';
+  function fix() {
+    document.querySelectorAll(SEL).forEach(function (e) {
+      e.style.setProperty('font-weight', '700', 'important');
+      e.style.setProperty('font-size', '14px', 'important');
+      e.style.setProperty('font-family', 'inherit', 'important');
+      e.style.setProperty('letter-spacing', '0', 'important');
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fix); else fix();
+  var d = document.getElementById('site-mobile-drawer');
+  if (d) new MutationObserver(fix).observe(d, { childList: true, subtree: true });
+})();
