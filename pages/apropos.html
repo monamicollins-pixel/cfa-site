@@ -543,7 +543,7 @@ footer {
 </style>
 
 <!-- CFA UNIVERSAL FUNCTIONAL BUTTON TEXT -->
-<script src="../js/cfa-current-page.js?v=1791455033" defer></script>
+<script src="../js/cfa-current-page.js?v=1791457085" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
 <style id="cfa-apropos-footer">
@@ -654,6 +654,17 @@ html:root:root body footer { color:var(--ink) !important; }
 html:root:root body footer .footer-tagline { color:#174ea6 !important; }
 html:root:root[data-theme="dark"] body footer .footer-tagline { color:#4f83db !important; }
 html:root:root body footer .footer-copyright { border-top:0 !important; color:var(--muted) !important; }
+
+/* All A propos cards use the Notre vision card style */
+.ab-main .ab-herocards { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.ab-main .ab-herocards .ab-card { padding:24px; }
+.ab-main .ab-cards.two { grid-template-columns:repeat(2,1fr); }
+.ab-main .ab-card.ab-text p { font-size:16px; line-height:1.6; color:var(--ab-ink); }
+.ab-main .ab-card .ab-big { display:block; font-size:44px; font-weight:900; letter-spacing:-1px; color:var(--ab-accent); margin-top:8px; }
+@media (max-width:900px) { .ab-main .ab-cards.three { grid-template-columns:1fr 1fr; } }
+@media (max-width:600px) {
+  .ab-main .ab-herocards, .ab-main .ab-cards.two, .ab-main .ab-cards.three { grid-template-columns:1fr; }
+}
 </style>
 </head>
 
@@ -1066,7 +1077,7 @@ header .theme-toggle:hover {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791455033">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791457085">
 <body>
 <header>
   <div class="container nav">
@@ -1339,20 +1350,14 @@ document.addEventListener("DOMContentLoaded", function () {
       <h1>Le français,<br><span>une aventure.</span><br>Pas une corvée.</h1>
       <p class="ab-lead">Rendre le français facile, accessible, aventureux, motivant et amusant — pour donner envie d'apprendre, plutôt que le sentiment d'avoir à apprendre.</p>
     </div>
-    <div class="ab-herocard">
-      <ul class="ab-words"><li>Apprendre</li><li>S'amuser</li><li>S'inspirer</li><li>Découvrir</li></ul>
-    </div>
+    <div class="ab-herocards"><article class="ab-card"><div class="ab-num">01</div><h3>Apprendre</h3></article><article class="ab-card"><div class="ab-num">02</div><h3>S'amuser</h3></article><article class="ab-card"><div class="ab-num">03</div><h3>S'inspirer</h3></article><article class="ab-card"><div class="ab-num">04</div><h3>Découvrir</h3></article></div>
   </div>
 </section>
 
 <section class="ab-section" id="mission">
   <div class="ab-wrap">
     <div class="ab-head"><div class="ab-eyebrow">Notre mission</div><h2>Apprendre parce qu'on en a envie.</h2></div>
-    <div class="ab-panel">
-      <p>Nous voulons donner aux apprenants l'envie d'apprendre.</p>
-      <p>Pas parce qu'ils y sont obligés. Pas parce que c'est une corvée.</p>
-      <p>Mais parce qu'ils sont curieux, motivés et heureux de découvrir quelque chose de nouveau.</p>
-    </div>
+    <div class="ab-cards three"><article class="ab-card ab-text"><div class="ab-num">01</div><p>Nous voulons donner aux apprenants l'envie d'apprendre.</p></article><article class="ab-card ab-text"><div class="ab-num">02</div><p>Pas parce qu'ils y sont obligés. Pas parce que c'est une corvée.</p></article><article class="ab-card ab-text"><div class="ab-num">03</div><p>Mais parce qu'ils sont curieux, motivés et heureux de découvrir quelque chose de nouveau.</p></article></div>
   </div>
 </section>
 
@@ -1398,10 +1403,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <section class="ab-section" id="ambition">
   <div class="ab-wrap">
     <div class="ab-head"><div class="ab-eyebrow">Notre ambition</div><h2>Créer une expérience d'apprentissage.</h2></div>
-    <div class="ab-panel">
-      <p>Nous ne voulons pas simplement créer des cours de français. Nous voulons créer une expérience qui donne envie de découvrir un nouveau mot, d'essayer une nouvelle expression, de parler et de continuer.</p>
-      <p>Parce qu'au fond, apprendre une langue commence souvent par une chose très simple :<span class="ab-big">L'ENVIE.</span></p>
-    </div>
+    <div class="ab-cards two"><article class="ab-card ab-text"><div class="ab-num">01</div><p>Nous ne voulons pas simplement créer des cours de français. Nous voulons créer une expérience qui donne envie de découvrir un nouveau mot, d'essayer une nouvelle expression, de parler et de continuer.</p></article><article class="ab-card ab-text"><div class="ab-num">02</div><p>Parce qu'au fond, apprendre une langue commence souvent par une chose très simple :</p><span class="ab-big">L'ENVIE.</span></article></div>
   </div>
 </section>
 
