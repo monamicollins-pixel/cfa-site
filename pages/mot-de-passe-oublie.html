@@ -11,7 +11,7 @@
         </style>
 
     <link rel="stylesheet" href="../css/cfa-shared-theme.css">
-    <script src="../js/cfa-shared-theme.js"></script>
+    <script src="../js/cfa-shared-theme.js?v=1791603522"></script>
 
   <link rel="stylesheet" href="../css/cfa-loader.css" data-cfa-loader="css">
   <script src="../js/cfa-loader.js" defer data-cfa-loader="js"></script>
@@ -57,65 +57,6 @@
     padding: 7px 8px;
     font-size: 13px;
   }
-}
-
-/* Auth pages: homepage header/footer shell only */
-header.auth-site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--cfa-white);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--cfa-line);
-}
-.auth-site-header .container.nav {
-  width: min(1160px,92%);
-  margin: auto;
-  height: 80px;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-start;
-  gap: 20px;
-}
-.auth-site-header .brand {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 14px;
-  font-weight: 700;
-  letter-spacing: .2px;
-  text-decoration: none;
-}
-.auth-site-header .logo-container {
-  width: 48px !important;
-  height: 48px !important;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--cfa-blue);
-  box-shadow: 0 4px 12px rgba(23,78,166,.15);
-  flex-shrink: 0;
-}
-.auth-site-header .logo-container img {
-  width: 100% !important;
-  height: 100% !important;
-  max-height: none !important;
-  object-fit: cover !important;
-}
-.auth-site-header .brand span {
-  font-size: 21px !important;
-  font-weight: 700 !important;
-  letter-spacing: .2px;
-  text-transform: none !important;
-  white-space: nowrap;
-}
-@media (max-width:520px) {
-  .auth-site-header .container.nav { height: 70px; }
-  .auth-site-header .logo-container {
-    width: 42px !important;
-    height: 42px !important;
-  }
-  .auth-site-header .brand span { font-size: 13px !important; }
 }
 
 /* Auth page shell: keep header, content and footer within the viewport */
@@ -323,12 +264,17 @@ footer {
   }
 }
 </style>
+<link rel="stylesheet" href="../css/cfa-header.css?v=1791603522">
+<link rel="stylesheet" href="../css/cfa-header-base.css?v=1791603522">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791603522">
+
+
 
 <!-- CFA UNIVERSAL FUNCTIONAL BUTTON TEXT -->
-<script src="../js/cfa-current-page.js?v=1791464377" defer></script>
+<script src="../js/cfa-current-page.js?v=1791603522" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
-<script src="../js/cfa-nav-dropdown.js?v=1791601114" defer></script>
+<script src="../js/cfa-nav-dropdown.js?v=1791603522" defer></script>
 </head>
 <style id="cfa-universal-master-header">
 /* =========================================================
@@ -738,8 +684,6 @@ header .theme-toggle:hover {
     }
 }
 </style>
-<link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791601114">
 <body>
 <header>
   <div class="container nav">
@@ -764,10 +708,10 @@ header .theme-toggle:hover {
         <a href="../index.html#accueil">Accueil</a>
         <a href="../index.html#cours">Cours</a>
         <a href="../index.html#ressources">Ressources</a>
-        <a href="apropos.html">À propos</a>
+        <a href="../pages/apropos.html">À propos</a>
       </nav>
       <div class="account-links" id="accountArea">
-  <a class="cfa-connexion-link" href="mot-de-passe-oublie.html">Réinitialisation</a>
+  <a class="cfa-connexion-link" href="../pages/connexion.html">Connexion</a>
 </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
 
@@ -792,8 +736,8 @@ header .theme-toggle:hover {
         <a class="cfa-mobile-link" href="../index.html#accueil">Accueil</a>
         <a class="cfa-mobile-link" href="../index.html#cours">Cours</a>
         <a class="cfa-mobile-link" href="../index.html#ressources">Ressources</a>
-        <a class="cfa-mobile-link" href="apropos.html">À propos</a>
-        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="mot-de-passe-oublie.html">Réinitialisation</a>
+        <a class="cfa-mobile-link" href="../pages/apropos.html">À propos</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="../pages/connexion.html">Connexion</a>
         <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
     </nav>
 </div>
@@ -1037,11 +981,53 @@ document.addEventListener("DOMContentLoaded", function () {
 Entrez votre adresse e-mail pour réinitialiser votre mot de passe.
 </p>
 
-<div class="auth-page-nav" aria-label="Navigation d’authentification">
-  <a href="connexion.html" class="auth-nav-button">Connexion</a>
-  <a href="inscription.html" class="auth-nav-button">Inscription</a>
-  <a href="mot-de-passe-oublie.html" class="auth-nav-button auth-nav-active">Réinitialisation</a>
+<div class="cfa-auth-options" id="cfa-auth-options">
+  <button type="button" class="cfa-auth-options-btn"
+    id="cfa-auth-options-btn" aria-expanded="false"
+    aria-controls="cfa-auth-options-panel">
+    <span>Autres options</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor"
+        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="cfa-auth-options-panel" id="cfa-auth-options-panel" hidden>
+    <a href="connexion.html"><span aria-hidden="true">→</span> Connexion</a>
+    <a href="inscription.html"><span aria-hidden="true">＋</span> Inscription</a>
+  </div>
 </div>
+<script id="cfa-auth-options-behaviour">
+(function () {
+  var wrap = document.getElementById('cfa-auth-options');
+  if (!wrap) return;
+  var button = document.getElementById('cfa-auth-options-btn');
+  var panel = document.getElementById('cfa-auth-options-panel');
+
+  function setOpen(open) {
+    button.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  }
+
+  button.addEventListener('click', function () {
+    setOpen(button.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('click', function (event) {
+    if (!wrap.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !panel.hidden) {
+      setOpen(false);
+      button.focus();
+    }
+    if (event.key === 'ArrowDown' &&
+        document.activeElement === button && panel.hidden) {
+      event.preventDefault();
+      setOpen(true);
+      panel.querySelector('a').focus();
+    }
+  });
+})();
+</script>
 
 <div id="authMessage" class="auth-message"></div>
 
