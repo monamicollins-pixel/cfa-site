@@ -613,6 +613,77 @@ footer {
 <script src="js/cfa-current-page.js?v=1791464377" defer></script>
 <script src="js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="js/cfa-scroll-nav.js?v=1791440733" defer></script>
+
+<style id="cfa-learner-card-preview">
+header .cfa-dropdown-account {
+  padding: 8px 0 2px;
+}
+header .cfa-learner-card {
+  padding: 15px;
+  border: 1px solid rgba(127, 127, 127, .28);
+  border-radius: 14px;
+  background: var(--surface, rgba(127, 127, 127, .07));
+}
+header .cfa-learner-card-heading {
+  margin-top: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+header .cfa-learner-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: rgba(23, 78, 166, .12);
+  font-size: 22px;
+}
+header .cfa-learner-card-heading strong {
+  display: block;
+  margin: 1px 0 4px;
+  font-size: 14px;
+}
+header .cfa-learner-card-heading p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: .78;
+}
+header .cfa-dropdown-account #accountArea {
+  display: block !important;
+  width: 100%;
+  margin: 0 !important;
+}
+header .cfa-dropdown-account #accountArea > a,
+header .cfa-dropdown-account #accountArea > button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100% !important;
+  min-height: 44px;
+  margin: 0 !important;
+  padding: 11px 14px !important;
+  border: 0;
+  border-radius: 9px;
+  background: #174ea6;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+header .cfa-dropdown-account #accountArea > a:hover,
+header .cfa-dropdown-account #accountArea > button:hover {
+  background: #0d2f70;
+  color: #fff !important;
+}
+</style>
+
 <script src="js/cfa-nav-dropdown.js?v=1791600095" defer></script>
 </head>
 
@@ -1071,21 +1142,243 @@ header .theme-toggle:hover {
   <span></span>
 </button>
 
-      <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#cours">Cours</a>
-        <a href="#ressources">Ressources</a>
-        <a href="pages/apropos.html">À propos</a>
+      <nav class="cfa-primary-nav" aria-label="Navigation principale">
+        <div class="cfa-dropdown" data-cfa-dropdown="return">
+          <button class="cfa-dropdown-trigger" type="button"
+                  aria-expanded="false" aria-haspopup="true">
+            <span data-cfa-current-page>Accueil</span><span class="cfa-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="cfa-dropdown-panel" hidden>
+            
+            <a href="index.html#accueil">Accueil</a>
+            <a href="index.html#cours">Cours</a>
+            <a href="index.html#ressources">Ressources</a>
+            <a href="pages/apropos.html">À propos</a>
+            <div class="cfa-dropdown-account">
+              <span class="cfa-dropdown-divider" aria-hidden="true"></span>
+              <div class="cfa-learner-card">
+                <div class="account-links" id="accountArea">
+                  <a class="cfa-connexion-link" href="pages/connexion.html">Connexion →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="cfa-dropdown" data-cfa-dropdown="appearance">
+          <button class="cfa-dropdown-trigger" type="button"
+                  aria-expanded="false" aria-haspopup="true">
+            <span id="cfa-active-theme-label">☀ Mode clair</span><span class="cfa-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="cfa-dropdown-panel" hidden>
+            <button type="button" data-cfa-set-theme="light">☀ Mode clair</button>
+            <button type="button" data-cfa-set-theme="dark">☾ Mode sombre</button>
+          </div>
+        </div>
       </nav>
-      <div class="account-links" id="accountArea">
-  <a class="cfa-connexion-link" href="pages/connexion.html">Connexion</a>
-</div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
+      
+
 
     </div>
   </div>
 
-<!-- CFA MOBILE MENU -->
+
+<style id="cfa-mobile-dropdown-preview">
+#site-mobile-drawer .cfa-mobile-section { width: 100%; }
+#site-mobile-drawer .cfa-mobile-section-trigger {
+  display:flex; justify-content:space-between; align-items:center; width:100%;
+  padding:15px 18px; border:0; border-radius:10px; background:transparent;
+  color:inherit; font:inherit; font-weight:700; text-align:left; cursor:pointer;
+}
+#site-mobile-drawer .cfa-mobile-section-panel {
+  display:flex; flex-direction:column; gap:4px; padding:6px 10px 12px 18px;
+}
+#site-mobile-drawer .cfa-mobile-section-panel[hidden] { display:none !important; }
+#site-mobile-drawer .cfa-mobile-section-panel a,
+#site-mobile-drawer .cfa-mobile-section-panel button {
+  display:block; width:100%; padding:12px 14px; border:0; border-radius:8px;
+  background:transparent; color:inherit; font:inherit; text-align:left;
+  text-decoration:none; cursor:pointer;
+}
+#site-mobile-drawer [data-cfa-mobile-theme][aria-pressed="true"] { font-weight:700; }
+#site-mobile-drawer .cfa-mobile-section + .cfa-mobile-section {
+  border-top:1px solid rgba(127,127,127,.25); margin-top:8px; padding-top:8px;
+}
+</style>
+
+<style id="cfa-button-consistency">
+/* Shared button language: desktop dropdowns and mobile menu sections */
+header .nav-right .cfa-dropdown-trigger,
+#site-mobile-drawer .cfa-mobile-section-trigger {
+  box-sizing: border-box;
+  min-height: 44px;
+  border: 1px solid var(--line, #e5eaf2) !important;
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.25;
+  transition: background-color .18s ease, border-color .18s ease,
+              color .18s ease, box-shadow .18s ease;
+}
+
+header .nav-right .cfa-dropdown-trigger {
+  min-width: 124px;
+  padding: 10px 14px !important;
+  gap: 9px;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger {
+  width: 100%;
+  padding: 10px 14px !important;
+  gap: 12px;
+  background: transparent !important;
+  text-align: left;
+}
+
+header .nav-right .cfa-dropdown-trigger:hover,
+header .nav-right .cfa-dropdown-trigger[aria-expanded="true"],
+#site-mobile-drawer .cfa-mobile-section-trigger:hover,
+#site-mobile-drawer .cfa-mobile-section-trigger[aria-expanded="true"] {
+  border-color: var(--blue, #174ea6) !important;
+  background: var(--paper, #f6f9fc) !important;
+  box-shadow: 0 0 0 2px rgba(23, 78, 166, .08);
+}
+
+header .nav-right .cfa-dropdown-trigger:focus-visible,
+#site-mobile-drawer .cfa-mobile-section-trigger:focus-visible {
+  outline: 2px solid var(--blue, #174ea6);
+  outline-offset: 2px;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger > span:first-child {
+  flex: 1;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger > span:last-child {
+  transition: transform .18s ease;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger[aria-expanded="true"] > span:last-child {
+  transform: rotate(180deg);
+}
+</style>
+
+
+<style id="cfa-button-spacing-polish">
+/* Desktop: consistent button sizing and grouping */
+header .nav-right > nav.cfa-primary-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+header .nav-right .cfa-dropdown {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+header .nav-right .cfa-dropdown-trigger {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  min-width: 144px !important;
+  min-height: 44px !important;
+  padding: 0 14px !important;
+  border: 1px solid var(--line, #e5eaf2) !important;
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+}
+
+header .nav-right .cfa-dropdown-trigger .cfa-chevron {
+  flex: 0 0 auto;
+  margin-left: 2px;
+}
+
+/* Dropdown panels align cleanly with their trigger */
+header .nav-right .cfa-dropdown-panel {
+  margin-top: 0;
+  min-width: 205px;
+}
+
+/* Mobile: matching full-width controls */
+#site-mobile-drawer .cfa-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#site-mobile-drawer .cfa-mobile-section {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  padding: 0 14px !important;
+  border: 1px solid var(--line, #e5eaf2) !important;
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger > span:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#site-mobile-drawer .cfa-mobile-section-trigger > span:last-child {
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+#site-mobile-drawer .cfa-mobile-section + .cfa-mobile-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+
+/* Subtle, consistent interaction states */
+header .nav-right .cfa-dropdown-trigger:hover,
+header .nav-right .cfa-dropdown-trigger[aria-expanded="true"],
+#site-mobile-drawer .cfa-mobile-section-trigger:hover,
+#site-mobile-drawer .cfa-mobile-section-trigger[aria-expanded="true"] {
+  border-color: var(--blue, #174ea6) !important;
+}
+
+header .nav-right .cfa-dropdown-trigger:focus-visible,
+#site-mobile-drawer .cfa-mobile-section-trigger:focus-visible {
+  outline: 2px solid var(--blue, #174ea6);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  header .nav-right > nav.cfa-primary-nav {
+    display: none !important;
+  }
+}
+</style>
+\n<!-- CFA MOBILE MENU -->
 <div id="site-mobile-drawer" aria-hidden="true">
 
     <div class="cfa-mobile-header">
@@ -1099,13 +1392,31 @@ header .theme-toggle:hover {
         </button>
     </div>
 
-    <nav class="cfa-mobile-nav">
-        <a class="cfa-mobile-link" href="#accueil">Accueil</a>
-        <a class="cfa-mobile-link" href="#cours">Cours</a>
-        <a class="cfa-mobile-link" href="#ressources">Ressources</a>
-        <a class="cfa-mobile-link" href="pages/apropos.html">À propos</a>
-        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="pages/connexion.html">Connexion</a>
-        <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
+    <nav class="cfa-mobile-nav" aria-label="Navigation mobile">
+        <section class="cfa-mobile-section">
+            <button type="button" class="cfa-mobile-section-trigger"
+                    aria-expanded="false" aria-controls="cfa-mobile-return-panel">
+                <span data-cfa-current-page>Accueil</span><span aria-hidden="true">▾</span>
+            </button>
+            <div class="cfa-mobile-section-panel" id="cfa-mobile-return-panel" hidden>
+                
+                <a class="cfa-mobile-link" href="index.html#accueil">Accueil</a>
+                <a class="cfa-mobile-link" href="index.html#cours">Cours</a>
+                <a class="cfa-mobile-link" href="index.html#ressources">Ressources</a>
+                <a class="cfa-mobile-link" href="pages/apropos.html">À propos</a>
+                <a class="cfa-mobile-login" id="mobileLearnerEntry" href="pages/connexion.html">Connexion</a>
+            </div>
+        </section>
+        <section class="cfa-mobile-section">
+            <button type="button" class="cfa-mobile-section-trigger"
+                    aria-expanded="false" aria-controls="cfa-mobile-appearance-panel">
+                <span id="cfa-mobile-active-theme-label">☀ Mode clair</span><span aria-hidden="true">▾</span>
+            </button>
+            <div class="cfa-mobile-section-panel" id="cfa-mobile-appearance-panel" hidden>
+                <button type="button" data-cfa-mobile-theme="light">☀ Mode clair</button>
+                <button type="button" data-cfa-mobile-theme="dark">☾ Mode sombre</button>
+            </div>
+        </section>
     </nav>
 </div>
 
@@ -1121,8 +1432,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn =
         document.getElementById("close-drawer-btn");
 
-    const drawerTheme =
-        document.getElementById("drawer-theme-toggle");
+    const mobileThemeChoices =
+        drawer.querySelectorAll("[data-cfa-mobile-theme]");
+
+    const mobileSections =
+        drawer.querySelectorAll(".cfa-mobile-section-trigger");
 
     const html =
         document.documentElement;
@@ -1143,12 +1457,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const dark =
             html.getAttribute("data-theme") === "dark";
 
-        if (drawerTheme) {
+        mobileThemeChoices.forEach(function (button) {
+            const active = button.dataset.cfaMobileTheme === (dark ? "dark" : "light");
+            button.setAttribute("aria-pressed", active ? "true" : "false");
+            button.textContent = (button.dataset.cfaMobileTheme === "light"
+                ? "☀ Mode clair" : "☾ Mode sombre") + (active ? " ✓" : "");
+        });
 
-            drawerTheme.textContent =
-                dark
-                    ? "️ Mode clair"
-                    : "Mode sombre ";
+        const activeLabel = document.getElementById("cfa-mobile-active-theme-label");
+        if (activeLabel) {
+            activeLabel.textContent = dark ? "☾ Mode sombre" : "☀ Mode clair";
         }
     }
 
@@ -1244,53 +1562,63 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
-       THEME
+       MOBILE SECTIONS
        ===================================================== */
 
-    if (drawerTheme) {
+    mobileSections.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const panel = document.getElementById(button.getAttribute("aria-controls"));
+            const opening = button.getAttribute("aria-expanded") !== "true";
 
-        drawerTheme.addEventListener(
-            "click",
-            function () {
+            mobileSections.forEach(function (other) {
+                other.setAttribute("aria-expanded", "false");
+                const otherPanel = document.getElementById(other.getAttribute("aria-controls"));
+                if (otherPanel) otherPanel.hidden = true;
+            });
 
-                const current =
-                    html.getAttribute(
-                        "data-theme"
-                    ) || "light";
+            button.setAttribute("aria-expanded", opening ? "true" : "false");
+            if (panel) panel.hidden = !opening;
+        });
+    });
 
-                const next =
-                    current === "dark"
-                        ? "light"
-                        : "dark";
+    /* =====================================================
+       MOBILE THEME CHOICES
+       ===================================================== */
 
-                html.setAttribute(
-                    "data-theme",
-                    next
-                );
+    function updateMobileThemeChoices() {
+        const current = html.getAttribute("data-theme") || "light";
+        mobileThemeChoices.forEach(function (button) {
+            const active = button.dataset.cfaMobileTheme === current;
+            button.setAttribute("aria-pressed", active ? "true" : "false");
+            button.textContent = (button.dataset.cfaMobileTheme === "light"
+                ? "☀ Mode clair" : "☾ Mode sombre") + (active ? " ✓" : "");
+        });
 
-                localStorage.setItem(
-                    "cfa_theme",
-                    next
-                );
-
-                const desktopTheme =
-                    document.getElementById(
-                        "themeToggle"
-                    );
-
-                if (desktopTheme) {
-
-                    desktopTheme.textContent =
-                        next === "dark"
-                            ? "Mode clair"
-                            : "Mode sombre";
-                }
-
-                updateThemeButton();
-            },
-            false
-        );
+        const mobileActiveLabel = document.getElementById("cfa-mobile-active-theme-label");
+        if (mobileActiveLabel) {
+            mobileActiveLabel.textContent = current === "dark"
+                ? "☾ Mode sombre" : "☀ Mode clair";
+        }
     }
+
+    mobileThemeChoices.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const next = button.dataset.cfaMobileTheme;
+            html.setAttribute("data-theme", next);
+            localStorage.setItem("cfa_theme", next);
+            updateMobileThemeChoices();
+            document.querySelectorAll("[data-cfa-set-theme]").forEach(function (desktopButton) {
+                const active = desktopButton.dataset.cfaSetTheme === next;
+                desktopButton.setAttribute("aria-pressed", active ? "true" : "false");
+                desktopButton.textContent = (next === "light" && desktopButton.dataset.cfaSetTheme === "light"
+                    ? "☀ Mode clair" : next === "dark" && desktopButton.dataset.cfaSetTheme === "dark"
+                    ? "☾ Mode sombre" : desktopButton.dataset.cfaSetTheme === "light"
+                    ? "☀ Mode clair" : "☾ Mode sombre") + (active ? " ✓" : "");
+            });
+        });
+    });
+
+    updateMobileThemeChoices();
 
     /* =====================================================
        CLOSE AFTER NAVIGATION
@@ -1310,6 +1638,250 @@ document.addEventListener("DOMContentLoaded", function () {
             );
         });
 
+});
+</script>
+
+
+<style id="cfa-dropdown-test-styles">
+  header .nav-right > nav.cfa-primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: visible;
+  }
+
+  .cfa-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  header .nav-right .cfa-dropdown-trigger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: auto !important;
+    min-width: 112px;
+    min-height: 40px;
+    padding: 8px 13px !important;
+    border: 1px solid var(--line, #e5eaf2) !important;
+    border-radius: 10px;
+    background: var(--white, #fff) !important;
+    color: var(--ink, #10203a) !important;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .cfa-dropdown-trigger:hover,
+  .cfa-dropdown-trigger[aria-expanded="true"] {
+    border-color: var(--blue, #174ea6) !important;
+    background: var(--paper, #f6f9fc) !important;
+  }
+
+  .cfa-chevron {
+    font-size: 12px;
+    transition: transform .18s ease;
+  }
+
+  .cfa-dropdown-trigger[aria-expanded="true"] .cfa-chevron {
+    transform: rotate(180deg);
+  }
+
+  .cfa-dropdown-panel[hidden] {
+    display: none !important;
+  }
+
+  .cfa-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 9px);
+    right: 0;
+    z-index: 2147483000;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 205px;
+    padding: 7px;
+    border: 1px solid var(--line, #e5eaf2);
+    border-radius: 12px;
+    background: var(--white, #fff);
+    box-shadow: 0 12px 30px rgba(15, 35, 70, .16);
+  }
+
+  .cfa-dropdown-panel a,
+  .cfa-dropdown-panel button {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100% !important;
+    min-height: 40px;
+    padding: 9px 11px !important;
+    border: 0 !important;
+    border-radius: 8px;
+    background: transparent !important;
+    color: var(--ink, #10203a) !important;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .cfa-dropdown-panel a:hover,
+  .cfa-dropdown-panel button:hover {
+    background: var(--paper, #f6f9fc) !important;
+    color: var(--blue, #174ea6) !important;
+  }
+
+  .cfa-dropdown-panel [aria-pressed="true"] {
+    color: var(--blue, #174ea6) !important;
+    font-weight: 800;
+  }
+
+  @media (max-width: 900px) {
+    header .nav-right > nav.cfa-primary-nav {
+      display: none !important;
+    }
+  }
+</style>
+
+<script id="cfa-current-page-label-script">
+document.addEventListener("DOMContentLoaded", function () {
+  const labels = document.querySelectorAll("[data-cfa-current-page]");
+  const path = window.location.pathname.toLowerCase();
+  const file = path.split("/").pop() || "index.html";
+
+  const pageNames = {
+    "index.html": "Accueil",
+    "cours.html": "Cours",
+    "mes-cours.html": "Mes cours",
+    "ma-progression.html": "Ma progression",
+    "ressources.html": "Ressources",
+    "apropos.html": "À propos",
+    "communaute.html": "Communauté",
+    "compas.html": "COMPAS",
+    "espace-etudiant.html": "Espace étudiant",
+    "connexion.html": "Connexion",
+    "inscription.html": "Inscription",
+    "sinscrire.html": "Inscription",
+    "mot-de-passe-oublie.html": "Mot de passe oublié",
+    "nouveau-mot-de-passe.html": "Nouveau mot de passe"
+  };
+
+  let currentPage = pageNames[file] ||
+    (file === "index.dropdown-preview.html" ? "Accueil" : "Navigation");
+
+  if (file === "index.html" && window.location.hash === "#cours") {
+    currentPage = "Cours";
+  } else if (file === "index.html" && window.location.hash === "#ressources") {
+    currentPage = "Ressources";
+  }
+
+  labels.forEach(function (label) {
+    label.textContent = currentPage;
+  });
+});
+</script>
+
+<script id="cfa-dropdown-test-script">
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdowns = Array.from(document.querySelectorAll("[data-cfa-dropdown]"));
+  const root = document.documentElement;
+
+  function updateThemeChoices() {
+    const current = root.getAttribute("data-theme") || "light";
+    const themeLabel = current === "dark" ? "☾ Mode sombre" : "☀ Mode clair";
+
+    const activeLabel = document.getElementById("cfa-active-theme-label");
+    if (activeLabel) {
+      activeLabel.textContent = themeLabel;
+    }
+
+    const mobileActiveLabel = document.getElementById("cfa-mobile-active-theme-label");
+    if (mobileActiveLabel) {
+      mobileActiveLabel.textContent = themeLabel;
+    }
+    document.querySelectorAll("[data-cfa-mobile-theme]").forEach(function (button) {
+      const active = button.getAttribute("data-cfa-mobile-theme") === current;
+      button.setAttribute("aria-pressed", String(active));
+    });
+    document.querySelectorAll("[data-cfa-set-theme]").forEach(function (button) {
+      const active = button.getAttribute("data-cfa-set-theme") === current;
+      button.setAttribute("aria-pressed", String(active));
+      const label = active
+        ? (current === "dark" ? "☾ Mode sombre ✓" : "☀ Mode clair ✓")
+        : (button.getAttribute("data-cfa-set-theme") === "dark"
+            ? "☾ Mode sombre"
+            : "☀ Mode clair");
+      button.textContent = label;
+    });
+  }
+
+  function closeAll(except) {
+    dropdowns.forEach(function (item) {
+      if (item === except) return;
+      const trigger = item.querySelector(".cfa-dropdown-trigger");
+      const panel = item.querySelector(".cfa-dropdown-panel");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+      if (panel) panel.hidden = true;
+    });
+  }
+
+  dropdowns.forEach(function (item) {
+    const trigger = item.querySelector(".cfa-dropdown-trigger");
+    const panel = item.querySelector(".cfa-dropdown-panel");
+    if (!trigger || !panel) return;
+
+    trigger.addEventListener("click", function () {
+      const willOpen = trigger.getAttribute("aria-expanded") !== "true";
+      closeAll(item);
+      trigger.setAttribute("aria-expanded", String(willOpen));
+      panel.hidden = !willOpen;
+      if (willOpen) {
+        const first = panel.querySelector("a, button");
+        if (first) first.focus({ preventScroll: true });
+      }
+    });
+
+    panel.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeAll();
+      });
+    });
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest("[data-cfa-dropdown]")) closeAll();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      const openItem = dropdowns.find(function (item) {
+        return item.querySelector(".cfa-dropdown-trigger")
+          ?.getAttribute("aria-expanded") === "true";
+      });
+      closeAll();
+      if (openItem) openItem.querySelector(".cfa-dropdown-trigger")?.focus();
+    }
+  });
+
+
+  document.querySelectorAll("[data-cfa-set-theme]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const next = button.getAttribute("data-cfa-set-theme");
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("cfa_theme", next);
+      updateThemeChoices();
+
+      closeAll();
+    });
+  });
+
+  updateThemeChoices();
 });
 </script>
 
@@ -1393,22 +1965,11 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </footer>
 
-<script>
-const toggleBtn = document.getElementById('themeToggle');
-const htmlEl = document.documentElement;
-
-const savedTheme = localStorage.getItem('cfa_theme') || 'light';
-htmlEl.setAttribute('data-theme', savedTheme);
-toggleBtn.textContent = savedTheme === 'dark' ? 'Mode clair' : 'Mode sombre';
-
-toggleBtn.addEventListener('click', () => {
-  const currentTheme = htmlEl.getAttribute('data-theme');
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-  htmlEl.setAttribute('data-theme', newTheme);
-  localStorage.setItem('cfa_theme', newTheme);
-  toggleBtn.textContent = newTheme === 'dark' ? 'Mode clair' : 'Mode sombre';
-});
+<script id="cfa-theme-initializer">
+(function () {
+  const savedTheme = localStorage.getItem('cfa_theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>

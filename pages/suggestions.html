@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envoyer une suggestion | Collins French Academy</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#f3f6fc;color:#172033;font-family:Inter,"Segoe UI",Arial,sans-serif}
+header,footer{padding:20px;text-align:center}
+header{font-weight:800;color:#174ea6}
+main{width:min(740px,calc(100% - 28px));margin:28px auto;padding:clamp(20px,5vw,38px);background:white;border:1px solid #dce5f2;border-radius:22px;box-shadow:0 18px 50px #142a4d12}
+.eyebrow{font-size:.78rem;color:#174ea6;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(1.8rem,5vw,2.6rem);color:#0d2f70;line-height:1.15}
+p{line-height:1.7}
+.field{margin:16px 0}
+label{display:block;margin-bottom:7px;font-weight:700}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;background:white;color:#172033;font:inherit}
+textarea{min-height:145px;resize:vertical}
+button,.secondary{display:inline-block;padding:12px 16px;border-radius:9px;font:inherit;font-weight:750;text-decoration:none;cursor:pointer}
+button{border:0;background:#174ea6;color:white}
+.secondary{border:1px solid #cbd5e1;color:#174ea6;background:white}
+.note{padding:12px;border-left:4px solid #ff6600;background:#fff7ed;color:#7c3513;font-size:.92rem}
+footer{color:#64748b;font-size:.85rem}
+</style>
+<script src="../js/cfa-nav-dropdown.js?v=1791600095" defer></script>
+</head>
+<body>
+<header>Collins French Academy<br><small>VOS IDÉES NOUS AIDENT À PROGRESSER</small></header>
+<main>
+<div class="eyebrow">Communauté CFA</div>
+<h1>Envoyer une suggestion</h1>
+<p>Une idée pour améliorer les cours, les ressources ou le site ? Partagez-la avec nous.</p>
+<form id="suggestionForm">
+<div class="field">
+<label for="name">Votre nom (facultatif)</label>
+<input id="name" maxlength="100" autocomplete="name">
+</div>
+<div class="field">
+<label for="email">Votre e-mail (facultatif)</label>
+<input id="email" type="email" maxlength="254" autocomplete="email">
+</div>
+<div class="field">
+<label for="topic">Sujet</label>
+<select id="topic" required>
+<option value="">Choisissez un sujet</option>
+<option>Cours et leçons</option>
+<option>Exercices et évaluations</option>
+<option>Site et fonctionnalités</option>
+<option>Communauté et ressources</option>
+<option>Autre suggestion</option>
+</select>
+</div>
+<div class="field">
+<label for="suggestion">Votre suggestion</label>
+<textarea id="suggestion" maxlength="5000" required placeholder="Décrivez votre idée…"></textarea>
+</div>
+<p class="note">WhatsApp s’ouvrira avec votre message prérempli. Vous devrez choisir le contact auquel l’envoyer et confirmer l’envoi. Aucun message n’est envoyé automatiquement.</p>
+<button type="submit">Envoyer une suggestion</button>
+<a class="secondary" href="choix-espace.html">Choisir un espace</a>
+</form>
+</main>
+<footer>© 2026 Collins French Academy (CFA)</footer>
+<script>
+document.getElementById("suggestionForm").addEventListener("submit",function(event){
+  event.preventDefault();
+  const topic=document.getElementById("topic").value;
+  const suggestion=document.getElementById("suggestion").value.trim();
+  if(!topic||!suggestion){this.reportValidity();return;}
+  const message=[
+    "Suggestion pour Collins French Academy (CFA)",
+    "",
+    "Sujet : "+topic,
+    "Nom : "+(document.getElementById("name").value.trim()||"Non précisé"),
+    "E-mail : "+(document.getElementById("email").value.trim()||"Non communiqué"),
+    "",
+    "Suggestion :",
+    suggestion
+  ].join("\\n");
+  window.location.assign("https://wa.me/?text="+encodeURIComponent(message));
+});
+</script>
+</body>
+</html>

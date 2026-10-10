@@ -24,7 +24,7 @@ function cfaCourseRedirectUrl() {
     const course = cfaRequestedCourse();
 
     if (!course) {
-        return "../dashboard.html";
+        return "choix-espace.html";
     }
 
     return CFA_COURSE_REDIRECTS[course];
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     window.location.href =
                         signupCourse
                             ? cfaCourseRedirectUrl()
-                            : "espace-etudiant.html";
+                            : "choix-espace.html";
 
                 }, 800);
 

@@ -271,6 +271,7 @@ footer {
 <script src="../js/cfa-current-page.js?v=1791464377" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
+<script src="../js/cfa-nav-dropdown.js?v=1791600095" defer></script>
 </head>
 
 
@@ -1023,7 +1024,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
 
             setTimeout(function () {
-                window.location.replace("../dashboard.html");
+                window.location.replace(cfaCourseRedirectUrl());
             }, 1800);
 
             return;
@@ -1033,7 +1034,7 @@ document.addEventListener("DOMContentLoaded", async function () {
          * CFA — Existing authenticated learner
          */
         if (user) {
-            window.location.replace("../dashboard.html");
+            window.location.replace(cfaCourseRedirectUrl());
         }
 
     } catch (error) {
@@ -1058,7 +1059,7 @@ Connectez-vous pour continuer votre parcours CFA.
 <div class="auth-page-nav" aria-label="Navigation d’authentification">
   <a href="connexion.html" class="auth-nav-button auth-nav-active">Connexion</a>
   <a href="inscription.html" class="auth-nav-button">Inscription</a>
-  <a href="mot-de-passe-oublie.html" class="auth-nav-button">Mot de passe oublié ?</a>
+  <a href="mot-de-passe-oublie.html" class="auth-nav-button">Réinitialisation</a>
 </div>
 
 <div id="authMessage" class="auth-message"></div>
@@ -1227,6 +1228,6 @@ html[data-theme="dark"] main h1 {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791464377">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791600703">
 </body>
 </html>

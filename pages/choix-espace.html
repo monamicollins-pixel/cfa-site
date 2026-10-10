@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choisir un espace | Collins French Academy</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#f3f6fc;color:#172033;font-family:Inter,"Segoe UI",Arial,sans-serif}
+header,footer{padding:20px;text-align:center}
+header{font-weight:800;color:#174ea6}
+main{width:min(820px,calc(100% - 28px));margin:auto;padding:28px;background:#fff;border:1px solid #dce5f2;border-radius:22px;box-shadow:0 18px 50px #142a4d12}
+.eyebrow{font-size:.78rem;color:#174ea6;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);color:#0d2f70;line-height:1.15}
+p{line-height:1.7}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
+.choice{display:block;padding:22px;border-radius:14px;color:white;text-decoration:none;background:#174ea6}
+.choice.admin{background:#0d2f70}
+.choice strong{display:block;font-size:1.2rem}
+.choice span{display:block;margin-top:9px;line-height:1.5}
+button{margin-top:22px;padding:10px 15px;border:1px solid #cbd5e1;border-radius:9px;background:white;color:#172033;font-weight:700;cursor:pointer}
+#spaceMessage{color:#b42318}
+footer{font-size:.85rem;color:#64748b}
+@media(max-width:580px){.choices{grid-template-columns:1fr}main{padding:22px}}
+</style>
+<script src="../js/cfa-nav-dropdown.js?v=1791600095" defer></script>
+</head>
+<body>
+<header>Collins French Academy<br><small>APPRENDRE · S’AMUSER · S’INSPIRER · DÉCOUVRIR</small></header>
+<main>
+<div class="eyebrow">Votre espace CFA</div>
+<p id="welcome">Vérification de votre session…</p>
+<h1>Où souhaitez-vous aller ?</h1>
+<p>Choisissez votre espace. L’accès à la gestion des contenus reste réservé aux administrateurs autorisés.</p>
+<div class="choices">
+<a class="choice" href="../dashboard.html">
+<strong>Espace apprenant</strong>
+<span>Continuer votre parcours et apprendre le français.</span>
+</a>
+<a class="choice admin" href="../admin/index.html">
+<strong>Administration</strong>
+<span>Accéder au centre d’administration si votre compte est autorisé.</span>
+</a>
+</div>
+<p>Vous pouvez également nous transmettre vos idées pour améliorer CFA.</p>
+<a href="suggestions.html">Envoyer une suggestion</a>
+<br>
+<button id="signOutBtn" type="button">Se déconnecter</button>
+<p id="spaceMessage" role="status" aria-live="polite"></p>
+</main>
+<footer>© 2026 Collins French Academy (CFA)</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script>
+(async function(){
+  const welcome=document.getElementById("welcome");
+  const message=document.getElementById("spaceMessage");
+  try{
+    const {data,error}=await cfaSupabase.auth.getSession();
+    if(error||!data||!data.session){
+      window.location.replace("connexion.html");
+      return;
+    }
+    const user=data.session.user;
+    const first=user.user_metadata?.first_name||user.user_metadata?.name||"";
+    welcome.textContent=first?"Bienvenue, "+first+".":"Connexion réussie.";
+  }catch(error){
+    console.error("CFA session check failed:",error);
+    message.textContent="Impossible de vérifier la session. Veuillez vous reconnecter.";
+  }
+})();
+document.getElementById("signOutBtn").addEventListener("click",async function(){
+  const button=this;
+  const message=document.getElementById("spaceMessage");
+  button.disabled=true;
+  try{
+    const {error}=await cfaSupabase.auth.signOut();
+    if(error) throw error;
+    window.location.replace("connexion.html");
+  }catch(error){
+    console.error("CFA sign-out error:",error);
+    message.textContent="Déconnexion impossible. Réessayez.";
+    button.disabled=false;
+  }
+});
+</script>
+</body>
+</html>

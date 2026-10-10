@@ -213,6 +213,7 @@ footer {
 <script src="../js/cfa-current-page.js?v=1791464377" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
+<script src="../js/cfa-nav-dropdown.js?v=1791600095" defer></script>
 </head>
 <style id="cfa-universal-master-header">
 /* =========================================================
@@ -623,7 +624,7 @@ header .theme-toggle:hover {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791464377">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791600703">
 <body>
 <header>
   <div class="container nav">
@@ -651,7 +652,7 @@ header .theme-toggle:hover {
         <a href="apropos.html">À propos</a>
       </nav>
       <div class="account-links" id="accountArea">
-  <a class="cfa-connexion-link" href="connexion.html">Connexion</a>
+  <a class="cfa-connexion-link" href="inscription.html">Inscription</a>
 </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
 
@@ -677,7 +678,7 @@ header .theme-toggle:hover {
         <a class="cfa-mobile-link" href="../index.html#cours">Cours</a>
         <a class="cfa-mobile-link" href="../index.html#ressources">Ressources</a>
         <a class="cfa-mobile-link" href="apropos.html">À propos</a>
-        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="connexion.html">Connexion</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="inscription.html">Inscription</a>
         <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
     </nav>
 </div>
@@ -900,7 +901,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="auth-page-nav" aria-label="Navigation d’authentification">
   <a href="connexion.html" class="auth-nav-button">Connexion</a>
   <a href="inscription.html" class="auth-nav-button auth-nav-active">Inscription</a>
-  <a href="mot-de-passe-oublie.html" class="auth-nav-button">Mot de passe oublié ?</a>
+  <a href="mot-de-passe-oublie.html" class="auth-nav-button">Réinitialisation</a>
 </div>
 
     <div id="authMessage" class="auth-message"></div>
@@ -941,7 +942,7 @@ document.addEventListener("DOMContentLoaded", function () {
             class="password-toggle"
             data-password-toggle
             aria-label="Afficher le mot de passe">
-            👁
+            Afficher
           </button>
         </div>
       </label>
@@ -960,7 +961,7 @@ document.addEventListener("DOMContentLoaded", function () {
             class="password-toggle"
             data-password-toggle
             aria-label="Afficher le mot de passe">
-            👁
+            Afficher
           </button>
         </div>
       </label>
@@ -1008,11 +1009,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         toggles.forEach(function (button) {
-            button.textContent = visible ? "🙈" : "👁";
+            button.textContent = visible ? "Cacher" : "Afficher";
             button.setAttribute(
                 "aria-label",
                 visible
-                    ? "Masquer les mots de passe"
+                    ? "Cacher les mots de passe"
                     : "Afficher les mots de passe"
             );
         });

@@ -328,6 +328,7 @@ footer {
 <script src="../js/cfa-current-page.js?v=1791464377" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
+<script src="../js/cfa-nav-dropdown.js?v=1791600095" defer></script>
 </head>
 <style id="cfa-universal-master-header">
 /* =========================================================
@@ -738,7 +739,7 @@ header .theme-toggle:hover {
 }
 </style>
 <link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791464377">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791600703">
 <body>
 <header>
   <div class="container nav">
@@ -766,7 +767,7 @@ header .theme-toggle:hover {
         <a href="apropos.html">À propos</a>
       </nav>
       <div class="account-links" id="accountArea">
-  <a class="cfa-connexion-link" href="connexion.html">Connexion</a>
+  <a class="cfa-connexion-link" href="mot-de-passe-oublie.html">Réinitialisation</a>
 </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
 
@@ -792,7 +793,7 @@ header .theme-toggle:hover {
         <a class="cfa-mobile-link" href="../index.html#cours">Cours</a>
         <a class="cfa-mobile-link" href="../index.html#ressources">Ressources</a>
         <a class="cfa-mobile-link" href="apropos.html">À propos</a>
-        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="connexion.html">Connexion</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="mot-de-passe-oublie.html">Réinitialisation</a>
         <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
     </nav>
 </div>
@@ -1030,7 +1031,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <main class="auth-page">
 <div class="auth-card">
 
-<h1 class="auth-title">Mot de passe oublié ?</h1>
+<h1 class="auth-title">Réinitialisation</h1>
 
 <p class="auth-subtitle">
 Entrez votre adresse e-mail pour réinitialiser votre mot de passe.
@@ -1039,7 +1040,7 @@ Entrez votre adresse e-mail pour réinitialiser votre mot de passe.
 <div class="auth-page-nav" aria-label="Navigation d’authentification">
   <a href="connexion.html" class="auth-nav-button">Connexion</a>
   <a href="inscription.html" class="auth-nav-button">Inscription</a>
-  <a href="mot-de-passe-oublie.html" class="auth-nav-button auth-nav-active">Mot de passe oublié ?</a>
+  <a href="mot-de-passe-oublie.html" class="auth-nav-button auth-nav-active">Réinitialisation</a>
 </div>
 
 <div id="authMessage" class="auth-message"></div>
@@ -1130,7 +1131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (message) {
                 message.textContent =
-                    "Si cette adresse correspond à un compte CFA, un lien de réinitialisation vient d'être envoyé. Vérifiez votre boîte e-mail.";
+                    "Demande traitée. Si cette adresse e-mail est associée à un compte CFA, un lien de réinitialisation a été envoyé. Vérifiez votre boîte de réception et vos spams.";
                 message.className =
                     "auth-message success";
             }
@@ -1151,7 +1152,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 let errorMessage =
-                    "Impossible d'envoyer le lien. Veuillez réessayer.";
+                    "Impossible de traiter la demande. Vérifiez votre adresse e-mail et réessayez dans quelques instants.";
 
                 if (
                     error.message &&

@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFA — Éditeur de leçon</title>
+<style>
+:root{--navy:#002366;--blue:#174ea6;--red:#c8102e;--ink:#172033;--muted:#64748b;--bg:#f5f7fb;--border:#e2e8f0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:900px;margin:auto}
+.head{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800}.brand small{display:block;opacity:.7;font-weight:500}
+main{padding:35px 24px}.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px}
+h1{margin-top:0}.lead{color:var(--muted)}
+label{display:block;font-weight:700;margin:20px 0 7px}
+input,textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font:inherit}
+textarea{min-height:130px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.actions{display:flex;gap:12px;margin-top:25px}
+button,a{padding:12px 18px;border-radius:10px;border:0;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.primary{background:var(--blue);color:#fff}.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+.status{margin-top:18px;color:var(--muted)}.error{color:var(--red)}
+@media(max-width:650px){.row{grid-template-columns:1fr}.head{align-items:flex-start;gap:12px;flex-direction:column}}
+
+/* ===== CFA ADMIN HEADER ===== */
+:root{
+  --admin-blue:#174ea6;
+  --admin-blue-dark:#123d82;
+  --navy:#002366;
+  --red:#c8102e;
+  --orange:#ff6600;
+  --admin-white:#ffffff;
+  --admin-font:"Andale Mono","Courier New",monospace;
+}
+
+.admin-header{
+  background:linear-gradient(135deg,var(--admin-blue-dark),var(--admin-blue));
+  color:var(--admin-white);
+  border-bottom:4px solid var(--orange);
+  box-shadow:0 4px 18px rgba(0,35,102,.18);
+}
+
+.admin-header-inner{
+  max-width:1180px;
+  min-height:82px;
+  margin:0 auto;
+  padding:12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.admin-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+
+.admin-logo{
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  border-radius:12px;
+  object-fit:cover;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.18);
+}
+
+.admin-brand-text{
+  min-width:0;
+  font-family:var(--admin-font);
+}
+
+.admin-brand-title{
+  font-family:var(--admin-font);
+  font-size:17px;
+  line-height:1.25;
+  font-weight:700;
+  letter-spacing:.02em;
+  color:#fff;
+}
+
+.admin-brand-subtitle{
+  margin-top:4px;
+  font-family:var(--admin-font);
+  font-size:11px;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:#fff;
+  opacity:.9;
+}
+
+.admin-brand-tagline{
+  display:block;
+  margin-top:5px;
+  font-family:var(--admin-font);
+  font-size:9px;
+  line-height:1.2;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:rgba(255,255,255,.72);
+}
+
+
+.admin-home{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:9px 16px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:9px;
+  color:#fff !important;
+  background:rgba(255,255,255,.08);
+  font-family:var(--admin-font);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-decoration:none;
+  transition:background .2s ease,transform .2s ease,border-color .2s ease;
+}
+
+.admin-home:hover{
+  background:rgba(255,255,255,.18);
+  border-color:#fff;
+  transform:translateY(-1px);
+}
+
+@media(max-width:650px){
+  .admin-header-inner{
+    min-height:74px;
+    padding:10px 16px;
+    gap:12px;
+  }
+
+  .admin-logo{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+    border-radius:10px;
+  }
+
+  .admin-brand-title{
+    font-size:13px;
+  }
+
+  .admin-brand-subtitle{
+    font-size:9px;
+    letter-spacing:.1em;
+  }
+
+  .admin-brand-tagline{
+    font-size:8px;
+    letter-spacing:.05em;
+  }
+
+  .admin-home{
+    min-height:36px;
+    padding:8px 11px;
+    font-size:11px;
+  }
+}
+
+
+/* ===== CFA ADMIN THEME ===== */
+
+html{
+  color-scheme:light;
+}
+
+html[data-theme="dark"]{
+  color-scheme:dark;
+}
+
+html[data-theme="light"] body{
+  background:#f7f9fc !important;
+  color:#172033 !important;
+}
+
+html[data-theme="dark"] body{
+  background:#08111f !important;
+  color:#e8eef8 !important;
+}
+
+/* Admin header — light mode */
+.admin-header{
+  background:linear-gradient(135deg,#123d82 0%,#174ea6 58%,#1b5db8 100%);
+  color:#fff;
+  border-bottom:4px solid #ff6600;
+  box-shadow:0 4px 18px rgba(0,35,102,.22);
+}
+
+/* Admin header — dark mode */
+html[data-theme="dark"] .admin-header{
+  background:linear-gradient(135deg,#06152d 0%,#0b2854 58%,#103b75 100%);
+  color:#f8fbff;
+  border-bottom-color:#ff6600;
+  box-shadow:0 5px 22px rgba(0,0,0,.45);
+}
+
+.admin-header-inner{
+  max-width:1180px;
+  min-height:82px;
+  margin:0 auto;
+  padding:12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.admin-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+  color:#fff !important;
+  text-decoration:none;
+}
+
+.admin-logo{
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  border-radius:12px;
+  object-fit:cover;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.18);
+}
+
+.admin-brand-text{
+  min-width:0;
+  font-family:var(--admin-font);
+}
+
+.admin-brand-title{
+  font-family:var(--admin-font);
+  font-size:17px;
+  line-height:1.25;
+  font-weight:700;
+  letter-spacing:.02em;
+  color:#fff;
+}
+
+.admin-brand-subtitle{
+  margin-top:4px;
+  font-family:var(--admin-font);
+  font-size:11px;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.9);
+}
+
+.admin-header-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.admin-nav-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:4px 3px;
+  border:0;
+  color:#fff !important;
+  background:transparent;
+  font-family:var(--admin-font);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.025em;
+  text-decoration:none;
+  cursor:pointer;
+  transition:opacity .2s ease,color .2s ease;
+}
+
+.admin-nav-link:hover{
+  color:#fff !important;
+  opacity:.72;
+  transform:none;
+}
+
+.admin-theme-toggle{
+  appearance:none;
+}
+
+html[data-theme="dark"] .admin-nav-link{
+  color:#f5f9ff !important;
+}
+
+html[data-theme="dark"] .admin-nav-link:hover{
+  color:#fff !important;
+}
+
+/* Dark-mode content surfaces */
+html[data-theme="dark"] main,
+html[data-theme="dark"] .wrap{
+  color:#e8eef8;
+}
+
+html[data-theme="dark"] section,
+html[data-theme="dark"] article,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .table-wrap,
+html[data-theme="dark"] form{
+  background:#101c2e !important;
+  color:#e8eef8 !important;
+  border-color:#293b55 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.22);
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select{
+  background:#0b1626 !important;
+  color:#f8fbff !important;
+  border-color:#3a506e !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder{
+  color:#94a7c0 !important;
+}
+
+html[data-theme="dark"] table{
+  color:#e8eef8;
+}
+
+html[data-theme="dark"] th{
+  background:#16253b !important;
+  color:#f8fbff !important;
+}
+
+html[data-theme="dark"] td{
+  border-color:#293b55 !important;
+}
+
+html[data-theme="dark"] a{
+  color:#8fc0ff;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4{
+  color:#f8fbff;
+}
+
+@media(max-width:650px){
+  .admin-header-inner{
+    min-height:74px;
+    padding:10px 16px;
+    gap:12px;
+  }
+
+  .admin-logo{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+    border-radius:10px;
+  }
+
+  .admin-brand-title{
+    font-size:13px;
+  }
+
+  .admin-brand-subtitle{
+    font-size:9px;
+    letter-spacing:.1em;
+  }
+
+  .admin-header-actions{
+    gap:8px;
+  }
+
+  .admin-nav-link{
+    min-height:36px;
+    padding:4px 2px;
+    font-size:11px;
+  }
+}
+
+
+
+/* ===== CFA ADMIN SHARED HEADER AND FOOTER ===== */
+html, body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-header {
+  background: linear-gradient(135deg, #123d82 0%, #174ea6 58%, #1b5db8 100%);
+  color: #fff;
+  border-bottom: 4px solid #ff6600;
+  box-shadow: 0 4px 18px rgba(0,35,102,.22);
+}
+
+html[data-theme="dark"] .admin-header {
+  background: linear-gradient(135deg, #06152d 0%, #0b2854 58%, #103b75 100%);
+  color: #f8fbff;
+  border-bottom-color: #ff6600;
+  box-shadow: 0 5px 22px rgba(0,0,0,.45);
+}
+
+.admin-header-inner {
+  max-width: 1180px;
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.admin-logo {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18);
+}
+
+.admin-brand-text {
+  min-width: 0;
+  font-family: var(--admin-font);
+}
+
+.admin-brand-title {
+  font-family: var(--admin-font);
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #fff;
+}
+
+.admin-brand-subtitle {
+  margin-top: 4px;
+  font-family: var(--admin-font);
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.9);
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.admin-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 4px 3px;
+  border: 0;
+  border-radius: 0;
+  color: #fff !important;
+  background: transparent;
+  font-family: var(--admin-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .025em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .2s ease, color .2s ease;
+}
+
+.admin-nav-link:hover {
+  color: #fff !important;
+  opacity: .72;
+  transform: none;
+}
+
+.admin-theme-toggle {
+  appearance: none;
+}
+
+html[data-theme="dark"] .admin-nav-link,
+html[data-theme="dark"] .admin-nav-link:hover {
+  color: #f5f9ff !important;
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.admin-footer {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto auto 0;
+  padding: 24px 16px 18px;
+  text-align: center;
+  color: var(--muted, #64748b);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.admin-footer-tagline {
+  font-weight: 600;
+}
+
+.admin-footer-copyright {
+  font-size: 11px;
+  opacity: .85;
+}
+
+@media (max-width: 650px) {
+  .admin-header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .admin-header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .admin-nav-link {
+    min-height: 36px;
+    padding: 4px 2px;
+    font-size: 12px;
+  }
+
+  .admin-brand-title {
+    font-size: 16px;
+  }
+
+  .admin-brand-subtitle {
+    font-size: 10px;
+    letter-spacing: .1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-footer {
+    padding: 20px 12px 14px;
+  }
+}
+
+
+/* CFA Admin mobile navigation */
+.admin-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  .admin-header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .admin-header-inner {
+    position: relative;
+    align-items: center !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 72px;
+    padding: 10px 16px !important;
+  }
+
+  .admin-brand {
+    flex: 1 1 auto;
+    gap: 10px;
+  }
+
+  .admin-logo {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .admin-brand-title {
+    font-size: 13px !important;
+  }
+
+  .admin-brand-subtitle {
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
+
+  .admin-menu-toggle {
+    display: inline-flex;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 9px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .admin-menu-toggle span {
+    display: block;
+    width: 21px;
+    height: 2px;
+    flex: 0 0 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .admin-menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .admin-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .admin-menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .admin-header-actions {
+    display: none !important;
+    position: absolute;
+    top: calc(100% - 1px);
+    right: 16px;
+    z-index: 1001;
+    width: min(260px, calc(100vw - 32px));
+    box-sizing: border-box;
+    padding: 10px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 4px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-top: 2px solid #ff6600;
+    border-radius: 0 0 12px 12px;
+    background: #123d82;
+    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  }
+
+  html[data-theme="dark"] .admin-header-actions {
+    background: #081a35;
+  }
+
+  .admin-header-inner.admin-menu-open .admin-header-actions {
+    display: flex !important;
+  }
+
+  .admin-header-actions .admin-nav-link {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    min-height: 42px;
+    padding: 10px 8px;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .admin-header-actions .admin-theme-toggle {
+    border-top: 1px solid rgba(255,255,255,.2);
+    margin-top: 4px;
+    padding-top: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-menu-toggle span {
+    transition: none;
+  }
+}
+
+
+/* CFA ADMIN SHARED COLOUR STANDARDIZATION */
+:root {
+  --navy: #002366;
+  --blue: #174ea6;
+  --red: #c8102e;
+  --ink: #172033;
+  --muted: #64748b;
+  --bg: #f7f9fc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+}
+
+html[data-theme="light"] body {
+  background: #f7f9fc !important;
+  color: #172033 !important;
+}
+
+html[data-theme="light"] main,
+html[data-theme="light"] .wrap {
+  color: #172033;
+}
+
+html[data-theme="light"] section,
+html[data-theme="light"] article,
+html[data-theme="light"] .card,
+html[data-theme="light"] .panel,
+html[data-theme="light"] .table-wrap,
+html[data-theme="light"] form {
+  background-color: #ffffff;
+  color: #172033;
+  border-color: #e2e8f0;
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+  background-color: #ffffff;
+  color: #172033;
+  border-color: #cbd5e1;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+  color: #64748b;
+}
+
+html[data-theme="light"] th {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+html[data-theme="light"] td {
+  color: #172033;
+  border-color: #e2e8f0;
+}
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4 {
+  color: #172033;
+}
+
+html[data-theme="light"] .lead,
+html[data-theme="light"] .muted,
+html[data-theme="light"] .label,
+html[data-theme="light"] .status {
+  color: #64748b;
+}
+
+html[data-theme="light"] a:not(.admin-nav-link):not(.primary) {
+  color: #174ea6;
+}
+
+html[data-theme="dark"] {
+  --ink: #e8eef8;
+  --muted: #a9b8cc;
+  --bg: #08111f;
+  --card: #101c2e;
+  --border: #293b55;
+}
+
+html[data-theme="dark"] body {
+  background: #08111f !important;
+  color: #e8eef8 !important;
+}
+
+html[data-theme="dark"] main,
+html[data-theme="dark"] .wrap {
+  color: #e8eef8;
+}
+
+html[data-theme="dark"] section,
+html[data-theme="dark"] article,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .table-wrap,
+html[data-theme="dark"] form {
+  background-color: #101c2e !important;
+  color: #e8eef8 !important;
+  border-color: #293b55 !important;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background-color: #0b1626 !important;
+  color: #f8fbff !important;
+  border-color: #3a506e !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #a9b8cc !important;
+}
+
+html[data-theme="dark"] th {
+  background-color: #16253b !important;
+  color: #f8fbff !important;
+}
+
+html[data-theme="dark"] td {
+  color: #e8eef8;
+  border-color: #293b55 !important;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4 {
+  color: #f8fbff;
+}
+
+html[data-theme="dark"] .lead,
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .label,
+html[data-theme="dark"] .status {
+  color: #a9b8cc;
+}
+
+html[data-theme="dark"] a:not(.admin-nav-link):not(.primary) {
+  color: #8fc0ff;
+}
+/* END CFA ADMIN SHARED COLOUR STANDARDIZATION */
+
+
+/* CFA MOBILE BRAND TEXT CENTERING */
+@media (max-width: 650px) {
+  .admin-brand {
+    min-width: 0;
+  }
+
+  .admin-brand-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .admin-brand-title,
+  .admin-brand-subtitle {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* END CFA MOBILE BRAND TEXT CENTERING */
+
+
+/* CFA MOBILE SUBTITLE FULL-WIDTH ROW */
+@media (max-width: 650px) {
+  .admin-header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    grid-template-rows: auto auto auto;
+    column-gap: 12px;
+    row-gap: 5px;
+    align-items: center;
+    padding: 10px 16px;
+  }
+
+  .admin-brand {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 5px;
+    min-width: 0;
+  }
+
+  .admin-logo {
+    grid-column: 1;
+    grid-row: 1;
+    width: 42px;
+    height: 42px;
+  }
+
+  .admin-brand-text {
+    display: contents;
+  }
+
+  .admin-brand-title {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    width: auto;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .admin-brand-subtitle {
+    position: static;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 2px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: .10em;
+  }
+
+  .admin-menu-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .admin-header-actions {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+/* END CFA MOBILE SUBTITLE FULL-WIDTH ROW */
+
+
+/* CFA: configurable ink colour for editable fields */
+.admin-header-actions .admin-typing-ink-select {
+  appearance: auto;
+  box-sizing: border-box;
+  max-width: 145px;
+  min-height: 36px;
+  padding: 5px 7px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 6px;
+  background: rgba(255,255,255,.12);
+  color: #FFFFFF;
+  font-family: var(--admin-font, inherit);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin-header-actions .admin-typing-ink-select option {
+  background: #FFFFFF;
+  color: #172033;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="range"]):not([type="color"]):not([type="file"]),
+textarea,
+select:not(.admin-typing-ink-select) {
+  color: var(--cfa-admin-typing-ink, #174EA6) !important;
+}
+@media (max-width: 650px) {
+  .admin-header-actions .admin-typing-ink-select {
+    max-width: 125px;
+    font-size: 11px;
+  }
+}
+/* End CFA typing ink colour */
+
+</style>
+  <link rel="stylesheet" href="../css/cfa-loader.css" data-cfa-loader="css">
+  <script src="../js/cfa-loader.js" defer data-cfa-loader="js"></script>
+  <link rel="stylesheet" href="../css/cfa-admin-access.css">
+</head>
+<body>
+
+<div id="cfa-page-loader" role="status" aria-label="Chargement du Centre d’administration">
+  <div class="cfa-loader-wrap">
+    <div class="cfa-loader-core" aria-hidden="true">
+      <div class="cfa-loader-orbit">
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+        <span class="cfa-loader-direction"></span>
+      </div>
+      <div class="cfa-loader-needle"></div>
+      <div class="cfa-loader-center">CFA</div>
+    </div>
+    <div class="cfa-loader-brand">Collins french academy</div>
+    <div class="cfa-loader-tagline">Édition d’une leçon</div>
+  </div>
+</div>
+
+<header class="admin-header">
+  <div class="admin-header-inner">
+    <a class="admin-brand" href="index.html" aria-label="Collins French Academy — Accueil">
+      <img class="admin-logo" src="../cfa.jpeg" alt="CFA Logo">
+      <span class="admin-brand-text">
+        <span class="admin-brand-title">Collins French Academy</span>
+        <span class="admin-brand-subtitle">CENTRE D’ADMINISTRATION</span>
+      </span>
+    </a>
+        <button class="admin-menu-toggle" type="button"
+      aria-label="Ouvrir le menu de navigation"
+      aria-controls="admin-header-actions"
+      aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="admin-header-actions" id="admin-header-actions">
+      <a class="admin-nav-link admin-back" href="javascript:history.back()">Retour</a>
+      <a class="admin-nav-link admin-home" href="index.html">Accueil</a>
+      <button class="admin-nav-link admin-theme-toggle" type="button" aria-label="Activer le mode sombre" title="Activer le mode sombre">Mode sombre</button>
+      <select class="admin-typing-ink-select" aria-label="Couleur du texte saisi" title="Couleur du texte saisi">
+        <option value="#174EA6">Bleu CFA</option>
+        <option value="#FF6600">Orange CFA</option>
+        <option value="#172033">Noir</option>
+        <option value="#16803C">Vert</option>
+        <option value="#C8102E">Rouge</option>
+        <option value="#FFFFFF">Blanc</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<div class="card">
+  <h1 id="heading">Nouvelle leçon</h1>
+  <p class="lead">Cette première version utilise directement la table <code>lessons</code>.</p>
+
+  <form id="lessonForm">
+    <div class="row">
+      <div>
+        <label for="courseId">ID du cours</label>
+        <input id="courseId" type="number" min="1" required>
+      </div>
+      <div>
+        <label for="lessonNumber">Numéro de la leçon</label>
+        <input id="lessonNumber" type="number" min="1" required>
+      </div>
+    </div>
+
+    <label for="title">Titre</label>
+    <input id="title" type="text" required maxlength="300">
+
+    <label for="description">Description</label>
+    <textarea id="description"></textarea>
+
+    <div class="actions">
+      <button class="primary" type="submit">Enregistrer</button>
+      <a class="secondary" href="lessons.html">Annuler</a>
+    </div>
+
+    <div id="status" class="status"></div>
+  </form>
+</div>
+</main>
+
+<footer class="admin-footer">
+  <div class="admin-footer-tagline">Gérer · Organiser · Publier · Suivre</div>
+  <div class="admin-footer-copyright">© 2026 Collins French Academy (CFA)</div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/cfa-admin-access.js"></script>
+<script>
+let session = null;
+let editingId = null;
+
+(async function(){
+  const { data: sessionData, error: sessionError } =
+    await cfaSupabase.auth.getSession();
+
+  if (sessionError || !sessionData.session) {
+    window.location.href = "../pages/connexion.html";
+    return;
+  }
+
+  session = sessionData.session;
+
+  const { data: adminRow, error: adminError } =
+    await cfaSupabase
+      .from("admin_users")
+      .select("user_id")
+      .eq("user_id", session.user.id)
+      .maybeSingle();
+
+  if (adminError || !adminRow) {
+    window.cfaShowAdminAccessDenied();
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  editingId = params.get("id");
+
+  if (editingId) {
+    document.getElementById("heading").textContent = "Modifier la leçon";
+
+    const { data: lesson, error } = await cfaSupabase
+      .from("lessons")
+      .select("id, course_id, lesson_number, title, description")
+      .eq("id", editingId)
+      .single();
+
+    if (error || !lesson) {
+      document.getElementById("status").innerHTML =
+        '<span class="error">Leçon introuvable.</span>';
+      return;
+    }
+
+    document.getElementById("courseId").value = lesson.course_id ?? "";
+    document.getElementById("lessonNumber").value = lesson.lesson_number;
+    document.getElementById("title").value = lesson.title;
+    document.getElementById("description").value = lesson.description || "";
+  }
+})();
+
+document.getElementById("lessonForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const status = document.getElementById("status");
+  status.textContent = "Enregistrement…";
+
+  const payload = {
+    course_id: Number(document.getElementById("courseId").value),
+    lesson_number: Number(document.getElementById("lessonNumber").value),
+    title: document.getElementById("title").value.trim(),
+    description: document.getElementById("description").value.trim() || null
+  };
+
+  let result;
+
+  if (editingId) {
+    result = await cfaSupabase
+      .from("lessons")
+      .update(payload)
+      .eq("id", editingId);
+  } else {
+    result = await cfaSupabase
+      .from("lessons")
+      .insert(payload);
+  }
+
+  if (result.error) {
+    console.error(result.error);
+    status.innerHTML =
+      '<span class="error">Impossible d’enregistrer la leçon : ' +
+      escapeHtml(result.error.message) + '</span>';
+    return;
+  }
+
+  status.textContent = editingId
+    ? "Leçon modifiée avec succès."
+    : "Leçon créée avec succès.";
+
+  if (!editingId) {
+    document.getElementById("lessonForm").reset();
+  }
+});
+
+function escapeHtml(value){
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+</script>
+
+<script>
+(function () {
+  const storageKey = "cfa_admin_theme";
+
+  function applyTheme(theme) {
+    const root = document.documentElement;
+    root.setAttribute("data-theme", theme);
+
+    document.querySelectorAll(".admin-theme-toggle").forEach(function (button) {
+      const dark = theme === "dark";
+      button.textContent = dark ? "Mode clair" : "Mode sombre";
+      button.setAttribute(
+        "aria-label",
+        dark ? "Activer le mode clair" : "Activer le mode sombre"
+      );
+      button.setAttribute(
+        "title",
+        dark ? "Activer le mode clair" : "Activer le mode sombre"
+      );
+    });
+  }
+
+  const savedTheme = localStorage.getItem(storageKey);
+  const preferredTheme =
+    savedTheme ||
+    (window.matchMedia &&
+     window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+  applyTheme(preferredTheme);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    applyTheme(
+      document.documentElement.getAttribute("data-theme") || preferredTheme
+    );
+
+    document.querySelectorAll(".admin-theme-toggle").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const current =
+          document.documentElement.getAttribute("data-theme") || "light";
+        const next = current === "dark" ? "light" : "dark";
+
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+    });
+  });
+})();
+</script>
+
+
+
+<script>
+(function () {
+  const header = document.querySelector(".admin-header");
+  const menuButton = document.querySelector(".admin-menu-toggle");
+  const actions = document.getElementById("admin-header-actions");
+
+  if (!header || !menuButton || !actions) return;
+
+  function setMenuOpen(open) {
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute(
+      "aria-label",
+      open ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation"
+    );
+    header.querySelector(".admin-header-inner")
+      .classList.toggle("admin-menu-open", open);
+  }
+
+  menuButton.addEventListener("click", function () {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    setMenuOpen(!isOpen);
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!header.contains(event.target)) setMenuOpen(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  actions.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      setMenuOpen(false);
+    });
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 650) setMenuOpen(false);
+  });
+})();
+</script>
+
+
+<script>
+(function () {
+  "use strict";
+
+  const storageKey = "cfa_admin_typing_ink";
+  const defaultInk = "#174EA6";
+  const allowedColours = [
+    "#174EA6", "#FF6600", "#172033",
+    "#16803C", "#C8102E", "#FFFFFF"
+  ];
+
+  function applyTypingInk(colour) {
+    const safeColour = allowedColours.includes(colour) ? colour : defaultInk;
+    document.documentElement.style.setProperty(
+      "--cfa-admin-typing-ink",
+      safeColour
+    );
+
+    document.querySelectorAll(".admin-typing-ink-select").forEach(function (select) {
+      select.value = safeColour;
+    });
+  }
+
+  let savedInk = defaultInk;
+  try {
+    savedInk = localStorage.getItem(storageKey) || defaultInk;
+  } catch (error) {
+    // Use the default colour if browser storage is unavailable.
+  }
+
+  applyTypingInk(savedInk);
+
+  document.querySelectorAll(".admin-typing-ink-select").forEach(function (select) {
+    select.addEventListener("change", function () {
+      const colour = allowedColours.includes(select.value)
+        ? select.value
+        : defaultInk;
+
+      try {
+        localStorage.setItem(storageKey, colour);
+      } catch (error) {
+        // The current page still updates if browser storage is unavailable.
+      }
+
+      applyTypingInk(colour);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
