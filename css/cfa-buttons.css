@@ -401,3 +401,21 @@ header .brand > div:last-child > small { display: none !important; }
     font-size: 13px !important;
   }
 }
+
+/* Theme item inside the dropdown (first row) */
+html:root body .cfa-navdd-panel .cfa-navdd-theme:not(#cfa-a):not(#cfa-b):not(#cfa-c):not(#cfa-d) {
+  margin-bottom: 6px !important;
+}
+.cfa-navdd-panel .cfa-navdd-theme::before { content: "\25D0"; font-size: 20px; line-height: 1; margin-right: 12px; }
+
+/* One control left in the header: the name takes the free width */
+header .nav-right { flex: none !important; margin-left: auto; }
+
+/* Theme item inside the dropdown (first row) */
+html:root body .cfa-navdd-panel .cfa-navdd-theme:not(#cfa-a):not(#cfa-b):not(#cfa-c):not(#cfa-d) {
+  margin-bottom: 6px !important;
+}
+.cfa-navdd-panel .cfa-navdd-theme::before { content: "\25D0"; font-size: 20px; line-height: 1; margin-right: 12px; }
+
+/* One control left in the header: the name takes the free width */
+header .nav-right { flex: none !important; margin-left: auto; }
