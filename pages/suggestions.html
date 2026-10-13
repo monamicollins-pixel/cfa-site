@@ -5,80 +5,626 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Envoyer une suggestion | Collins French Academy</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#f3f6fc;color:#172033;font-family:Inter,"Segoe UI",Arial,sans-serif}
-header,footer{padding:20px;text-align:center}
-header{font-weight:800;color:#174ea6}
-main{width:min(740px,calc(100% - 28px));margin:28px auto;padding:clamp(20px,5vw,38px);background:white;border:1px solid #dce5f2;border-radius:22px;box-shadow:0 18px 50px #142a4d12}
-.eyebrow{font-size:.78rem;color:#174ea6;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-h1{font-size:clamp(1.8rem,5vw,2.6rem);color:#0d2f70;line-height:1.15}
-p{line-height:1.7}
-.field{margin:16px 0}
-label{display:block;margin-bottom:7px;font-weight:700}
-input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;background:white;color:#172033;font:inherit}
-textarea{min-height:145px;resize:vertical}
-button,.secondary{display:inline-block;padding:12px 16px;border-radius:9px;font:inherit;font-weight:750;text-decoration:none;cursor:pointer}
-button{border:0;background:#174ea6;color:white}
-.secondary{border:1px solid #cbd5e1;color:#174ea6;background:white}
-.note{padding:12px;border-left:4px solid #ff6600;background:#fff7ed;color:#7c3513;font-size:.92rem}
-footer{color:#64748b;font-size:.85rem}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cfa-paper, #f6f9fc);
+  color: var(--cfa-ink, #10203a);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  width: min(740px, calc(100% - 28px));
+  margin: clamp(28px, 5vw, 64px) auto;
+  padding: clamp(22px, 5vw, 40px);
+  background: var(--cfa-surface, #ffffff);
+  color: var(--cfa-ink, #10203a);
+  border: 1px solid var(--cfa-line, #e5eaf2);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px -15px rgba(15, 35, 70, .14);
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--cfa-blue, #174ea6);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 16px;
+  color: var(--cfa-blue-dark, #0d2f70);
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+main > p {
+  margin: 0 0 24px;
+  color: var(--cfa-muted, #64748b);
+  line-height: 1.7;
+}
+
+.field {
+  margin: 18px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cfa-ink, #10203a);
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid var(--cfa-line, #e5eaf2);
+  border-radius: 10px;
+  background: var(--cfa-input, #ffffff);
+  color: var(--cfa-ink, #10203a);
+  font: inherit;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--cfa-blue, #174ea6);
+  outline-offset: 2px;
+}
+
+.note {
+  margin: 22px 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--cfa-orange, #ff6600);
+  border-radius: 0 10px 10px 0;
+  background: var(--cfa-paper, #f6f9fc);
+  color: var(--cfa-ink, #10203a);
+  font-size: .92rem;
+  line-height: 1.65;
+}
+
+.form-actions {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.form-actions > button,
+.form-actions > a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.form-actions > button:hover,
+.form-actions > a:hover {
+  transform: translateY(-2px);
+}
+
+.form-actions > button:active,
+.form-actions > a:active {
+  transform: translateY(0);
+}
+
+footer {
+  margin-top: auto;
+  padding: 24px 14px;
+  border-top: 1px solid var(--cfa-line, #e5eaf2);
+  background: var(--cfa-paper, #f6f9fc);
+  color: var(--cfa-muted, #64748b);
+  text-align: center;
+}
+
+.footer-tagline {
+  margin-bottom: 6px;
+  color: var(--cfa-blue-dark, #0d2f70);
+  font-size: .92rem;
+  font-weight: 750;
+}
+
+.footer-copyright {
+  font-size: .85rem;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] .footer-tagline {
+  color: var(--cfa-blue-dark, #7aa2e3);
+}
+
+html[data-theme="dark"] label {
+  color: var(--cfa-ink, #f1f5f9);
+}
+
+html[data-theme="dark"] .note {
+  background: var(--cfa-surface, #111c2e);
+  color: var(--cfa-ink, #f1f5f9);
+}
+
+@media (max-width: 520px) {
+  main {
+    width: calc(100% - 24px);
+    margin: 24px auto;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions > button,
+  .form-actions > a {
+    width: 100%;
+  }
+}
+
+/* Menus de participation CFA */
+.suggestion-options {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.suggestion-option {
+  overflow: hidden;
+  border: 1px solid var(--cfa-line, #e5eaf2);
+  border-radius: 14px;
+  background: var(--cfa-surface, #fff);
+}
+
+.suggestion-option summary {
+  position: relative;
+  padding: 18px 52px 18px 18px;
+  color: var(--cfa-blue-dark, #0d2f70);
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.suggestion-option summary::-webkit-details-marker {
+  display: none;
+}
+
+.suggestion-option summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform .2s ease;
+}
+
+.suggestion-option[open] summary::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+.suggestion-option summary:focus-visible,
+.community-link:focus-visible {
+  outline: 3px solid var(--cfa-blue, #174ea6);
+  outline-offset: 3px;
+}
+
+.option-content {
+  padding: 0 18px 20px;
+  border-top: 1px solid var(--cfa-line, #e5eaf2);
+}
+
+.option-content p {
+  margin: 14px 0;
+}
+
+.option-content .note {
+  margin: 16px 0;
+}
+
+.community-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--cfa-blue, #174ea6);
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.community-link:hover {
+  background: var(--cfa-blue-dark, #0d2f70);
+  transform: translateY(-1px);
+}
+
+.coming-soon {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--cfa-paper, #f6f9fc);
+  color: var(--cfa-muted, #64748b);
+  font-size: .88rem;
+  font-weight: 800;
+}
+
+@media (max-width: 520px) {
+  .community-link {
+    display: flex;
+    width: 100%;
+  }
+
+  .suggestion-option summary {
+    padding-left: 14px;
+  }
+
+  .option-content {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+}
+
 </style>
-<script src="../js/cfa-nav-dropdown.js?v=1791601114" defer></script>
+<link rel="stylesheet" href="../css/cfa-header.css?v=1791603522">
+<link rel="stylesheet" href="../css/cfa-header-base.css?v=1791603522">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791603522">
+
+
+<link rel="stylesheet" href="../css/cfa-shared-theme.css">
+
+<script src="../js/cfa-nav-dropdown.js?v=1791699784" defer></script>
+<script src="../js/cfa-shared-theme.js?v=1791603522" defer></script>
+<script src="../js/cfa-current-page.js?v=1791603522" defer></script>
 </head>
 <body>
-<header>Collins French Academy<br><small>VOS IDÉES NOUS AIDENT À PROGRESSER</small></header>
-<main>
-<div class="eyebrow">Communauté CFA</div>
-<h1>Envoyer une suggestion</h1>
-<p>Une idée pour améliorer les cours, les ressources ou le site ? Partagez-la avec nous.</p>
-<form id="suggestionForm">
-<div class="field">
-<label for="name">Votre nom (facultatif)</label>
-<input id="name" maxlength="100" autocomplete="name">
+<header>
+  <div class="container nav">
+    <a class="brand" href="../index.html#accueil">
+      <div class="logo-container">
+        <img src="../cfa-logo.png" alt="CFA Logo">
+      </div>
+      <div><span style="font-size: 1.12em; font-weight: bold; text-transform: none !important;">Collins French Academy</span><small></small></div>
+    </a>
+    <div class="nav-right">
+<button id="hamburger-menu-trigger"
+        class="cfa-mobile-menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+      <nav>
+        <a href="../index.html#accueil">Accueil</a>
+        <a href="../index.html#cours">Cours</a>
+        <a href="../index.html#ressources">Ressources</a>
+        <a href="../pages/apropos.html">À propos</a>
+      </nav>
+      <div class="account-links" id="accountArea">
+  <a class="cfa-connexion-link" href="../pages/connexion.html">Connexion</a>
 </div>
-<div class="field">
-<label for="email">Votre e-mail (facultatif)</label>
-<input id="email" type="email" maxlength="254" autocomplete="email">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
+
+    </div>
+  </div>
+
+<!-- CFA MOBILE MENU -->
+<div id="site-mobile-drawer" aria-hidden="true">
+
+    <div class="cfa-mobile-header">
+        <strong>CFA</strong>
+
+        <button
+            type="button"
+            id="close-drawer-btn"
+            aria-label="Fermer le menu">
+            ×
+        </button>
+    </div>
+
+    <nav class="cfa-mobile-nav">
+        <a class="cfa-mobile-link" href="../index.html#accueil">Accueil</a>
+        <a class="cfa-mobile-link" href="../index.html#cours">Cours</a>
+        <a class="cfa-mobile-link" href="../index.html#ressources">Ressources</a>
+        <a class="cfa-mobile-link" href="../pages/apropos.html">À propos</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="../pages/connexion.html">Connexion</a>
+        <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
+    </nav>
 </div>
-<div class="field">
-<label for="topic">Sujet</label>
-<select id="topic" required>
-<option value="">Choisissez un sujet</option>
-<option>Cours et leçons</option>
-<option>Exercices et évaluations</option>
-<option>Site et fonctionnalités</option>
-<option>Communauté et ressources</option>
-<option>Autre suggestion</option>
-</select>
-</div>
-<div class="field">
-<label for="suggestion">Votre suggestion</label>
-<textarea id="suggestion" maxlength="5000" required placeholder="Décrivez votre idée…"></textarea>
-</div>
-<p class="note">WhatsApp s’ouvrira avec votre message prérempli. Vous devrez choisir le contact auquel l’envoyer et confirmer l’envoi. Aucun message n’est envoyé automatiquement.</p>
-<button type="submit">Envoyer une suggestion</button>
-<a class="secondary" href="choix-espace.html">Choisir un espace</a>
-</form>
-</main>
-<footer>© 2026 Collins French Academy (CFA)</footer>
+
 <script>
-document.getElementById("suggestionForm").addEventListener("submit",function(event){
-  event.preventDefault();
-  const topic=document.getElementById("topic").value;
-  const suggestion=document.getElementById("suggestion").value.trim();
-  if(!topic||!suggestion){this.reportValidity();return;}
-  const message=[
-    "Suggestion pour Collins French Academy (CFA)",
-    "",
-    "Sujet : "+topic,
-    "Nom : "+(document.getElementById("name").value.trim()||"Non précisé"),
-    "E-mail : "+(document.getElementById("email").value.trim()||"Non communiqué"),
-    "",
-    "Suggestion :",
-    suggestion
-  ].join("\\n");
-  window.location.assign("https://wa.me/?text="+encodeURIComponent(message));
+document.addEventListener("DOMContentLoaded", function () {
+
+    const trigger =
+        document.getElementById("hamburger-menu-trigger");
+
+    const drawer =
+        document.getElementById("site-mobile-drawer");
+
+    const closeBtn =
+        document.getElementById("close-drawer-btn");
+
+    const drawerTheme =
+        document.getElementById("drawer-theme-toggle");
+
+    const html =
+        document.documentElement;
+
+    console.log("CFA mobile menu initialized:", {
+        trigger: !!trigger,
+        drawer: !!drawer,
+        closeBtn: !!closeBtn
+    });
+
+    if (!trigger || !drawer) {
+        console.error("CFA mobile menu elements missing.");
+        return;
+    }
+
+    function updateThemeButton() {
+
+        const dark =
+            html.getAttribute("data-theme") === "dark";
+
+        if (drawerTheme) {
+
+            drawerTheme.textContent =
+                dark
+                    ? "️ Mode clair"
+                    : "Mode sombre ";
+        }
+    }
+
+    function openMenu() {
+
+        console.log("CFA: opening mobile menu");
+
+        drawer.classList.add("cfa-open");
+
+        drawer.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        trigger.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        document.body.classList.add(
+            "cfa-drawer-open"
+        );
+
+        document.body.style.overflow = "hidden";
+
+        updateThemeButton();
+    }
+
+    function closeMenu() {
+
+        console.log("CFA: closing mobile menu");
+
+        drawer.classList.remove("cfa-open");
+
+        drawer.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        trigger.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        document.body.classList.remove(
+            "cfa-drawer-open"
+        );
+
+        document.body.style.overflow = "";
+    }
+
+    /* =====================================================
+       HAMBURGER
+       ===================================================== */
+
+    trigger.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (
+                drawer.classList.contains(
+                    "cfa-open"
+                )
+            ) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        },
+        false
+    );
+
+    /* =====================================================
+       CLOSE BUTTON
+       ===================================================== */
+
+    if (closeBtn) {
+
+        closeBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                closeMenu();
+            },
+            false
+        );
+    }
+
+    /* =====================================================
+       THEME
+       ===================================================== */
+
+    if (drawerTheme) {
+
+        drawerTheme.addEventListener(
+            "click",
+            function () {
+
+                const current =
+                    html.getAttribute(
+                        "data-theme"
+                    ) || "light";
+
+                const next =
+                    current === "dark"
+                        ? "light"
+                        : "dark";
+
+                html.setAttribute(
+                    "data-theme",
+                    next
+                );
+
+                localStorage.setItem(
+                    "cfa_theme",
+                    next
+                );
+
+                const desktopTheme =
+                    document.getElementById(
+                        "themeToggle"
+                    );
+
+                if (desktopTheme) {
+
+                    desktopTheme.textContent =
+                        next === "dark"
+                            ? "Mode clair"
+                            : "Mode sombre";
+                }
+
+                updateThemeButton();
+            },
+            false
+        );
+    }
+
+    /* =====================================================
+       CLOSE AFTER NAVIGATION
+       ===================================================== */
+
+    drawer
+        .querySelectorAll(
+            "a.cfa-mobile-link"
+        )
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+                    closeMenu();
+                }
+            );
+        });
+
 });
 </script>
+
+</header>
+<main>
+  <div class="eyebrow">Communauté CFA</div>
+  <h1>Participer à la communauté CFA</h1>
+  <p>
+    Échangez avec les autres apprenants, partagez vos idées et contribuez
+    à faire grandir notre communauté francophone.
+  </p>
+
+  <section class="suggestion-options" aria-label="Options de participation">
+    <details class="suggestion-option" open>
+      <summary>Consulter la communauté CFA</summary>
+      <div class="option-content">
+        <p>
+          Rejoignez le groupe WhatsApp CFA pour discuter avec les autres
+          apprenants, partager vos suggestions et donner votre avis.
+        </p>
+        <p class="note">
+          Après avoir partagé une idée dans le groupe, vous pouvez ajouter :
+          « Qu’en pensez-vous ? » pour inviter les autres membres à réagir.
+        </p>
+        <a class="community-link btn primary"
+           href="https://chat.whatsapp.com/C5viQ4lgsNiF3tyRRovWMq"
+           target="_blank"
+           rel="noopener noreferrer">
+          Rejoindre la communauté CFA
+        </a>
+      </div>
+    </details>
+
+    <details class="suggestion-option">
+      <summary>Consulter les admins</summary>
+      <div class="option-content" data-cfa-soon data-soon-caption="Cette fonctionnalité est en préparation. Revenez bientôt !">
+<p>Les moyens de contacter directement les administrateurs seront annoncés ici.</p>
+      </div>
+    </details>
+
+    <details class="suggestion-option">
+      <summary>Autres moyens de contribuer</summary>
+      <div class="option-content" data-cfa-soon data-soon-caption="Cette fonctionnalité est en préparation. Revenez bientôt !">
+<p>Les formulaires pour suggérer un cours ou signaler une erreur seront ajoutés ultérieurement.</p>
+      </div>
+    </details>
+  </section>
+</main>
+<footer>
+  <div class="container footer">
+    <div class="footer-tagline">Apprendre · S’amuser · S’inspirer · Découvrir</div>
+    <div class="footer-copyright">© 2026 Collins French Academy (CFA)</div>
+  </div>
+</footer>
+
+<script src="../js/cfa-soon.js?v=1791860488" defer></script>
 </body>
 </html>

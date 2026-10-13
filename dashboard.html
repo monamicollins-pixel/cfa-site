@@ -28,14 +28,6 @@ body{
     color:var(--ink);
 }
 
-header{
-    background:var(--white);
-    border-bottom:1px solid var(--line);
-    position:sticky;
-    top:0;
-    z-index:10;
-}
-
 .container{
     width:92%;
     max-width:1100px;
@@ -213,7 +205,7 @@ footer{
 }
 </style>
     <link rel="stylesheet" href="css/cfa-shared-theme.css">
-    <script src="js/cfa-shared-theme.js"></script>
+    <script src="js/cfa-shared-theme.js?v=1791603522"></script>
   <link rel="stylesheet" href="css/cfa-loader.css" data-cfa-loader="css">
   <script src="js/cfa-loader.js" defer data-cfa-loader="js"></script>
 
@@ -411,13 +403,15 @@ header .nav-actions{
     }
 }
 </style>
-<link rel="stylesheet" href="css/cfa-header-base.css">
-<link rel="stylesheet" href="css/cfa-buttons.css?v=1791601114">
+<link rel="stylesheet" href="css/cfa-header.css?v=1791603522">
+<link rel="stylesheet" href="css/cfa-header-base.css?v=1791603522">
+<link rel="stylesheet" href="css/cfa-buttons.css?v=1791603522">
 
-<script src="js/cfa-current-page.js?v=1791464377" defer></script>
+
+<script src="js/cfa-current-page.js?v=1791603522" defer></script>
 <script src="js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="js/cfa-scroll-nav.js?v=1791440733" defer></script>
-<script src="js/cfa-nav-dropdown.js?v=1791601114" defer></script>
+<script src="js/cfa-nav-dropdown.js?v=1791699784" defer></script>
 </head>
 
 <body>
@@ -449,7 +443,7 @@ header .nav-actions{
   <div class="container nav">
     <a class="brand" href="index.html#accueil">
       <div class="logo-container">
-        <img src="cfa.jpeg" alt="CFA Logo">
+        <img src="cfa-logo.png" alt="CFA Logo">
       </div>
       <div><span style="font-size: 1.12em; font-weight: bold; text-transform: none !important;">Collins French Academy</span><small></small></div>
     </a>
@@ -762,7 +756,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </p>
             </div>
 
-            <div class="card">
+            <div class="card" data-cfa-soon data-soon-caption="Vos réussites apparaîtront ici dès votre première leçon terminée.">
                 <div class="icon"></div>
                 <h2>Mes réussites</h2>
                 <p>
@@ -1092,5 +1086,6 @@ document.addEventListener("DOMContentLoaded", async function(){
 
 </script>
 
+<script src="js/cfa-soon.js?v=1791860488" defer></script>
 </body>
 </html>

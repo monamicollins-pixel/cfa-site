@@ -37,15 +37,6 @@ body{
     color:var(--ink);
 }
 
-header{
-    background:var(--cfa-white);
-    color:var(--cfa-ink);
-    border-bottom:1px solid var(--cfa-line);
-    position:sticky;
-    top:0;
-    z-index:10;
-}
-
 .container{
     width:92%;
     max-width:1100px;
@@ -411,7 +402,7 @@ footer{
 }
 </style>
     <link rel="stylesheet" href="../css/cfa-shared-theme.css">
-    <script src="../js/cfa-shared-theme.js"></script>
+    <script src="../js/cfa-shared-theme.js?v=1791603522"></script>
   <link rel="stylesheet" href="../css/cfa-loader.css" data-cfa-loader="css">
   <script src="../js/cfa-loader.js" defer data-cfa-loader="js"></script>
 
@@ -609,12 +600,17 @@ footer {
   }
 }
 </style>
+<link rel="stylesheet" href="../css/cfa-header.css?v=1791603522">
+<link rel="stylesheet" href="../css/cfa-header-base.css?v=1791603522">
+<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791603522">
+
+
 
 <!-- CFA UNIVERSAL FUNCTIONAL BUTTON TEXT -->
-<script src="../js/cfa-current-page.js?v=1791464377" defer></script>
+<script src="../js/cfa-current-page.js?v=1791603522" defer></script>
 <script src="../js/cfa-swipe-nav.js?v=1791440733" defer></script>
 <script src="../js/cfa-scroll-nav.js?v=1791440733" defer></script>
-<script src="../js/cfa-nav-dropdown.js?v=1791601114" defer></script>
+<script src="../js/cfa-nav-dropdown.js?v=1791699784" defer></script>
 </head>
 
 <style id="cfa-universal-master-header">
@@ -1025,14 +1021,12 @@ header .theme-toggle:hover {
     }
 }
 </style>
-<link rel="stylesheet" href="../css/cfa-header-base.css">
-<link rel="stylesheet" href="../css/cfa-buttons.css?v=1791601114">
 <body>
 <header>
   <div class="container nav">
     <a class="brand" href="../index.html#accueil">
       <div class="logo-container">
-        <img src="../cfa.jpeg" alt="CFA Logo">
+        <img src="../cfa-logo.png" alt="CFA Logo">
       </div>
       <div><span style="font-size: 1.12em; font-weight: bold; text-transform: none !important;">Collins French Academy</span><small></small></div>
     </a>
@@ -1051,10 +1045,10 @@ header .theme-toggle:hover {
         <a href="../index.html#accueil">Accueil</a>
         <a href="../index.html#cours">Cours</a>
         <a href="../index.html#ressources">Ressources</a>
-        <a href="apropos.html">À propos</a>
+        <a href="../pages/apropos.html">À propos</a>
       </nav>
       <div class="account-links" id="accountArea">
-  <a class="cfa-connexion-link" href="connexion.html">Connexion</a>
+  <a class="cfa-connexion-link" href="../pages/connexion.html">Connexion</a>
 </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Mode sombre </button>
 
@@ -1079,8 +1073,8 @@ header .theme-toggle:hover {
         <a class="cfa-mobile-link" href="../index.html#accueil">Accueil</a>
         <a class="cfa-mobile-link" href="../index.html#cours">Cours</a>
         <a class="cfa-mobile-link" href="../index.html#ressources">Ressources</a>
-        <a class="cfa-mobile-link" href="apropos.html">À propos</a>
-        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="connexion.html">Connexion</a>
+        <a class="cfa-mobile-link" href="../pages/apropos.html">À propos</a>
+        <a class="cfa-mobile-login" id="mobileLearnerEntry" href="../pages/connexion.html">Connexion</a>
         <button type="button" id="drawer-theme-toggle" class="cfa-mobile-theme">Mode sombre</button>
     </nav>
 </div>
@@ -1368,7 +1362,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </p>
             </a>
 
-            <div class="card">
+            <div class="card" data-cfa-soon data-soon-caption="Vos réussites apparaîtront ici dès votre première leçon terminée.">
                 <div class="icon"></div>
                 <h2>Mes réussites</h2>
                 <p>
@@ -1690,5 +1684,6 @@ document.addEventListener("DOMContentLoaded", async function(){
 
 </script>
 
+<script src="../js/cfa-soon.js?v=1791860488" defer></script>
 </body>
 </html>

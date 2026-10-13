@@ -14,7 +14,8 @@
     '.cfa-soon-card{margin:24px 0 0;padding:22px 24px;border:1px dashed var(--line,var(--cfa-line,#e5eaf2));border-radius:18px;background:var(--card-bg,var(--cfa-surface,#fff));color:var(--ink,var(--cfa-ink,#10203a))}',
     '.cfa-soon-card-top{display:flex;align-items:center;gap:12px}',
     '.cfa-soon-card-number{font-weight:800;font-size:15px;color:var(--blue,var(--cfa-blue,#174ea6))}',
-    '.cfa-soon-nav{display:inline-flex;align-items:center;gap:8px;cursor:default}'
+    '.cfa-soon-nav{display:inline-flex;align-items:center;gap:8px;cursor:default}',
+    '.cfa-card-soon.course-disabled{opacity:1 !important}'
   ].join('\n');
   var st = document.createElement('style');
   st.id = 'cfa-soon-style';
